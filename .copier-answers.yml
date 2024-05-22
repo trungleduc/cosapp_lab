@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.1
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: etienne.lac@safrangroup.com
+author_name: CoSApp Team
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: cosapp_lab
+project_short_description: Toolbox for managing and deploying CoSApp powered dashboards.
+python_name: cosapp_lab
+repository: https://gitlab.com/cosapp/cosapp_lab
+test: false
+
