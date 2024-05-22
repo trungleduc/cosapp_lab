@@ -1,20 +1,6 @@
-*.bundle.*
-lib/
-node_modules/
-*.log
-.eslintcache
-.stylelintcache
-*.egg-info/
-.ipynb_checkpoints
-*.tsbuildinfo
-cosapp_lab/labextension
-# Version file is handled by hatchling
-cosapp_lab/_version.py
-
-# Created by https://www.gitignore.io/api/python
-# Edit at https://www.gitignore.io/?templates=python
-
-### Python ###
+examples/*.py
+examples/*.json
+*.py~
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -25,6 +11,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -37,48 +24,60 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
+*.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-
+# *.svg
+# *.png
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
+buildjs/*
+cosapp_lab/lab_static/static/*
+cosapp_lab/lab_static/build_log.json
+cosapp_lab/lab_static/package.json
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
+coverage/
 .tox/
-.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
-coverage/
 coverage.xml
-*.cover
+*,cover
 .hypothesis/
 .pytest_cache/
-
 # Translations
 *.mo
 *.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
 
 # Scrapy stuff:
 .scrapy
 
 # Sphinx documentation
 docs/_build/
+docs/build/
 
 # PyBuilder
 target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
 
 # pyenv
 .python-version
@@ -89,6 +88,14 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -96,26 +103,91 @@ celerybeat-schedule
 # Rope project settings
 .ropeproject
 
-# Mr Developer
-.mr.developer.cfg
-.project
-.pydevproject
-
 # mkdocs documentation
 /site
 
 # mypy
 .mypy_cache/
-.dmypy.json
-dmypy.json
 
-# Pyre type checker
-.pyre/
+# pycharm
+.idea/
 
-# End of https://www.gitignore.io/api/python
+# =========================
+# Operating System Files
+# =========================
 
-# OSX files
+# OSX
+# =========================
+
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# Yarn cache
-.yarn/
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+
+# NPM
+# ----
+
+**/node_modules/
+cosapp/notebook/labextension/*.tgz
+
+# Coverage data
+# -------------
+**/coverage/
+
+# Packed lab extensions
+cosapp_jupyter/labextension
+
+# CoSApp
+/cosapp/tests/tohtml/
+/cosapp/tutorials/
+/docs/tutorials/*.html
+/docs/source/_autosummary/
+/examples/*.html
+/examples/*.gif
+**/test/cosapp_project/*
+# VS Code
+.vscode/
+MANIFEST
+
+*.tgz
+.yarn
