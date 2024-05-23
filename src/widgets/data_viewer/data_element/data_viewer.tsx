@@ -36,7 +36,6 @@ import { Styles } from '@material-ui/styles/withStyles';
 import 'flexlayout-react/style/light.css';
 import MaterialTable from 'material-table';
 import React, { Component, forwardRef } from 'react';
-import Draggable from 'react-draggable';
 import { connect } from 'react-redux';
 import { IDict, StateInterface } from '../../redux/types';
 
@@ -77,16 +76,8 @@ const tableIcons = {
 };
 
 function PaperComponent(props: PaperProps) {
-  return (
-    <Draggable
-      handle=".draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}
-    >
-      <Paper {...props} />
-    </Draggable>
-  );
+  return <Paper {...props} />;
 }
-
 const styles: Styles<any, any> = (theme: Theme) => ({
   textSizeSmall: {
     //fontSize: "0.75rem"

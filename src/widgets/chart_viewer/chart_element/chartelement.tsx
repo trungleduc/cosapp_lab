@@ -34,21 +34,13 @@ import 'codemirror/theme/material.css';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
-import Draggable from 'react-draggable';
 import { connect } from 'react-redux';
 import { carpet_data_factory } from '../../../utils/tools';
 import { IDict, StateInterface } from '../../redux/types';
 import Plot from './plotly_factory';
 
 function PaperComponent(props: PaperProps) {
-  return (
-    <Draggable
-      handle=".draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}
-    >
-      <Paper {...props} />
-    </Draggable>
-  );
+  return <Paper {...props} />;
 }
 
 const styles: Styles<any, any> = (theme: Theme) => ({

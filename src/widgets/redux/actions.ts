@@ -22,7 +22,7 @@ import {
   DashboardUpdateComputedResult
 } from './types';
 import { addNodeUnderParent, removeNodeAtPath } from 'react-sortable-tree';
-import { getNodeFullPath } from './tools';
+
 /**
  * Reset store to initial state
  */
@@ -376,174 +376,174 @@ export function archSelectNode_(
   };
 }
 
-/**
- * Add a new node to system structure tree
- * @param nodeName
- * @param nodePath
- * @param nodeData
- */
-export function archAddNode(
-  nodeName: string,
-  nodePath: string,
-  nodeData: {
-    personName: UserListType[];
-    sysClass: string;
-    portList: {
-      portName: string;
-      portDirection: number;
-      portClass: string;
-    }[];
-  }
-): ActionType {
-  return { type: Action.ADD_NODE, nodeName, nodePath, nodeData };
-}
+// /**
+//  * Add a new node to system structure tree
+//  * @param nodeName
+//  * @param nodePath
+//  * @param nodeData
+//  */
+// export function archAddNode(
+//   nodeName: string,
+//   nodePath: string,
+//   nodeData: {
+//     personName: UserListType[];
+//     sysClass: string;
+//     portList: {
+//       portName: string;
+//       portDirection: number;
+//       portClass: string;
+//     }[];
+//   }
+// ): ActionType {
+//   return { type: Action.ADD_NODE, nodeName, nodePath, nodeData };
+// }
 
 /**
  * This function is called when `archAddNode` is dispatched
  * @param state
  * @param action
  */
-export function archAddNode_(
-  state: StateInterface,
-  action: ArchAddNode
-): StateInterface {
-  const getNodeKey = (obj: { treeIndex: any }) => obj.treeIndex;
+// export function archAddNode_(
+//   state: StateInterface,
+//   action: ArchAddNode
+// ): StateInterface {
+//   const getNodeKey = (obj: { treeIndex: any }) => obj.treeIndex;
 
-  const path = action.nodePath;
-  const fullPath = getNodeFullPath(state.systemArch.systemTree.nodeData, path);
-  const newTreeData = addNodeUnderParent({
-    treeData: state.systemArch.systemTree.nodeData,
-    parentKey: path[path.length - 1],
-    expandParent: true,
-    getNodeKey,
-    newNode: {
-      title: action.nodeName
-    }
-  }).treeData;
-  const newNodeName = action.nodeName;
-  const fullNodeName = fullPath.concat('.' + newNodeName);
+//   const path = action.nodePath;
+//   const fullPath = getNodeFullPath(state.systemArch.systemTree.nodeData, path);
+//   const newTreeData = addNodeUnderParent({
+//     treeData: state.systemArch.systemTree.nodeData,
+//     parentKey: path[path.length - 1],
+//     expandParent: true,
+//     getNodeKey,
+//     newNode: {
+//       title: action.nodeName
+//     }
+//   }).treeData;
+//   const newNodeName = action.nodeName;
+//   const fullNodeName = fullPath.concat('.' + newNodeName);
 
-  const inPortList: Array<string> = ['inwards'];
-  const outPortList: Array<string> = ['outwards'];
-  const connectionList: Array<Array<string>> = [];
-  for (let index = 0; index < action.nodeData.portList.length; index++) {
-    const element = action.nodeData.portList[index];
-    if (element.portDirection === 0) {
-      inPortList.push(element.portName);
-    } else {
-      outPortList.push(element.portName);
-    }
-  }
-  return {
-    ...state,
-    systemArch: {
-      ...state.systemArch,
-      systemTree: {
-        ...state.systemArch.systemTree,
-        nodeData: newTreeData
-      },
-      systemGraph: {
-        ...state.systemArch.systemGraph,
-        systemGraphData: {
-          ...state.systemArch.systemGraph.systemGraphData,
-          [fullNodeName]: {
-            inPort: inPortList,
-            outPort: outPortList,
-            connections: connectionList
-          }
-        },
-        systemList: [...state.systemArch.systemGraph.systemList, fullNodeName]
-      },
-      systemData: {
-        ...state.systemArch.systemData,
-        mainData: {
-          ...state.systemArch.systemData.mainData,
-          [fullNodeName]: {
-            user: action.nodeData.personName,
-            class: action.nodeData.sysClass,
-            portList: inPortList.concat(outPortList)
-          }
-        },
-        portData: {
-          ...state.systemArch.systemData.portData
-        }
-      }
-    }
-  };
-}
+//   const inPortList: Array<string> = ['inwards'];
+//   const outPortList: Array<string> = ['outwards'];
+//   const connectionList: Array<Array<string>> = [];
+//   for (let index = 0; index < action.nodeData.portList.length; index++) {
+//     const element = action.nodeData.portList[index];
+//     if (element.portDirection === 0) {
+//       inPortList.push(element.portName);
+//     } else {
+//       outPortList.push(element.portName);
+//     }
+//   }
+//   return {
+//     ...state,
+//     systemArch: {
+//       ...state.systemArch,
+//       systemTree: {
+//         ...state.systemArch.systemTree,
+//         nodeData: newTreeData
+//       },
+//       systemGraph: {
+//         ...state.systemArch.systemGraph,
+//         systemGraphData: {
+//           ...state.systemArch.systemGraph.systemGraphData,
+//           [fullNodeName]: {
+//             inPort: inPortList,
+//             outPort: outPortList,
+//             connections: connectionList
+//           }
+//         },
+//         systemList: [...state.systemArch.systemGraph.systemList, fullNodeName]
+//       },
+//       systemData: {
+//         ...state.systemArch.systemData,
+//         mainData: {
+//           ...state.systemArch.systemData.mainData,
+//           [fullNodeName]: {
+//             user: action.nodeData.personName,
+//             class: action.nodeData.sysClass,
+//             portList: inPortList.concat(outPortList)
+//           }
+//         },
+//         portData: {
+//           ...state.systemArch.systemData.portData
+//         }
+//       }
+//     }
+//   };
+// }
 
-/**
- * Remove the selected node from system structure tree
- * @param nodeData
- * @param nodePath
- */
-export function archRemoveNode(nodeData: any, nodePath: any): ActionType {
-  return { type: Action.REMOVE_NODE, nodeData, nodePath };
-}
+// /**
+//  * Remove the selected node from system structure tree
+//  * @param nodeData
+//  * @param nodePath
+//  */
+// export function archRemoveNode(nodeData: any, nodePath: any): ActionType {
+//   return { type: Action.REMOVE_NODE, nodeData, nodePath };
+// }
 
-/**
- * This function is called when `archRemoveNode` is dispatched
- * @param state
- * @param action
- */
-export function archRemoveNode_(
-  state: StateInterface,
-  action: ArchRemoveNode
-): StateInterface {
-  const getNodeKey = (obj: { treeIndex: any }) => obj.treeIndex;
-  const path = action.nodePath;
-  const fullNodeName = getNodeFullPath(
-    state.systemArch.systemTree.nodeData,
-    path
-  );
+// /**
+//  * This function is called when `archRemoveNode` is dispatched
+//  * @param state
+//  * @param action
+//  */
+// export function archRemoveNode_(
+//   state: StateInterface,
+//   action: ArchRemoveNode
+// ): StateInterface {
+//   const getNodeKey = (obj: { treeIndex: any }) => obj.treeIndex;
+//   const path = action.nodePath;
+//   const fullNodeName = getNodeFullPath(
+//     state.systemArch.systemTree.nodeData,
+//     path
+//   );
 
-  const newSystemList = [];
-  const newSystemGraphData = {};
-  const newSystemData = {};
+//   const newSystemList = [];
+//   const newSystemGraphData = {};
+//   const newSystemData = {};
 
-  const newTreeData = removeNodeAtPath({
-    treeData: state.systemArch.systemTree.nodeData,
-    path,
-    getNodeKey
-  });
-  state.systemArch.systemGraph.systemList.forEach(fullSysName => {
-    if (fullSysName.startsWith(fullNodeName)) {
-    } else {
-      newSystemList.push(fullSysName);
-      if (
-        state.systemArch.systemGraph.systemGraphData.hasOwnProperty(fullSysName)
-      ) {
-        newSystemGraphData[fullSysName] =
-          state.systemArch.systemGraph.systemGraphData[fullSysName];
-        newSystemData[fullSysName] =
-          state.systemArch.systemData.mainData[fullSysName];
-      }
-    }
-  });
+//   const newTreeData = removeNodeAtPath({
+//     treeData: state.systemArch.systemTree.nodeData,
+//     path,
+//     getNodeKey
+//   });
+//   state.systemArch.systemGraph.systemList.forEach(fullSysName => {
+//     if (fullSysName.startsWith(fullNodeName)) {
+//     } else {
+//       newSystemList.push(fullSysName);
+//       if (
+//         state.systemArch.systemGraph.systemGraphData.hasOwnProperty(fullSysName)
+//       ) {
+//         newSystemGraphData[fullSysName] =
+//           state.systemArch.systemGraph.systemGraphData[fullSysName];
+//         newSystemData[fullSysName] =
+//           state.systemArch.systemData.mainData[fullSysName];
+//       }
+//     }
+//   });
 
-  return {
-    ...state,
-    systemArch: {
-      ...state.systemArch,
-      systemTree: {
-        ...state.systemArch.systemTree,
-        nodeData: newTreeData
-      },
-      systemGraph: {
-        ...state.systemArch.systemGraph,
-        systemList: newSystemList,
-        systemGraphData: newSystemGraphData
-      },
-      systemData: {
-        ...state.systemArch.systemData,
-        mainData: newSystemData,
-        portData: {
-          ...state.systemArch.systemData.portData
-        }
-      }
-    }
-  };
-}
+//   return {
+//     ...state,
+//     systemArch: {
+//       ...state.systemArch,
+//       systemTree: {
+//         ...state.systemArch.systemTree,
+//         nodeData: newTreeData
+//       },
+//       systemGraph: {
+//         ...state.systemArch.systemGraph,
+//         systemList: newSystemList,
+//         systemGraphData: newSystemGraphData
+//       },
+//       systemData: {
+//         ...state.systemArch.systemData,
+//         mainData: newSystemData,
+//         portData: {
+//           ...state.systemArch.systemData.portData
+//         }
+//       }
+//     }
+//   };
+// }
 
 /**
  * Update structure tree data

@@ -234,7 +234,6 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
    */
   constructor(props: AppProps) {
     super(props);
-    console.log('called here');
     this.initialStateAll = {};
     this.divRef = {};
     this.innerlayoutRef = {};
@@ -954,7 +953,6 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
         </label>
       </div>
     );
-    console.log('returning element');
     return (
       <div style={{ height: '100%' }}>
         <Dialog

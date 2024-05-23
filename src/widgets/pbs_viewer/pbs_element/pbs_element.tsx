@@ -15,8 +15,8 @@ const styles: Styles<Theme, any> = (theme: Theme) => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
-    margin: '0px 5px',
-  },
+    margin: '0px 5px'
+  }
 });
 
 const getGraphData = (state: StateInterface) => {
@@ -38,9 +38,6 @@ const mapDispatchToProps = (dispatch: (f: any) => void) => {
     }) => dispatch(ReduxAction.archSaveGraphPosition(data))
   };
 };
-
-
-
 
 interface AppState {}
 
@@ -210,10 +207,8 @@ export class PBSElement extends Component<AppProps, AppState> {
    * @private
    * @memberof PBSElement
    */
-  private handleResize = () =>
-  {
-    if (this._divRef.current)
-    {
+  private handleResize = () => {
+    if (this._divRef.current) {
       const width = this._divRef.current.clientWidth;
       const height = this._divRef.current.clientHeight;
       if (this.graph) {
@@ -496,13 +491,9 @@ export class PBSElement extends Component<AppProps, AppState> {
           style={{ height: 'calc(100% - 30px)' }}
           className="pbsView"
         ></div>
-        <div style={{ height: '30px', display: 'flex', background : '#e0e0e0' }}>
-          <Button  onClick={this.flatLayout}  >
-            Flat layout
-          </Button>
-          <Button  onClick={this.radialLayout}  >
-            Radial layout
-          </Button>
+        <div style={{ height: '30px', display: 'flex', background: '#e0e0e0' }}>
+          <Button onClick={this.flatLayout}>Flat layout</Button>
+          <Button onClick={this.radialLayout}>Radial layout</Button>
           {/* <Button variant="contained" onClick={this.resetGraph}>
             COLLAPSE
           </Button>

@@ -35,7 +35,6 @@ function activateWidgetExtension(
   shell: ILabShell,
   tracker: INotebookTracker
 ): void {
-  console.log('WATCH IS WORKINGss again')
   for (const Class of Object.values(widgetExports)) {
     if (Class.prototype instanceof BaseWidgetView) {
       Class.shell = shell;

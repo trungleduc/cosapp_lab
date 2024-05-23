@@ -191,3 +191,4 @@ MANIFEST
 
 *.tgz
 .yarn
+tsconfig.tsbuildinfo

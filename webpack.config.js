@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 const externals = [
   'react',
+  'react-dom',
   /^@lumino\/.+$/,
   /^@jupyterlab\/.+$/,
   '@jupyter-widgets/base',

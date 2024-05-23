@@ -99,17 +99,17 @@ export function rootReducer(
       return ActionFunc.archSelectNode_(state, action);
     }
 
-    case Action.ADD_NODE: {
-      return ActionFunc.archAddNode_(state, action);
-    }
+    // case Action.ADD_NODE: {
+    //   return ActionFunc.archAddNode_(state, action);
+    // }
 
     case Action.UPDATE_TREE: {
       return ActionFunc.archUpdateTreeData_(state, action);
     }
 
-    case Action.REMOVE_NODE: {
-      return ActionFunc.archRemoveNode_(state, action);
-    }
+    // case Action.REMOVE_NODE: {
+    //   return ActionFunc.archRemoveNode_(state, action);
+    // }
 
     case Action.DASHBOARD_ADD_3D_DATA: {
       return ActionFunc.dashboardAdd3DData_(state, action);
