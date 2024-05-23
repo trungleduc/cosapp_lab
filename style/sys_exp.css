@@ -1,0 +1,242 @@
+.SysExp {
+  width: 100%;
+  height: 100%;
+  display: "flex";
+}
+
+.cosapp-explorer > div {
+  height: 100%;
+}
+
+.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft {
+  /* Only for jupyter lab */
+  position: absolute !important;
+}
+
+.MainWindow {
+  height: calc(100% - 48px);
+  margin-top: 48px;
+  flex: 1 1 auto;
+}
+
+.hideDiv {
+  display: none !important;
+}
+
+.hideByPos {
+  position: absolute !important;
+  top: -9999px !important;
+  right: -9999px !important;
+}
+
+.showDiv {
+  width: 100%;
+  height: 100%;
+  padding: 8px 8px 0px 8px;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.cosapp-geometry-viewer > div.lm-Widget {
+  height: 100%;
+}
+
+.graphView {
+  height: 100%;
+
+  background-color: rgb(60, 60, 60) !important;
+  background-size: 50px 50px;
+  display: flex;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.05) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.05) 76%,
+      transparent 77%,
+      transparent
+    );
+}
+
+.graphView > * {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+.pbsView {
+  background-color: rgb(60, 60, 60) !important;
+  background-size: 50px 50px;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.05) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.05) 75%,
+      rgba(255, 255, 255, 0.05) 76%,
+      transparent 77%,
+      transparent
+    );
+}
+
+.S_Port {
+  width: 15px;
+  height: 15px;
+  background: rgba(192, 255, 0, 0.5);
+}
+
+.S_Port:hover {
+  background: rgba(192, 255, 0, 1);
+}
+
+.S_OutPort {
+  width: 15px;
+  height: 15px;
+  background: rgba(251, 44, 44, 0.5);
+}
+
+.S_OutPort:hover {
+  background: rgba(251, 44, 44, 1);
+}
+
+.chartviewer__flexlayout__layout {
+  height: calc(100% - 36px) !important;
+}
+
+
+div.outer__flexlayout__tabset-selected {
+  background-color: #3f51b5 !important;
+}
+
+
+div.inner__flexlayout__tabset-selected {
+  background-color: #cce8c4 !important;
+}
+div.inner__flexlayout__tabset {
+  background-color: rgb(250, 250, 250) ;
+}
+
+div.inner__flexlayout__tabset > div.flexlayout__tabset_tabbar_outer_top{
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: #e2e2e2;
+}
+
+div.inner__flexlayout__tab {
+  background: rgb(250, 250, 250);
+}
+
+.MuiBackdrop-root {
+  background-color: rgb(0 0 0 / 8%)!important;
+}
+
+.flexlayout__splitter {
+  background-color: rgb(250, 250, 250)!important;
+}
+
+
+@media (hover: hover) {
+  .flexlayout__splitter:hover {
+      background-color: rgb(175, 175, 175)!important;
+  }
+}
+
+
+div.DataViewerMain  div[class^='Component-horizontalScrollContainer']  {
+  height: 2000px;
+}
+
+div.react-codemirror2 {
+  height: 100%!important;
+}
+div.react-codemirror2>div.CodeMirror {
+  height: 100%!important;
+}
+
+div.react-codemirror2 .cm-tab {
+   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+   background-position: right;
+   background-repeat: no-repeat;
+}
+
+
+
+.cosapp-widget-box {
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  margin: 0px 5px 10px 5px;
+  box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-width: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: #e2e2e2;
+  border-radius: 0px;
+  outline-width: 0px;
+  outline-style: solid;
+  outline-color: #e2e2e2;
+}
+
+.cosapp-info-widget  tbody tr:nth-child(even){
+  background: #ecebeb;
+}
+
+.cosapp-info-widget  table{
+  border-spacing: 0px;
+}
+
+.cosapp-info-widget  code{
+  background-color: #eeeeee;
+  padding: 1px 5px;
+}
+
+.cosapp-info-widget  thead th{
+  border-bottom:1px solid #bdbdbd;
+}
+.cosapp-info-widget strong {
+  font-weight: bold!important;
+}
+.cosapp-info-widget table {
+  font-size: 12px;
+}
+.cosapp-info-widget td {
+    vertical-align: middle;
+    padding: 0.5em 0.5em;
+    line-height: normal;
+    white-space: normal;
+    max-width: none;
+    border: none;
+}
