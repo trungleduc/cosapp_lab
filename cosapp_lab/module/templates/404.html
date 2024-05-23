@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CoSApp Lab</title>
+  <link rel="icon" href="{{static_prefix}}/static/cosapp.svg">
+  <link rel="stylesheet" href="{{static_prefix}}/static/style.css">
+  </script>
+
+
+</head>
+
+<body style="margin: 0;">
+  <div style="height: 100vh;width: 100vw;">
+    <div id="top_bar" style="visibility: show;display: flex;
+    justify-content: space-between;" class='app_bar'>
+      <div id="app_logo" style="margin-left: 25px;">
+        <img style="height: 35px;" src="{{static_prefix}}/static/cosapp.svg" alt="">
+      </div>
+      <div>
+        <span style="margin-right: 5px;" id="app_title">CoSApp library</span>
+      </div>
+    </div>
+    <div id="main" style="height: calc(100vh - 85px); position: relative; padding: 25px 50px; ">
+      <h2 style="text-align: center;">
+        {{error_msg}}
+      </h2>
+    </div>
+</body>
+
+
+</html>

@@ -1,5 +1,9 @@
 [build-system]
-requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version>=0.3.2"]
+requires = [
+    "hatchling>=1.5.0",
+    "jupyterlab>=4.0.0,<5",
+    "hatch-nodejs-version>=0.3.2",
+]
 build-backend = "hatchling.build"
 
 [project]
@@ -23,6 +27,13 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
+    "cosapp>=0.13",
+    "ipywidgets>=8",
+    "jinja2",
+    "cookiecutter",
+    "click",
+    "requests",
+    "markdown",
 ]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
 
@@ -33,11 +44,11 @@ source = "nodejs"
 fields = ["description", "authors", "urls"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["cosapp_lab/labextension"]
+artifacts = ["cosapp_lab/lab_static", "cosapp_lab/app_static"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"cosapp_lab/labextension" = "share/jupyter/labextensions/cosapp_lab"
+"cosapp_lab/lab_static" = "share/jupyter/labextensions/cosapp_lab"
 "install.json" = "share/jupyter/labextensions/cosapp_lab/install.json"
 
 [tool.hatch.build.hooks.version]
@@ -47,20 +58,20 @@ path = "cosapp_lab/_version.py"
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "cosapp_lab/labextension/static/style.js",
-    "cosapp_lab/labextension/package.json",
+    "cosapp_lab/lab_static/static/style.js",
+    "cosapp_lab/lab_static/package.json",
 ]
-skip-if-exists = ["cosapp_lab/labextension/static/style.js"]
+skip-if-exists = ["cosapp_lab/lab_static/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
-build_cmd = "build:prod"
+build_cmd = "build"
 npm = ["jlpm"]
 
 [tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "cosapp_lab/labextension"
+build_dir = "cosapp_lab/lab_static"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"
@@ -69,7 +80,7 @@ version_cmd = "hatch version"
 before-build-npm = [
     "python -m pip install 'jupyterlab>=4.0.0,<5'",
     "jlpm",
-    "jlpm build:prod"
+    "jlpm build:prod",
 ]
 before-build-python = ["jlpm clean:all"]
 

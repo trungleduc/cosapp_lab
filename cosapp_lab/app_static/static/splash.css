@@ -1,0 +1,187 @@
+#cosapp-logo {
+  transform: translateY(40px);
+  overflow: visible;
+  display: inline-block;
+}
+
+.jp-cosapp-splash-fade-in {
+  -webkit-animation: fade-in 0.5s ease 2s backwards;
+  animation: fade-in 0.5s ease 2s backwards;
+}
+
+.jp-cosapp-splash-fade-in2 {
+  -webkit-animation: fade-in 0.5s ease 2.3s backwards;
+  animation: fade-in 0.5s ease 2.3s backwards;
+}
+
+.jp-cosapp-splash-rotate1 {
+  -webkit-transform-origin: 60px 60px;
+  transform-origin: 60px 60px;
+  -webkit-animation: rotate1 2s ease backwards;
+  animation: rotate1 2s ease backwards;
+}
+
+.jp-cosapp-splash-rotate2 {
+  -webkit-transform-origin: 200px 200px;
+  transform-origin: 200px 200px;
+  -webkit-animation: rotate1 2s ease backwards;
+  animation: rotate1 2s ease backwards;
+}
+
+.jp-cosapp-splash-rotate3 {
+  -webkit-transform-origin: 100px 200px;
+  transform-origin: 100px 200px;
+  -webkit-animation: rotate2 2s ease backwards;
+  animation: rotate2 2s ease backwards;
+}
+
+.jp-cosapp-splash-rotate4 {
+  -webkit-transform-origin: 200px 50px;
+  transform-origin: 200px 50px;
+  -webkit-animation: rotate3 2s ease backwards;
+  animation: rotate3 2s ease backwards;
+}
+
+@-webkit-keyframes rotate1 {
+  from {
+    transform: rotateZ(60deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate1 {
+  from {
+    transform: rotateZ(60deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rotate2 {
+  from {
+    transform: rotateZ(-60deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotateZ(-60deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rotate3 {
+  from {
+    transform: rotateZ(-180deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate3 {
+  from {
+    transform: rotateZ(-180deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.jp-cosapp-splash {
+  z-index: 10;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+}
+
+.jp-cosapp-splash-header {
+  margin: auto;
+}
+
+.jp-cosapp-splash-header h1 {
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 4em;
+  color: #f4950f;
+}
+
+.jp-cosapp-splash-footer {
+  margin: 20px auto;
+}
+
+.jp-cosapp-splash-footer p {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.splash-fade {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+/* #cosapp-title {
+  background: linear-gradient(to right, #f4950f, #f7d259, #f4950f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+} */

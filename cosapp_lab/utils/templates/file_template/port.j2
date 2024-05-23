@@ -1,0 +1,8 @@
+from cosapp.ports import Port
+
+class {{class_name}}(Port):
+    
+    def setup(self):
+    {% for key, value in variable_data.items() %}
+        self.add_variable("{{key}}"{% for sub_key, sub_value in value.items() %}{% if sub_value is not none %}, {{sub_key}} = {{sub_value}}{% endif %}{% endfor %} )
+        {% endfor %}

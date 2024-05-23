@@ -1,0 +1,45 @@
+from cosapp.systems import System
+{% for  value in import['port'] %}
+from {{module_name}}.ports import {{value}}
+{% endfor %}
+{% for  value in import['system'] %}
+from {{module_name}}.systems import {{value}}
+{% endfor %}
+
+
+class {{class_name}}(System):
+    
+    def setup(self):
+
+    {% for key, value in inputs.items() -%}
+    {% if key == "inwards" %}
+        {% for sub_key, sub_value in value.items() %}
+        self.add_inward("{{sub_key}}" {% for arg_key, arg_value in sub_value.items() %}, {{arg_key}} = {{arg_value}}{% endfor %})
+        {% endfor %}
+    {% else %}
+        self.add_input({{value["__class__"]}}, "{{key}}")
+    {% endif %}
+    {%- endfor -%}
+
+    {% for key, value in outputs.items() -%}
+    {% if key == "outwards" %}
+        {% for sub_key, sub_value in value.items() %}
+        self.add_outward("{{sub_key}}" {% for arg_key, arg_value in sub_value.items() %}, {{arg_key}} = {{arg_value}}{% endfor %})
+        {% endfor %}
+
+    {% else %}
+        self.add_output({{value["__class__"]}}, "{{key}}")
+    {% endif %}
+    {%- endfor -%}
+
+    {% for key, value in subsystems.items() %}
+        self.add_child({{value.replace("__main__.","")}}("{{key}}"))
+    {% endfor %}
+
+    {% for value in connections %}
+        self.connect(self.{{value[0]}}, self.{{value[1]}})
+    {% endfor %}  
+
+    def compute(self): 
+    """This function needs to be implemented by user."""   
+        pass  

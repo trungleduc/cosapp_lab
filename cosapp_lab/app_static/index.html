@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CoSApp Lab</title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link rel="icon" href="{{static_prefix}}/static/cosapp.svg">
+  <link rel="stylesheet" href="{{static_prefix}}/static/style.css">
+  <script src="{{static_prefix}}/static/url.js"></script>
+
+
+</head>
+
+<body style="margin: 0;">
+  <div style="height: 100vh;width: 100vw;">
+    <div id="top_bar" style="visibility: show;display: flex;
+    justify-content: space-between;" class='app_bar'>
+      <div id="app_logo" style="margin-left: 25px;">
+        <a href="/">
+          <img style="height: 35px;" src="{{static_prefix}}/static/cosapp.svg" alt="">
+        </a>
+      </div>
+      <div>
+        <span style="margin-right: 5px;" id="app_title">CoSApp library</span>
+      </div>
+    </div>
+    <div id="main" style="height: calc(100vh - 85px); position: relative; padding: 25px 50px; background: lightblue;">
+
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
+  integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" crossorigin="anonymous">
+  </script>
+
+
+<script>
+  window.addEventListener('load', () => {
+    const { BASEURL, COSAPP_MODULE } = CoSAppGetUrl();
+    console.log('BASEURL', BASEURL, 'COSAPP_MODULE', COSAPP_MODULE);
+    window.requirejs.config({
+      baseUrl: `${BASEURL}static/dist`,
+      waitSeconds: 0,
+      // urlArgs: 'bust=' + new Date().getTime(),
+    });
+    require(['library']);
+  });
+</script>
+
+</html>

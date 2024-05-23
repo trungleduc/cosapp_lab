@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100vh;
+}
+.app_bar {
+  height: 35px;
+  color: #fff;
+  background-color: #3f51b5;
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),
+    0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+  padding-left: 24px;
+  padding-right: 100px;
+  align-content: flex-end;
+  text-align: end;
+  line-height: 35px;
+}
+
+.loading_animation {
+  margin: 0 auto;
+  font-size: 20px;
+  width: 260px;
+  font-family: 'Open Sans';
+  color: midnightblue;
+}
+
+.loading_animation:after {
+display: inline-block;
+animation: dotty steps(1,end) 1s infinite;
+content: '';
+}
+
+@keyframes dotty {
+0%   { content: ''; }
+25%  { content: '.'; }
+50%  { content: '..'; }
+75%  { content: '...'; }
+100% { content: ''; }
+}
+
+html * {
+  font-family: 'Open Sans'!important;
+}
