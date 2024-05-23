@@ -30,7 +30,7 @@ dependencies = [
     "cosapp>=0.13",
     "ipywidgets>=8",
     "jinja2",
-    "cookiecutter",
+    # "cookiecutter",
     "click",
     "requests",
     "markdown",
@@ -80,7 +80,7 @@ version_cmd = "hatch version"
 before-build-npm = [
     "python -m pip install 'jupyterlab>=4.0.0,<5'",
     "jlpm",
-    "jlpm build:prod",
+    "jlpm build",
 ]
 before-build-python = ["jlpm clean:all"]
 

@@ -37,8 +37,9 @@ import { IDict, StateInterface } from '../../redux/types';
 function PaperComponent(props: PaperProps) {
   return (
     <Draggable
-      handle='.draggable-dialog-title'
-      cancel={'[class*="MuiDialogContent-root"]'}>
+      handle=".draggable-dialog-title"
+      cancel={'[class*="MuiDialogContent-root"]'}
+    >
       <Paper {...props} />
     </Draggable>
   );
@@ -50,50 +51,50 @@ const styles: Styles<any, any> = (theme: Theme) => ({
   },
   toolbarHeigt: {
     minHeight: 36,
-    background: 'rgb(50, 50, 50)',
+    background: 'rgb(50, 50, 50)'
   },
   viewSelector: {
     minWidth: 120,
     //fontSize: "0.75rem",
-    color: 'rgb(250, 250, 250)',
+    color: 'rgb(250, 250, 250)'
   },
   bgSelector: {
     minWidth: 60,
     //fontSize: "0.75rem",
-    color: 'rgb(250, 250, 250)',
+    color: 'rgb(250, 250, 250)'
   },
   textColor: {
-    color: 'rgb(250, 250, 250)',
+    color: 'rgb(250, 250, 250)'
   },
   backGround: {
-    color: 'rgb(50, 50, 50)',
+    color: 'rgb(50, 50, 50)'
   },
   formControl: {
     padding: '10px 5% 0px 5%;',
-    width: '90%',
+    width: '90%'
   },
   formControlShort: {
     padding: theme.spacing(1),
-    width: 'calc(50% - 16px)',
+    width: 'calc(50% - 16px)'
   },
   formControlTiny: {
-    width: '22%',
+    width: '22%'
   },
   selectEmpty: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(2)
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: '90%',
+    width: '90%'
   },
   bottomBarDiv: {
     width: '100%',
     height: '35px',
     background: '#e0e0e0',
     display: 'flex',
-    flexDirection: 'row-reverse',
-  },
+    flexDirection: 'row-reverse'
+  }
 });
 
 const getStoreData = (state: StateInterface) => {
@@ -187,11 +188,11 @@ from cosapp.systems import System
 def generate_widget(sys : System)-> widgets.Widget:
     pass
 `,
-        widgetName,
+        widgetName
       },
       openSetting: false,
       openEdit: false,
-      selectedWidget,
+      selectedWidget
     };
   }
 
@@ -200,10 +201,10 @@ def generate_widget(sys : System)-> widgets.Widget:
       const { pythonCode = '' } = this.initialState.traceConfig;
 
       this.setState(
-        (old) => {
+        old => {
           return {
             ...old,
-            traceConfig: { ...old.traceConfig, pythonCode },
+            traceConfig: { ...old.traceConfig, pythonCode }
           };
         },
         () => {
@@ -211,8 +212,8 @@ def generate_widget(sys : System)-> widgets.Widget:
             action: 'WidgetViewer::executeCode',
             payload: {
               code: pythonCode,
-              title: this.divID,
-            },
+              title: this.divID
+            }
           });
         }
       );
@@ -235,23 +236,23 @@ def generate_widget(sys : System)-> widgets.Widget:
    */
   pythonCodeChange = (event: React.ChangeEvent<any>) => {
     const pythonCode = event.target.value;
-    this.setState((old) => ({
+    this.setState(old => ({
       ...old,
-      traceConfig: { ...old.traceConfig, pythonCode },
+      traceConfig: { ...old.traceConfig, pythonCode }
     }));
   };
   toggleSetting = () => {
-    this.setState((old) => ({ ...old, openSetting: !old.openSetting }));
+    this.setState(old => ({ ...old, openSetting: !old.openSetting }));
   };
   toggleEdit = () => {
-    this.setState((old) => ({ ...old, openEdit: !old.openEdit }));
+    this.setState(old => ({ ...old, openEdit: !old.openEdit }));
   };
 
   handleWidgetNameChange = (event: any) => {
     const widgetName = event.target.value;
-    this.setState((old) => ({
+    this.setState(old => ({
       ...old,
-      traceConfig: { ...old.traceConfig, widgetName },
+      traceConfig: { ...old.traceConfig, widgetName }
     }));
   };
   updateSetting = () => {
@@ -261,14 +262,14 @@ def generate_widget(sys : System)-> widgets.Widget:
       action: 'WidgetViewer::executeCode',
       payload: {
         code,
-        title: this.divID,
-      },
+        title: this.divID
+      }
     });
-    this.setState((old) => ({ ...old, openSetting: false }));
+    this.setState(old => ({ ...old, openSetting: false }));
   };
   handleSelectedWidgetChange = (event: React.ChangeEvent<any>) => {
     const selectedWidget = event.target.value;
-    this.setState((old) => ({ ...old, selectedWidget }));
+    this.setState(old => ({ ...old, selectedWidget }));
   };
 
   updateWidgetSelect = () => {
@@ -279,18 +280,18 @@ def generate_widget(sys : System)-> widgets.Widget:
       code = '';
     }
     this.setState(
-      (old) => ({
+      old => ({
         ...old,
         traceConfig: { ...old.traceConfig, pythonCode: code },
-        openEdit: false,
+        openEdit: false
       }),
       () => {
         this.props.send_msg({
           action: 'WidgetViewer::executeCode',
           payload: {
             code,
-            title: this.divID,
-          },
+            title: this.divID
+          }
         });
       }
     );
@@ -307,13 +308,15 @@ def generate_widget(sys : System)-> widgets.Widget:
       <div className={'cosapp-widget-box'}>
         <Dialog
           open={this.state.openSetting}
-          aria-labelledby='draggable-dialog-title'
+          aria-labelledby="draggable-dialog-title"
           fullWidth={true}
-          maxWidth='md'
-          PaperComponent={PaperComponent}>
+          maxWidth="md"
+          PaperComponent={PaperComponent}
+        >
           <DialogTitle
             style={{ cursor: 'move' }}
-            className='draggable-dialog-title'>
+            className="draggable-dialog-title"
+          >
             Widget viewer configuration
           </DialogTitle>
           <DialogContent style={{ height: '50vh' }}>
@@ -333,12 +336,12 @@ def generate_widget(sys : System)-> widgets.Widget:
                   autoCloseTags: true,
                   matchBrackets: true,
                   autoCloseBrackets: true,
-                  extraKeys: { Tab: betterTab },
+                  extraKeys: { Tab: betterTab }
                 }}
                 onBeforeChange={(editor, data, value) => {
-                  this.setState((old) => ({
+                  this.setState(old => ({
                     ...old,
-                    traceConfig: { ...old.traceConfig, pythonCode: value },
+                    traceConfig: { ...old.traceConfig, pythonCode: value }
                   }));
                 }}
                 onChange={(editor, data, value) => {}}
@@ -348,38 +351,41 @@ def generate_widget(sys : System)-> widgets.Widget:
               <TextField
                 value={this.state.traceConfig.widgetName}
                 onChange={this.handleWidgetNameChange}
-                label='Widget name'
+                label="Widget name"
               />
             </FormControl>
           </DialogContent>
 
           <DialogActions>
-            <Button autoFocus onClick={this.toggleSetting} color='primary'>
+            <Button autoFocus onClick={this.toggleSetting} color="primary">
               Close
             </Button>
-            <Button autoFocus onClick={this.updateSetting} color='primary'>
+            <Button autoFocus onClick={this.updateSetting} color="primary">
               Save
             </Button>
           </DialogActions>
         </Dialog>
         <Dialog
           open={this.state.openEdit}
-          aria-labelledby='draggable-dialog-title'
+          aria-labelledby="draggable-dialog-title"
           fullWidth={true}
-          maxWidth='sm'
-          PaperComponent={PaperComponent}>
+          maxWidth="sm"
+          PaperComponent={PaperComponent}
+        >
           <DialogTitle
             style={{ cursor: 'move' }}
-            className='draggable-dialog-title'>
+            className="draggable-dialog-title"
+          >
             Widget viewer selector
           </DialogTitle>
           <DialogContent>
             <FormControl style={{ width: '100%' }}>
-              <InputLabel id='plot-type-select-id'>Select widget</InputLabel>
+              <InputLabel id="plot-type-select-id">Select widget</InputLabel>
               <Select
-                labelId='plot-type-select-id'
+                labelId="plot-type-select-id"
                 value={this.state.selectedWidget}
-                onChange={this.handleSelectedWidgetChange}>
+                onChange={this.handleSelectedWidgetChange}
+              >
                 {Object.entries(this.props.availableWidget).map(
                   ([key, val]) => (
                     <MenuItem key={key} value={key}>
@@ -392,25 +398,26 @@ def generate_widget(sys : System)-> widgets.Widget:
           </DialogContent>
 
           <DialogActions>
-            <Button autoFocus onClick={this.toggleEdit} color='primary'>
+            <Button autoFocus onClick={this.toggleEdit} color="primary">
               Close
             </Button>
-            <Button autoFocus onClick={this.updateWidgetSelect} color='primary'>
+            <Button autoFocus onClick={this.updateWidgetSelect} color="primary">
               Select
             </Button>
           </DialogActions>
         </Dialog>
         <div
           id={this.divID}
-          className='WidgetViewerMain'
+          className="WidgetViewerMain"
           style={{
             width: '100%',
             height: 'calc(100% - 35px)',
             overflow: 'auto',
             boxSizing: 'border-box',
             padding: '10px',
-            background: 'white',
-          }}></div>
+            background: 'white'
+          }}
+        ></div>
         <div className={this.props.classes.bottomBarDiv}>
           <Button onClick={this.toggleEdit} style={{ color: 'rgb(50,50,50)' }}>
             {' '}
@@ -419,7 +426,8 @@ def generate_widget(sys : System)-> widgets.Widget:
           {this.props.systemConfig.enableEdit ? (
             <Button
               onClick={this.toggleSetting}
-              style={{ color: 'rgb(50,50,50)' }}>
+              style={{ color: 'rgb(50,50,50)' }}
+            >
               {' '}
               <Edit />
             </Button>
@@ -433,7 +441,7 @@ def generate_widget(sys : System)-> widgets.Widget:
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {
-  forwardRef: true,
+  forwardRef: true
 })(
   withStyles(styles)(
     forwardRef((props: IAppProps, ref: any) => (

@@ -19,7 +19,7 @@ import { StateInterface } from '../redux/types';
 import { MODULE_NAME, MODULE_VERSION } from '../../version';
 import '../../../style/sys_exp.css';
 export const getEnhancers = () => {
-  let enhancers = applyMiddleware(thunk as any) as any;
+  let enhancers = applyMiddleware(thunk) as any;
   if (
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
     process.env.NODE_ENV === 'development'
@@ -31,7 +31,6 @@ export const getEnhancers = () => {
   }
   return enhancers;
 };
-
 export class BaseWidgetModel extends BoxModel {
   model_name: string = '';
   view_name: string = '';
