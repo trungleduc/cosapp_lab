@@ -14,20 +14,9 @@ import TextField from '@material-ui/core/TextField';
 import Edit from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Styles } from '@material-ui/styles/withStyles';
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/edit/closetag';
-import 'codemirror/addon/fold/brace-fold';
-import 'codemirror/addon/fold/comment-fold';
-import 'codemirror/addon/fold/foldcode';
-import 'codemirror/addon/fold/foldgutter';
-import 'codemirror/addon/fold/foldgutter.css';
-import 'codemirror/addon/hint/show-hint';
-import 'codemirror/addon/hint/show-hint.css';
-import 'codemirror/mode/markdown/markdown';
-import 'codemirror/theme/material.css';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+
 import { connect } from 'react-redux';
 
 import { create_UUID } from '../../../utils/tools';
@@ -310,7 +299,7 @@ export class DocumentViewer extends Component<IAppProps, IAppStates> {
           </DialogTitle>
           <DialogContent style={{ height: '50vh' }}>
             <div style={{ height: 'calc(100% - 60px)', overflowY: 'auto' }}>
-              <CodeMirror
+              {/* <CodeMirror
                 value={this.state.traceConfig.documentSource}
                 options={{
                   mode: 'markdown',
@@ -334,7 +323,7 @@ export class DocumentViewer extends Component<IAppProps, IAppStates> {
                   }));
                 }}
                 onChange={(editor, data, value) => {}}
-              />
+              /> */}
             </div>
             <FormControl className={this.props.classes.formControl}>
               <TextField

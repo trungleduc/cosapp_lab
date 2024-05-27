@@ -20,20 +20,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import StorageIcon from '@material-ui/icons/Storage';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Styles } from '@material-ui/styles/withStyles';
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/edit/closetag';
-import 'codemirror/addon/fold/brace-fold';
-import 'codemirror/addon/fold/comment-fold';
-import 'codemirror/addon/fold/foldcode';
-import 'codemirror/addon/fold/foldgutter';
-import 'codemirror/addon/fold/foldgutter.css';
-import 'codemirror/addon/hint/show-hint';
-import 'codemirror/addon/hint/show-hint.css';
-import 'codemirror/mode/python/python';
-import 'codemirror/theme/material.css';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+// import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
 import { carpet_data_factory } from '../../../utils/tools';
 import { IDict, StateInterface } from '../../redux/types';
@@ -1902,7 +1891,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
               onChange={this.handleAdvanceTraceConfigChange}
               variant='outlined'
             /> */}
-            <CodeMirror
+            {/* <CodeMirror
               value={this.state.currentAdvancedTraceDataConfig}
               options={{
                 mode: 'javascript',
@@ -1920,7 +1909,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
               }}
               onBeforeChange={this.handleAdvanceTraceConfigChange}
               onChange={(editor, data, value) => {}}
-            />
+            /> */}
           </FormControl>
         </DialogContent>
       );

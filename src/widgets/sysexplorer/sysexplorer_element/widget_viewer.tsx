@@ -14,20 +14,10 @@ import TextField from '@material-ui/core/TextField';
 import Edit from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Styles } from '@material-ui/styles/withStyles';
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/edit/closetag';
-import 'codemirror/addon/fold/brace-fold';
-import 'codemirror/addon/fold/comment-fold';
-import 'codemirror/addon/fold/foldcode';
-import 'codemirror/addon/fold/foldgutter';
-import 'codemirror/addon/fold/foldgutter.css';
-import 'codemirror/addon/hint/show-hint';
-import 'codemirror/addon/hint/show-hint.css';
-import 'codemirror/mode/python/python';
-import 'codemirror/theme/material.css';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+import CodeMirror from '@uiw/react-codemirror';
+import { python } from '@codemirror/lang-python';
 import { connect } from 'react-redux';
 
 import { create_UUID } from '../../../utils/tools';
@@ -127,19 +117,7 @@ interface IAppStates {
   selectedWidget: string;
 }
 
-function betterTab(cm) {
-  if (cm.somethingSelected()) {
-    cm.indentSelection('add');
-  } else {
-    cm.replaceSelection(
-      cm.getOption('indentWithTabs')
-        ? '\t'
-        : Array(cm.getOption('indentUnit') + 1).join(' '),
-      'end',
-      '+input'
-    );
-  }
-}
+
 
 /**
  *
@@ -295,7 +273,6 @@ def generate_widget(sys : System)-> widgets.Widget:
    * @memberof WidgetViewer
    */
   render() {
-    const classes = this.props.classes;
     return (
       <div className={'cosapp-widget-box'}>
         <Dialog
@@ -313,10 +290,10 @@ def generate_widget(sys : System)-> widgets.Widget:
           </DialogTitle>
           <DialogContent style={{ height: '50vh' }}>
             <div style={{ height: 'calc(100% - 60px)', overflowY: 'auto' }}>
-              <CodeMirror
+              {/* <CodeMirror
                 value={this.state.traceConfig.pythonCode}
                 options={{
-                  mode: 'python',
+                  // mode: 'python',
                   lineNumbers: true,
                   lineWrapping: true,
                   smartIndent: true,
@@ -337,6 +314,22 @@ def generate_widget(sys : System)-> widgets.Widget:
                   }));
                 }}
                 onChange={(editor, data, value) => {}}
+              /> */}
+              <CodeMirror
+                value={this.state.traceConfig.pythonCode}
+                height="100%"
+                extensions={[python()]}
+                basicSetup={{
+                  lineNumbers: true,
+                  tabSize: 4,
+                  foldGutter: true
+                }}
+                onChange={value => {
+                  this.setState(old => ({
+                    ...old,
+                    traceConfig: { ...old.traceConfig, pythonCode: value }
+                  }));
+                }}
               />
             </div>
             <FormControl className={this.props.classes.formControl}>
