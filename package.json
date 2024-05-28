@@ -30,7 +30,8 @@
         "url": "https://gitlab.com/cosapp/cosapp_lab.git"
     },
     "scripts": {
-        "build": "tsc  && webpack --env MODE=prod && jlpm run build:labextension",
+        "build": "tsc  && webpack && jlpm build:labextension:dev",
+        "build:prod": "tsc  && webpack --env MODE=prod && jlpm run build:labextension",
         "build:labextension": "jupyter labextension build .",
         "build:labextension:dev": "jupyter labextension build --development True .",
         "build:app": "tsc  && webpack --env TARGET=app",
@@ -43,7 +44,7 @@
         "clean:labextension": "rimraf cosapp_lab/lab_static/static/lib_index_* && rimraf cosapp_lab/lab_static/static/remoteEntry*",
         "eslint": "eslint . --ext .ts,.tsx --fix",
         "eslint:check": "eslint . --ext .ts,.tsx",
-        "install:extension": "jupyter labextension develop --overwrite .",
+        "install:extension": "jlpm build",
         "copy:extension": "python ./cosapp_lab/utils/copy_extension.py",
         "watch": "run-p watch:webpack watch:lab",
         "watch:src": "tsc -w",

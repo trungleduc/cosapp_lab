@@ -3,3 +3,10 @@
 
     https://jupyterlab.readthedocs.io/en/stable/developer/css.html
 */
+
+.cosapp-widget-viewer {
+  height: 500px;
+}
+.cosapp-widget-viewer > div.lm-Widget {
+  height: 100%;
+}

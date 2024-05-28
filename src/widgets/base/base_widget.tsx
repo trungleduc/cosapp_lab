@@ -18,6 +18,9 @@ import { initialState } from '../redux/reducers';
 import { StateInterface } from '../redux/types';
 import { MODULE_NAME, MODULE_VERSION } from '../../version';
 import '../../../style/sys_exp.css';
+import { Message } from '@lumino/messaging';
+
+import { Panel } from '@lumino/widgets';
 export const getEnhancers = () => {
   let enhancers = applyMiddleware(thunk) as any;
   if (
@@ -44,7 +47,7 @@ export class BaseWidgetModel extends BoxModel {
       _view_module: BaseWidgetModel.view_module,
       _view_module_version: BaseWidgetModel.view_module_version,
       title: '',
-      anchor: 'split-right',
+      anchor: 'widget',
       system_data: { key: 'None' },
       geo_data: {},
       computed_data: {},
@@ -67,7 +70,6 @@ export class BaseWidgetModel extends BoxModel {
     }
   ) {
     super.initialize(attributes, options);
-    this.widget_manager.create_view(this, {});
   }
 
   static model_module = MODULE_NAME;
@@ -89,6 +91,10 @@ export class WidgetWrapper extends ReactWidget {
     window.dispatchEvent(new Event('resize'));
   };
 
+  onAfterAttach(msg: Message): void {
+    super.onAfterAttach(msg);
+    window.dispatchEvent(new Event('resize'));
+  }
   render() {
     return <Provider store={this._store}>{this._component}</Provider>;
   }
@@ -122,7 +128,6 @@ export const createInitialStore = (
 };
 
 export class BaseWidgetView extends VBoxView {
-  class_name = 'cosapp-widget-viewer';
   /**
    * Notebook tracker to link lifecycle of the view with the related notebook
    */
@@ -174,34 +179,36 @@ export class BaseWidgetView extends VBoxView {
   }
 
   protected _render(WidgetClass: any, ElementClass: any) {
-    if (WidgetClass.shell) {
-      const w = this.luminoWidget;
+    const anchor = this.model.get('anchor');
+    console.log('anchor', anchor);
 
-      const content = new WidgetWrapper(
-        this.store,
-        (
-          <ElementWrapper
-            send_msg={this.send.bind(this)}
-            model={this.model}
-            CompClass={ElementClass}
-          />
-        )
-      );
+    const content = new WidgetWrapper(
+      this.store,
+      (
+        <ElementWrapper
+          send_msg={this.send.bind(this)}
+          model={this.model}
+          CompClass={ElementClass}
+        />
+      )
+    );
 
-      w.addWidget(content);
-      w.addClass(this.class_name);
-      w.addClass('cosapp-geometry-viewer');
+    const w = anchor === 'widget' ? this.luminoWidget : new Panel();
+    w.addWidget(content);
+    w.addClass('cosapp-base-viewer');
+    w.id = UUID.uuid4();
+    w.title.label = this.model.get('title');
+    w.title.closable = true;
 
-      w.title.label = this.model.get('title');
-      w.title.closable = true;
-
+    if (anchor === 'widget') {
+      w.addClass('cosapp-widget-viewer');
+    } else if (WidgetClass.shell) {
       WidgetClass.shell['_rightHandler'].sideBar.tabCloseRequested.connect(
         (sender: any, tab: any) => {
           tab.title.owner.dispose();
         }
       );
-      w.id = UUID.uuid4();
-      const anchor = this.model.get('anchor');
+
       if (anchor === 'right') {
         WidgetClass.shell.add(w, 'right');
         WidgetClass.shell.expandRight();

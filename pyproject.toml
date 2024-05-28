@@ -30,7 +30,7 @@ dependencies = [
     "cosapp>=0.13",
     "ipywidgets>=8",
     "jinja2",
-    # "cookiecutter",
+    "cookiecutter",
     "click",
     "requests",
     "markdown",
@@ -64,9 +64,8 @@ ensured-targets = [
 skip-if-exists = ["cosapp_lab/lab_static/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
-build_cmd = "build"
+build_cmd = "build:prod"
 npm = ["jlpm"]
-
 [tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
 build_cmd = "install:extension"
 npm = ["jlpm"]

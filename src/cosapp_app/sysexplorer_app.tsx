@@ -1,6 +1,5 @@
 // Copyright (c) CoSApp Team
 import { VBoxView } from '@jupyter-widgets/controls';
-import 'codemirror/lib/codemirror.css';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

@@ -66,6 +66,7 @@ class SysExplorer(Box):
     title = Unicode("SysExplorer").tag(sync=True)
     anchor = CaselessStrEnum(
         [
+            "widget",
             "split-right",
             "split-left",
             "split-top",
@@ -74,8 +75,8 @@ class SysExplorer(Box):
             "tab-after",
             "right",
         ],
-        default_value="tab-after",
-        allow_none=False,
+        default_value="split-right",
+        allow_none=True,
     ).tag(sync=True)
     system_data = tDict(default_value={"key": "None"}, allow_none=False).tag(sync=True)
     system_dict = tDict(default_value={"key": "None"}, allow_none=False).tag(sync=True)

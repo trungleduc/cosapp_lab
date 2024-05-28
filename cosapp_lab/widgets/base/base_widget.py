@@ -32,6 +32,7 @@ class BaseWidget(Box):
     title = Unicode("BaseWidget").tag(sync=True)
     anchor = CaselessStrEnum(
         [
+            "widget",
             "split-right",
             "split-left",
             "split-top",
@@ -40,7 +41,7 @@ class BaseWidget(Box):
             "tab-after",
             "right",
         ],
-        default_value="split-right",
+        default_value="widget",
         allow_none=False,
     ).tag(sync=True)
     system_data = tDict(default_value={"key": "None"}, allow_none=False).tag(sync=True)
