@@ -9,7 +9,7 @@ export const initialState: StateInterface = {
     panel_2: [false, 'Module_Creator'],
     panel_3: [false, 'Dashboard'],
     panel_4: [false, 'User_Management'],
-    panel_5: [false, 'Module_Library'],
+    panel_5: [false, 'Module_Library']
   },
   saveSignal: 0,
   systemArch: {
@@ -17,7 +17,7 @@ export const initialState: StateInterface = {
     systemTree: {
       nodeData: [{ title: 'Root' }],
       nodePath: [],
-      selectedNode: null,
+      selectedNode: null
     },
     systemData: { mainData: {}, portData: {} },
     systemGraph: {
@@ -25,15 +25,15 @@ export const initialState: StateInterface = {
         Root: {
           inPort: ['inwards'],
           outPort: ['outwards'],
-          connections: [],
-        },
+          connections: []
+        }
       },
       systemList: ['Root'],
       graphJsonData: {},
-      updateData: {},
+      updateData: {}
     },
     systemPBS: {},
-    systemPBSUpdated: 0,
+    systemPBSUpdated: 0
   },
   dashboardState: {
     computing: false,
@@ -44,8 +44,8 @@ export const initialState: StateInterface = {
     selectedVariable: {},
     computedResult: {},
     recorderData: {},
-    driverData : {}
-  },
+    driverData: {}
+  }
 };
 
 export function rootReducer(
@@ -70,8 +70,8 @@ export function rootReducer(
         ...state,
         systemArch: {
           ...state.systemArch,
-          lockStatus: action.status,
-        },
+          lockStatus: action.status
+        }
       };
     }
 
@@ -120,8 +120,8 @@ export function rootReducer(
         ...state,
         dashboardState: {
           ...state.dashboardState,
-          computing: !state.dashboardState.computing,
-        },
+          computing: !state.dashboardState.computing
+        }
       };
     }
 
@@ -143,7 +143,6 @@ export function rootReducer(
     case Action.DASHBOARD_UPDATE_COMPUTED_RESULT: {
       return ActionFunc.dashboardUpdateComputedResult_(state, action);
     }
-
   }
 
   return state;

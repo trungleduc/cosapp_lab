@@ -13,15 +13,14 @@ declare const window;
  * @param {string} moduleVersion
  * @returns {string}
  */
-function moduleNameToCDNUrl(moduleName: string, moduleVersion: string): string
-{
-  const version = moduleVersion.replace('^','')
+function moduleNameToCDNUrl(moduleName: string, moduleVersion: string): string {
+  const version = moduleVersion.replace('^', '');
   let packageName = moduleName;
   let fileName = 'index'; // default filename
   // if a '/' is present, like 'foo/bar', packageName is changed to 'foo', and path to 'bar'
   // We first find the first '/'
   let index = moduleName.indexOf('/');
-  if (index !== -1 && moduleName[0] == '@') {
+  if (index !== -1 && moduleName[0] === '@') {
     // if we have a namespace, it's a different story
     // @foo/bar/baz should translate to @foo/bar and baz
     // so we find the 2nd '/'
@@ -48,7 +47,7 @@ export function remoteLoader(
 ): Promise<any> {
   const require = window.requirejs;
   const conf = {
-    paths: { [moduleName]: moduleNameToCDNUrl(moduleName, moduleVersion) },
+    paths: { [moduleName]: moduleNameToCDNUrl(moduleName, moduleVersion) }
   };
   require.config(conf);
   return new Promise((resolve, reject) => {

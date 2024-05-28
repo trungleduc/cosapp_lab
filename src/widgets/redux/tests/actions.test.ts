@@ -69,22 +69,24 @@ describe('Test redux actions', () => {
   });
 
   it('Action to save pbs node position', () => {
-    expect(actions.archSaveGraphPosition({'root': {visible : true, position : [0,0]}})).toEqual({
-      type : types.Action.ARCH_SAVE_GRAPH_POSITION,
-      data : {'root': {visible : true, position : [0,0]}}
-    })
-  })
+    expect(
+      actions.archSaveGraphPosition({
+        root: { visible: true, position: [0, 0] }
+      })
+    ).toEqual({
+      type: types.Action.ARCH_SAVE_GRAPH_POSITION,
+      data: { root: { visible: true, position: [0, 0] } }
+    });
+  });
 
   it('Action to modify the visibility flag of node data', () => {
     expect(actions.archFilterNode(['root'], [])).toEqual({
-      type : types.Action.ARCH_FILTER_NODE,
-      data : ['root'],
+      type: types.Action.ARCH_FILTER_NODE,
+      data: ['root'],
       selected: []
-    })
-  })
+    });
+  });
 });
-
-
 
 describe('Test redux functions', () => {
   it('Functions to switch main panel', () => {
@@ -154,8 +156,8 @@ describe('Test redux functions', () => {
       updateData: {},
       graphJsonData: {}
     },
-    systemPBS : {},
-    systemPBSUpdated : 0
+    systemPBS: {},
+    systemPBSUpdated: 0
   };
   it('Function to add node to store', () => {
     expect(actions.archAddNode_(initialState, nodeData).systemArch).toEqual(
@@ -180,7 +182,7 @@ describe('Test redux functions', () => {
       selectedNode: null
     },
     systemData: {
-      mainData: { 'Root' : undefined},
+      mainData: { Root: undefined },
       portData: {}
     },
     systemGraph: {
@@ -195,8 +197,8 @@ describe('Test redux functions', () => {
       updateData: {},
       graphJsonData: {}
     },
-    systemPBS : {},
-    systemPBSUpdated : 0
+    systemPBS: {},
+    systemPBSUpdated: 0
   };
   it('Function to remove node from store', () => {
     expect(
@@ -206,36 +208,39 @@ describe('Test redux functions', () => {
 });
 
 describe('Test redux functions', () => {
-  const expectedState = {'root': {'position': [0, 0], 'visible': true}};
+  const expectedState = { root: { position: [0, 0], visible: true } };
   it('Function to save pbs node position to store', () => {
     expect(
       actions.archSaveGraphPosition_(initialState, {
-        type : types.Action.ARCH_SAVE_GRAPH_POSITION,
-        data : {'root': {visible : true, position : [0,0]}}
+        type: types.Action.ARCH_SAVE_GRAPH_POSITION,
+        data: { root: { visible: true, position: [0, 0] } }
       }).systemArch.systemPBS
     ).toEqual(expectedState);
   });
 });
 
-
 describe('Test redux functions', () => {
-  const expectedState = {'root': {visible : true, position : [0,0]} ,'root.foo': {visible : false, position : [1,1]}};
+  const expectedState = {
+    root: { visible: true, position: [0, 0] },
+    'root.foo': { visible: false, position: [1, 1] }
+  };
   it('Function to modify the visibility flag of node data', () => {
     const state = actions.archSaveGraphPosition_(initialState, {
-      type : types.Action.ARCH_SAVE_GRAPH_POSITION,
-      data : {'root': {visible : true, position : [0,0]} ,'root.foo': {visible : true, position : [1,1]}}
-    })
+      type: types.Action.ARCH_SAVE_GRAPH_POSITION,
+      data: {
+        root: { visible: true, position: [0, 0] },
+        'root.foo': { visible: true, position: [1, 1] }
+      }
+    });
     expect(
       actions.archFilterNode_(state, {
-        type : types.Action.ARCH_FILTER_NODE,
-        data : ['root'],
+        type: types.Action.ARCH_FILTER_NODE,
+        data: ['root'],
         selected: []
       }).systemArch.systemPBS
     ).toEqual(expectedState);
   });
 });
-
-
 
 describe('Test redux functions', () => {
   const expectedState = ['None', 'step 1'];
@@ -248,4 +253,3 @@ describe('Test redux functions', () => {
     ).toEqual(expectedState);
   });
 });
-

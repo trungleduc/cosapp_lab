@@ -14,15 +14,12 @@ const mockStore = configureMockStore([thunk]);
 
 describe('Test <Controller/>', () => {
   let wrapper: ReactWrapper;
-  const send_msg = jest.fn(({
-    action: string,
-    payload: any,
-  })=> {})
+  const send_msg = jest.fn(({ action: string, payload: any }) => {});
   beforeEach(() => {
     const store = mockStore({
-      ...initialState,
+      ...initialState
     });
-    
+
     wrapper = mount(
       <Provider store={store}>
         <Controller model={new MockModel() as any} send_msg={send_msg} />

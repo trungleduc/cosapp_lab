@@ -16,7 +16,7 @@ import * as ReduxAction from '../../redux/actions';
 import { StateInterface } from '../../redux/types';
 import AddVariableDialog from './add_variable_dialog';
 import ParameterController from './param_controller';
-const styles: Styles<Theme, {}> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = (theme: Theme) => ({
   mainPanel: {
     display: 'flex',
     flexDirection: 'column'

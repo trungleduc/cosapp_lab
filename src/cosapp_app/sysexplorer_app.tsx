@@ -26,7 +26,7 @@ export class SysExplorerAppView extends VBoxView {
     const savedStore = this.model.get('initial_store');
 
     for (const key in savedStore) {
-      if (savedStore.hasOwnProperty(key) && newStore.hasOwnProperty(key)) {
+      if (key in newStore) {
         newStore[key] = savedStore[key];
       }
     }

@@ -117,8 +117,6 @@ interface IAppStates {
   selectedWidget: string;
 }
 
-
-
 /**
  *
  * React component displaying the render window.

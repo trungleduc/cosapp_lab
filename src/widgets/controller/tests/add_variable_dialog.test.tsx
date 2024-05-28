@@ -38,20 +38,14 @@ describe('Test <AddVariableDialog/>', () => {
   });
 
   it('Should render correctly variable list', () => {
-    const component = wrapper
-      .find(AddVariableDialog)
-      .childAt(0)
-      .childAt(0);
+    const component = wrapper.find(AddVariableDialog).childAt(0).childAt(0);
     const dropList = component.find(Autocomplete).at(0);
     expect(dropList.prop('options')).toHaveLength(38);
     expect(dropList.prop('options')[0]).toEqual('model.source.inwards.I');
   });
 
   it('Should close dialog when close button clicked', () => {
-    const component = wrapper
-      .find(AddVariableDialog)
-      .childAt(0)
-      .childAt(0);
+    const component = wrapper.find(AddVariableDialog).childAt(0).childAt(0);
     const closeButton = component.find(Button).at(0);
     expect(closeButton.text()).toEqual('close');
     closeButton.simulate('click');

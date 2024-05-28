@@ -30,7 +30,7 @@ export interface StateInterface {
     computing: boolean; // True if a driver is running, False otherwise.
     timeStepList: string[]; // List of time step available.
     data3D: { [key: string]: any[] }; // Not used yet.
-    variableData: {[key: string]: any;}; // System variable data received from backend.
+    variableData: { [key: string]: any }; // System variable data received from backend.
     portMetaData: { [key: string]: any }; // Port meta data received from backend.
     selectedVariable: { [key: string]: number }; // Controller variable and its value.
     computedResult: { [key: string]: any }; // Value of all variable, used for plot
@@ -39,7 +39,9 @@ export interface StateInterface {
   };
 }
 
-export interface IDict<T> {[key:string]: T}
+export interface IDict<T> {
+  [key: string]: T;
+}
 export interface SystemDataInterface {
   mainData: {
     // key is name of system

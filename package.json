@@ -43,7 +43,12 @@
         "clean:lib": "rimraf buildjs/* && rimraf lib/* && rimraf cosapp_lab/lab_static/*",
         "clean:labextension": "rimraf cosapp_lab/lab_static/static/lib_index_* && rimraf cosapp_lab/lab_static/static/remoteEntry*",
         "eslint": "eslint . --ext .ts,.tsx --fix",
+        "lint": "jlpm prettier && jlpm eslint",
+        "lint:check": "jlpm prettier:check && jlpm eslint:check",
         "eslint:check": "eslint . --ext .ts,.tsx",
+        "prettier": "jlpm prettier:base --write --list-different",
+        "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
+        "prettier:check": "jlpm prettier:base --check",
         "install:extension": "jlpm build",
         "copy:extension": "python ./cosapp_lab/utils/copy_extension.py",
         "watch": "run-p watch:webpack watch:lab",
@@ -197,7 +202,8 @@
         "node_modules",
         "dist",
         "coverage",
-        "**/*.d.ts"
+        "**/*.d.ts",
+        "**/tests/*"
     ],
     "eslintConfig": {
         "extends": [

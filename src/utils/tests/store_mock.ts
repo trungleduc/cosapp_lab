@@ -7,7 +7,7 @@ export const mockState: StateInterface = {
     panel_2: [false, 'Module_Creator'],
     panel_3: [true, 'Dashboard'],
     panel_4: [false, 'User_Management'],
-    panel_5: [false, 'Module_Library'],
+    panel_5: [false, 'Module_Library']
   },
   systemConfig: {},
   saveSignal: 2,
@@ -19,40 +19,40 @@ export const mockState: StateInterface = {
           title: 'model',
           children: [
             {
-              title: 'source',
+              title: 'source'
             },
             {
-              title: 'ground',
+              title: 'ground'
             },
             {
               title: 'circuit',
               children: [
                 {
-                  title: 'n1',
+                  title: 'n1'
                 },
                 {
-                  title: 'n2',
+                  title: 'n2'
                 },
                 {
-                  title: 'R1',
+                  title: 'R1'
                 },
                 {
-                  title: 'R2',
+                  title: 'R2'
                 },
                 {
-                  title: 'R3',
-                },
-              ],
-            },
-          ],
-        },
+                  title: 'R3'
+                }
+              ]
+            }
+          ]
+        }
       ],
       nodePath: [],
-      selectedNode: null,
+      selectedNode: null
     },
     systemData: {
       mainData: {},
-      portData: {},
+      portData: {}
     },
     systemGraph: {
       systemGraphData: {
@@ -61,21 +61,21 @@ export const mockState: StateInterface = {
           outPort: ['outwards'],
           connections: [
             ['circuit.I_in', 'source.I_out'],
-            ['circuit.Vg', 'ground.V_out'],
+            ['circuit.Vg', 'ground.V_out']
           ],
-          position: [735.5, 491.4921875],
+          position: [735.5, 491.4921875]
         },
         'model.source': {
           inPort: ['inwards'],
           outPort: ['outwards', 'I_out'],
           connections: [],
-          position: [427.75, 100],
+          position: [427.75, 100]
         },
         'model.ground': {
           inPort: ['inwards'],
           outPort: ['outwards', 'V_out'],
           connections: [],
-          position: [626.25, 100],
+          position: [626.25, 100]
         },
         'model.circuit': {
           inPort: ['inwards', 'I_in', 'Vg'],
@@ -93,40 +93,40 @@ export const mockState: StateInterface = {
             ['R2.V_out', 'inwards'],
             ['n2.inwards', 'inwards'],
             ['n2.I_in0', 'R2.I'],
-            ['n2.I_out0', 'R3.I'],
+            ['n2.I_out0', 'R3.I']
           ],
-          position: [427.75, 211.59375],
+          position: [427.75, 211.59375]
         },
         'model.circuit.n1': {
           inPort: ['inwards', 'I_in0', 'I_out0', 'I_out1'],
           outPort: ['outwards'],
           connections: [],
-          position: [100, 467.1875],
+          position: [100, 467.1875]
         },
         'model.circuit.n2': {
           inPort: ['inwards', 'I_in0', 'I_out0'],
           outPort: ['outwards'],
           connections: [],
-          position: [537, 475.2890625],
+          position: [537, 475.2890625]
         },
         'model.circuit.R1': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
           connections: [],
-          position: [229.25, 339.390625],
+          position: [229.25, 339.390625]
         },
         'model.circuit.R2': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
           connections: [],
-          position: [427.75, 339.390625],
+          position: [427.75, 339.390625]
         },
         'model.circuit.R3': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
           connections: [],
-          position: [646.25, 339.390625],
-        },
+          position: [646.25, 339.390625]
+        }
       },
       systemList: [
         'model',
@@ -137,13 +137,13 @@ export const mockState: StateInterface = {
         'model.circuit.n2',
         'model.circuit.R1',
         'model.circuit.R2',
-        'model.circuit.R3',
+        'model.circuit.R3'
       ],
       graphJsonData: {},
-      updateData: {},
+      updateData: {}
     },
     systemPBS: {},
-    systemPBSUpdated: 0,
+    systemPBSUpdated: 0
   },
   dashboardState: {
     computing: false,
@@ -156,7 +156,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.source.I_out.I': {
         value: 0.1,
@@ -164,7 +164,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.ground.inwards.V': {
         value: 0,
@@ -172,7 +172,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.ground.V_out.V': {
         value: 0,
@@ -180,7 +180,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.inwards.n1_V': {
         value: 42.85714285871762,
@@ -188,7 +188,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.inwards.n2_V': {
         value: 14.285714288716745,
@@ -196,7 +196,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.I_in.I': {
         value: 0.1,
@@ -204,7 +204,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.Vg.V': {
         value: 0,
@@ -212,7 +212,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.n_in': {
         value: 1,
@@ -220,7 +220,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.n_out': {
         value: 2,
@@ -228,7 +228,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.V': {
         value: 42.85714285871762,
@@ -236,7 +236,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_in0.I': {
         value: 0.1,
@@ -244,7 +244,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_out0.I': {
         value: 0.0428571428365806,
@@ -252,7 +252,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_out1.I': {
         value: 0.057142857156291194,
@@ -260,7 +260,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.outwards.sum_I_in': {
         value: 0.1,
@@ -268,7 +268,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.outwards.sum_I_out': {
         value: 0.09999999999287179,
@@ -276,7 +276,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.n_in': {
         value: 1,
@@ -284,7 +284,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.n_out': {
         value: 1,
@@ -292,7 +292,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.V': {
         value: 14.285714288716745,
@@ -300,7 +300,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.I_in0.I': {
         value: 0.057142857156291305,
@@ -308,7 +308,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.I_out0.I': {
         value: 0.057142857156291305,
@@ -316,7 +316,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.outwards.sum_I_in': {
         value: 0.057142857156291305,
@@ -324,7 +324,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.outwards.sum_I_out': {
         value: 0.057142857156291305,
@@ -332,7 +332,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.inwards.R': {
         value: 1000,
@@ -340,7 +340,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.V_in.V': {
         value: 42.85714285871762,
@@ -348,7 +348,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.V_out.V': {
         value: 0,
@@ -356,7 +356,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.outwards.deltaV': {
         value: 42.85714285871762,
@@ -364,7 +364,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.I.I': {
         value: 0.042857142858717626,
@@ -372,7 +372,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.inwards.R': {
         value: 500,
@@ -380,7 +380,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.V_in.V': {
         value: 42.85714285871762,
@@ -388,7 +388,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.V_out.V': {
         value: 14.285714288716745,
@@ -396,7 +396,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.outwards.deltaV': {
         value: 28.571428570000876,
@@ -404,7 +404,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.I.I': {
         value: 0.05714285714000175,
@@ -412,7 +412,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.inwards.R': {
         value: 250,
@@ -420,7 +420,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.V_in.V': {
         value: 14.285714288716745,
@@ -428,7 +428,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.V_out.V': {
         value: 0,
@@ -436,7 +436,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.outwards.deltaV': {
         value: 14.285714288716745,
@@ -444,7 +444,7 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.I.I': {
         value: 0.05714285715486698,
@@ -452,15 +452,15 @@ export const mockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
-      },
+        distribution: null
+      }
     },
     portMetaData: {},
     selectedVariable: {},
     computedResult: {},
     recorderData: {},
-    driverData: {},
-  },
+    driverData: {}
+  }
 };
 
 export const panel1MockState: StateInterface = {
@@ -470,7 +470,7 @@ export const panel1MockState: StateInterface = {
     panel_2: [false, 'Module_Creator'],
     panel_3: [false, 'Dashboard'],
     panel_4: [false, 'User_Management'],
-    panel_5: [false, 'Module_Library'],
+    panel_5: [false, 'Module_Library']
   },
   systemConfig: {},
   saveSignal: 0,
@@ -486,12 +486,12 @@ export const panel1MockState: StateInterface = {
             {
               title: 'source',
               id: 'model.source',
-              expanded: true,
+              expanded: true
             },
             {
               title: 'engine',
               id: 'model.engine',
-              expanded: true,
+              expanded: true
             },
             {
               title: 'circuit',
@@ -501,39 +501,39 @@ export const panel1MockState: StateInterface = {
                 {
                   title: 'n1',
                   id: 'model.circuit.n1',
-                  expanded: true,
+                  expanded: true
                 },
                 {
                   title: 'n2',
                   id: 'model.circuit.n2',
-                  expanded: true,
+                  expanded: true
                 },
                 {
                   title: 'R1',
                   id: 'model.circuit.R1',
-                  expanded: true,
+                  expanded: true
                 },
                 {
                   title: 'R2',
                   id: 'model.circuit.R2',
-                  expanded: true,
+                  expanded: true
                 },
                 {
                   title: 'R3',
                   id: 'model.circuit.R3',
-                  expanded: true,
-                },
-              ],
-            },
-          ],
-        },
+                  expanded: true
+                }
+              ]
+            }
+          ]
+        }
       ],
       nodePath: [],
-      selectedNode: null,
+      selectedNode: null
     },
     systemData: {
       mainData: {},
-      portData: {},
+      portData: {}
     },
     systemGraph: {
       systemGraphData: {
@@ -542,18 +542,18 @@ export const panel1MockState: StateInterface = {
           outPort: ['outwards'],
           connections: [
             ['circuit.I_in', 'source.I_out'],
-            ['circuit.Vg', 'engine.V_out'],
-          ],
+            ['circuit.Vg', 'engine.V_out']
+          ]
         },
         'model.source': {
           inPort: ['inwards'],
           outPort: ['outwards', 'I_out'],
-          connections: [],
+          connections: []
         },
         'model.engine': {
           inPort: ['inwards'],
           outPort: ['outwards', 'V_out'],
-          connections: [],
+          connections: []
         },
         'model.circuit': {
           inPort: ['inwards', 'I_in', 'Vg'],
@@ -564,8 +564,8 @@ export const panel1MockState: StateInterface = {
               'n1.inwards',
               'inwards',
               {
-                V: 'n1_V',
-              },
+                V: 'n1_V'
+              }
             ],
             ['n1.I_out0', 'R1.I'],
             ['n1.I_out1', 'R2.I'],
@@ -574,67 +574,67 @@ export const panel1MockState: StateInterface = {
               'R1.V_in',
               'inwards',
               {
-                V: 'n1_V',
-              },
+                V: 'n1_V'
+              }
             ],
             ['R3.V_out', 'Vg'],
             [
               'R3.V_in',
               'inwards',
               {
-                V: 'n2_V',
-              },
+                V: 'n2_V'
+              }
             ],
             [
               'R2.V_in',
               'inwards',
               {
-                V: 'n1_V',
-              },
+                V: 'n1_V'
+              }
             ],
             [
               'R2.V_out',
               'inwards',
               {
-                V: 'n2_V',
-              },
+                V: 'n2_V'
+              }
             ],
             [
               'n2.inwards',
               'inwards',
               {
-                V: 'n2_V',
-              },
+                V: 'n2_V'
+              }
             ],
             ['n2.I_in0', 'R2.I'],
-            ['n2.I_out0', 'R3.I'],
-          ],
+            ['n2.I_out0', 'R3.I']
+          ]
         },
         'model.circuit.n1': {
           inPort: ['inwards', 'I_in0', 'I_out0', 'I_out1'],
           outPort: ['outwards'],
-          connections: [],
+          connections: []
         },
         'model.circuit.n2': {
           inPort: ['inwards', 'I_in0', 'I_out0'],
           outPort: ['outwards'],
-          connections: [],
+          connections: []
         },
         'model.circuit.R1': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
-          connections: [],
+          connections: []
         },
         'model.circuit.R2': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
-          connections: [],
+          connections: []
         },
         'model.circuit.R3': {
           inPort: ['inwards', 'V_in', 'V_out'],
           outPort: ['outwards', 'I'],
-          connections: [],
-        },
+          connections: []
+        }
       },
       systemList: [
         'model',
@@ -645,54 +645,54 @@ export const panel1MockState: StateInterface = {
         'model.circuit.n2',
         'model.circuit.R1',
         'model.circuit.R2',
-        'model.circuit.R3',
+        'model.circuit.R3'
       ],
       graphJsonData: {},
-      updateData: {},
+      updateData: {}
     },
     systemPBS: {
       __$graph_style$__: {
         visible: false,
-        position: [0, 0],
+        position: [0, 0]
       },
       model: {
         visible: true,
-        position: [-88, -88],
+        position: [-88, -88]
       },
       'model.source': {
         visible: true,
-        position: [-184, 8],
+        position: [-184, 8]
       },
       'model.engine': {
         visible: true,
-        position: [-88, 8],
+        position: [-88, 8]
       },
       'model.circuit': {
         visible: true,
-        position: [8, 8],
+        position: [8, 8]
       },
       'model.circuit.n1': {
         visible: true,
-        position: [-184, 104],
+        position: [-184, 104]
       },
       'model.circuit.n2': {
         visible: true,
-        position: [-88, 104],
+        position: [-88, 104]
       },
       'model.circuit.R1': {
         visible: true,
-        position: [8, 104],
+        position: [8, 104]
       },
       'model.circuit.R2': {
         visible: true,
-        position: [104, 104],
+        position: [104, 104]
       },
       'model.circuit.R3': {
         visible: true,
-        position: [200, 104],
-      },
+        position: [200, 104]
+      }
     },
-    systemPBSUpdated: 1,
+    systemPBSUpdated: 1
   },
   dashboardState: {
     computing: false,
@@ -705,7 +705,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.source.I_out.I': {
         value: 0.1,
@@ -713,7 +713,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.engine.inwards.V': {
         value: 0,
@@ -721,7 +721,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.engine.V_out.V': {
         value: 0,
@@ -729,7 +729,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.inwards.n1_V': {
         value: 1,
@@ -737,7 +737,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.inwards.n2_V': {
         value: 1,
@@ -745,7 +745,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.I_in.I': {
         value: 1,
@@ -753,7 +753,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.Vg.V': {
         value: 1,
@@ -761,7 +761,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.n_in': {
         value: 1,
@@ -769,7 +769,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.n_out': {
         value: 2,
@@ -777,7 +777,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.inwards.V': {
         value: 1,
@@ -785,7 +785,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_in0.I': {
         value: 1,
@@ -793,7 +793,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_out0.I': {
         value: 1,
@@ -801,7 +801,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.I_out1.I': {
         value: 1,
@@ -809,7 +809,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.outwards.sum_I_in': {
         value: 0,
@@ -817,7 +817,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n1.outwards.sum_I_out': {
         value: 0,
@@ -825,7 +825,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.n_in': {
         value: 1,
@@ -833,7 +833,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.n_out': {
         value: 1,
@@ -841,7 +841,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.inwards.V': {
         value: 1,
@@ -849,7 +849,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.I_in0.I': {
         value: 1,
@@ -857,7 +857,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.I_out0.I': {
         value: 1,
@@ -865,7 +865,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.outwards.sum_I_in': {
         value: 0,
@@ -873,7 +873,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.n2.outwards.sum_I_out': {
         value: 0,
@@ -881,7 +881,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.inwards.R': {
         value: 1000,
@@ -889,7 +889,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.V_in.V': {
         value: 1,
@@ -897,7 +897,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.V_out.V': {
         value: 1,
@@ -905,7 +905,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.outwards.deltaV': {
         value: 1,
@@ -913,7 +913,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R1.I.I': {
         value: 1,
@@ -921,7 +921,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.inwards.R': {
         value: 500,
@@ -929,7 +929,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.V_in.V': {
         value: 1,
@@ -937,7 +937,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.V_out.V': {
         value: 1,
@@ -945,7 +945,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.outwards.deltaV': {
         value: 1,
@@ -953,7 +953,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R2.I.I': {
         value: 1,
@@ -961,7 +961,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.inwards.R': {
         value: 250,
@@ -969,7 +969,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.V_in.V': {
         value: 1,
@@ -977,7 +977,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.V_out.V': {
         value: 1,
@@ -985,7 +985,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.outwards.deltaV': {
         value: 1,
@@ -993,7 +993,7 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: ['-inf', 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
+        distribution: null
       },
       'model.circuit.R3.I.I': {
         value: 1,
@@ -1001,13 +1001,13 @@ export const panel1MockState: StateInterface = {
         invalid_comment: '',
         limits: [0, 'inf'],
         out_of_limits_comment: '',
-        distribution: null,
-      },
+        distribution: null
+      }
     },
     portMetaData: {},
     selectedVariable: {},
     computedResult: {},
     recorderData: {},
-    driverData: {},
-  },
+    driverData: {}
+  }
 };

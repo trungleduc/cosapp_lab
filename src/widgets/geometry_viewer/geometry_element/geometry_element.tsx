@@ -1,9 +1,9 @@
-import {withStyles} from '@material-ui/core';
-import {Styles} from '@material-ui/styles/withStyles';
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import { withStyles } from '@material-ui/core';
+import { Styles } from '@material-ui/styles/withStyles';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as ReduxAction from '../../redux/actions';
-import {StateInterface} from '../../redux/types';
+import { StateInterface } from '../../redux/types';
 import Plot3DView from './3dview';
 
 /**
@@ -24,19 +24,19 @@ const mapStateToProps = (state: StateInterface) => {
  */
 const mapDispatchToProps = (dispatch: (f: any) => void) => {
   return {
-    add3DData: (data: any) => dispatch(ReduxAction.dashboardAdd3DData(data)),
+    add3DData: (data: any) => dispatch(ReduxAction.dashboardAdd3DData(data))
   };
 };
 
-const styles: Styles<{}, {}> = () => ({
+const styles: Styles<any, any> = () => ({
   root: {
     height: '100%',
-    flexGrow: 1,
+    flexGrow: 1
   },
   paper: {
     background: 'aliceblue',
-    height: '100%',
-  },
+    height: '100%'
+  }
 });
 
 interface AppProps {
@@ -122,7 +122,7 @@ class GeometryElement extends Component<AppProps, AppState> {
           }
         }
         this.buffer_data[time_step] = threejs_data;
-        if ('remaining' in payload && payload['remaining'] == 0) {
+        if ('remaining' in payload && payload['remaining'] === 0) {
           this.computedUpdate();
         }
         break;
@@ -143,7 +143,7 @@ class GeometryElement extends Component<AppProps, AppState> {
    * Clear update interval once the component is unmounted.
    * @memberof GeometryElement
    */
-   componentWillUnmount = () => {
+  componentWillUnmount = () => {
     this.props.model.stopListening(this.props.model, 'msg:custom', this.on_msg);
   };
 
@@ -172,7 +172,7 @@ class GeometryElement extends Component<AppProps, AppState> {
     this.setState(
       (prevState: AppState) => ({
         ...prevState,
-        threeData: { ...this.buffer_data },
+        threeData: { ...this.buffer_data }
       }),
       () => {
         this.updateRender();
@@ -190,7 +190,7 @@ class GeometryElement extends Component<AppProps, AppState> {
   updateRender = () => {
     this.setState((prevState: AppState) => ({
       ...prevState,
-      updateSignal: prevState.updateSignal + 1,
+      updateSignal: prevState.updateSignal + 1
     }));
   };
 

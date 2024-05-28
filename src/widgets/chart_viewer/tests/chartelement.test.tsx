@@ -6,10 +6,17 @@ import { initialState } from '../../redux/reducers';
 import React from 'react';
 import { configure, mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import ChartElement, {ChartElement as PureChartElement} from '../chart_element/chartelement';
+import ChartElement, {
+  ChartElement as PureChartElement
+} from '../chart_element/chartelement';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { MockModel, recorderData,  computedResult,  driverData } from '../../../utils/tests/utils';
+import {
+  MockModel,
+  recorderData,
+  computedResult,
+  driverData
+} from '../../../utils/tests/utils';
 import { StateInterface } from '../../redux/types';
 configure({ adapter: new Adapter() });
 
@@ -28,7 +35,7 @@ describe('Test <ChartElement/>', () => {
         computedResult,
         recorderData,
         driverData
-      },
+      }
     };
     const store = mockStore(newState);
     btnHandle = jest.fn(() => {});
@@ -72,7 +79,7 @@ describe('Test <ChartElement/>', () => {
       yAxisMin: '',
       zAxis: '',
       zAxisMax: '',
-      zAxisMin: '',
+      zAxisMin: ''
     });
     expect(component.state('systemNameX')).toEqual('model.source');
     expect(component.state('xData')).toEqual('inwards.I');
@@ -84,7 +91,7 @@ describe('Test <ChartElement/>', () => {
       'model.circuit.n2',
       'model.circuit.R1',
       'model.circuit.R2',
-      'model.circuit.R3',
+      'model.circuit.R3'
     ]);
     expect(component.state('dictSystemVariable')).toEqual({
       'model.circuit': ['inwards.n1_V', 'inwards.n2_V', 'I_in.I', 'Vg.V'],
@@ -93,21 +100,21 @@ describe('Test <ChartElement/>', () => {
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.R2': [
         'inwards.R',
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.R3': [
         'inwards.R',
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.n1': [
         'inwards.n_in',
@@ -117,7 +124,7 @@ describe('Test <ChartElement/>', () => {
         'I_out0.I',
         'I_out1.I',
         'outwards.sum_I_in',
-        'outwards.sum_I_out',
+        'outwards.sum_I_out'
       ],
       'model.circuit.n2': [
         'inwards.n_in',
@@ -126,38 +133,38 @@ describe('Test <ChartElement/>', () => {
         'I_in0.I',
         'I_out0.I',
         'outwards.sum_I_in',
-        'outwards.sum_I_out',
+        'outwards.sum_I_out'
       ],
       'model.ground': ['inwards.V', 'V_out.V'],
-      'model.source': ['inwards.I', 'I_out.I'],
+      'model.source': ['inwards.I', 'I_out.I']
     });
     expect(component.state('dictSystemVariableLength')).toEqual({
       'model.circuit': {
         'I_in.I': ['All'],
         'Vg.V': ['All'],
         'inwards.n1_V': ['All'],
-        'inwards.n2_V': ['All'],
+        'inwards.n2_V': ['All']
       },
       'model.circuit.R1': {
         'I.I': ['All'],
         'V_in.V': ['All'],
         'V_out.V': ['All'],
         'inwards.R': ['All'],
-        'outwards.deltaV': ['All'],
+        'outwards.deltaV': ['All']
       },
       'model.circuit.R2': {
         'I.I': ['All'],
         'V_in.V': ['All'],
         'V_out.V': ['All'],
         'inwards.R': ['All'],
-        'outwards.deltaV': ['All'],
+        'outwards.deltaV': ['All']
       },
       'model.circuit.R3': {
         'I.I': ['All'],
         'V_in.V': ['All'],
         'V_out.V': ['All'],
         'inwards.R': ['All'],
-        'outwards.deltaV': ['All'],
+        'outwards.deltaV': ['All']
       },
       'model.circuit.n1': {
         'I_in0.I': ['All'],
@@ -167,7 +174,7 @@ describe('Test <ChartElement/>', () => {
         'inwards.n_in': ['All'],
         'inwards.n_out': ['All'],
         'outwards.sum_I_in': ['All'],
-        'outwards.sum_I_out': ['All'],
+        'outwards.sum_I_out': ['All']
       },
       'model.circuit.n2': {
         'I_in0.I': ['All'],
@@ -176,10 +183,10 @@ describe('Test <ChartElement/>', () => {
         'inwards.n_in': ['All'],
         'inwards.n_out': ['All'],
         'outwards.sum_I_in': ['All'],
-        'outwards.sum_I_out': ['All'],
+        'outwards.sum_I_out': ['All']
       },
       'model.ground': { 'V_out.V': ['All'], 'inwards.V': ['All'] },
-      'model.source': { 'I_out.I': ['All'], 'inwards.I': ['All'] },
+      'model.source': { 'I_out.I': ['All'], 'inwards.I': ['All'] }
     });
     expect(component.state('listRecorder')).toEqual(['model.design']);
     expect(component.state('dictRecorderVariable')).toEqual({
@@ -189,8 +196,8 @@ describe('Test <ChartElement/>', () => {
         'circuit.n1.V',
         'circuit.n2.V',
         'ground.V',
-        'source.I',
-      ],
+        'source.I'
+      ]
     });
     expect(component.state('dictRecorderVariableLength')).toEqual({
       'model.design': {
@@ -199,15 +206,15 @@ describe('Test <ChartElement/>', () => {
         'circuit.n1.V': ['All'],
         'circuit.n2.V': ['All'],
         'ground.V': ['All'],
-        'source.I': ['All'],
-      },
+        'source.I': ['All']
+      }
     });
     expect(component.state('dictRecorderRef')).toEqual({
-      'model.design': ['All', 'pt1', 'pt2'],
+      'model.design': ['All', 'pt1', 'pt2']
     });
     expect(component.state('listDriverWithTrace')).toEqual(['model.design']);
     expect(component.state('dictDriverVariable')).toEqual({
-      'model.design': ['Residue'],
+      'model.design': ['Residue']
     });
   });
   it('Should open setting dialog', () => {
@@ -242,7 +249,7 @@ describe('Test <ChartElement/>', () => {
       'model.circuit.n2',
       'model.circuit.R1',
       'model.circuit.R2',
-      'model.circuit.R3',
+      'model.circuit.R3'
     ]);
     expect(component.state('dictSelector')).toEqual({
       'model.circuit': ['inwards.n1_V', 'inwards.n2_V', 'I_in.I', 'Vg.V'],
@@ -251,21 +258,21 @@ describe('Test <ChartElement/>', () => {
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.R2': [
         'inwards.R',
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.R3': [
         'inwards.R',
         'V_in.V',
         'V_out.V',
         'outwards.deltaV',
-        'I.I',
+        'I.I'
       ],
       'model.circuit.n1': [
         'inwards.n_in',
@@ -275,7 +282,7 @@ describe('Test <ChartElement/>', () => {
         'I_out0.I',
         'I_out1.I',
         'outwards.sum_I_in',
-        'outwards.sum_I_out',
+        'outwards.sum_I_out'
       ],
       'model.circuit.n2': [
         'inwards.n_in',
@@ -284,10 +291,10 @@ describe('Test <ChartElement/>', () => {
         'I_in0.I',
         'I_out0.I',
         'outwards.sum_I_in',
-        'outwards.sum_I_out',
+        'outwards.sum_I_out'
       ],
       'model.ground': ['inwards.V', 'V_out.V'],
-      'model.source': ['inwards.I', 'I_out.I'],
+      'model.source': ['inwards.I', 'I_out.I']
     });
     expect(component.state('systemNameX')).toEqual('model.source');
     expect(component.state('xData')).toEqual('inwards.I');
@@ -306,8 +313,8 @@ describe('Test <ChartElement/>', () => {
         'circuit.n1.V',
         'circuit.n2.V',
         'ground.V',
-        'source.I',
-      ],
+        'source.I'
+      ]
     });
     expect(component.state('systemNameX')).toEqual('model.design');
     expect(component.state('xData')).toEqual('circuit.R1.R');

@@ -18,7 +18,7 @@ const MOCK_DATA = {
         level: 0,
         hidden: true,
         physics: false,
-        group: '.main',
+        group: '.main'
       },
       {
         label: 'NonLinearSolver',
@@ -28,7 +28,7 @@ const MOCK_DATA = {
         shape: 'box',
         hidden: true,
         physics: false,
-        group: 'main',
+        group: 'main'
       },
       {
         label: 'RunSingleCase',
@@ -38,22 +38,22 @@ const MOCK_DATA = {
         shape: 'box',
         hidden: true,
         physics: false,
-        group: 'main',
+        group: 'main'
       },
       {
         label: 'geo',
         title: 'main.geo - BeamGeo',
         id: 3,
         group: 'main',
-        level: 1,
+        level: 1
       },
       {
         label: 'meca',
         title: 'main.meca - BeamMeca',
         id: 4,
         group: 'main',
-        level: 1,
-      },
+        level: 1
+      }
     ],
     edges: [
       {
@@ -62,28 +62,28 @@ const MOCK_DATA = {
         title: '',
         hidden: true,
         physics: false,
-        id: '5db93a07-3564-4953-80ef-31ea1dc7712d',
+        id: '5db93a07-3564-4953-80ef-31ea1dc7712d'
       },
       {
         from: 3,
         to: 4,
         arrows: 'to',
         title: "['I', 'grid']",
-        id: '025de6b0-7fdb-46e9-98b8-bd473e7672f0',
+        id: '025de6b0-7fdb-46e9-98b8-bd473e7672f0'
       },
       {
         from: 5,
         to: 3,
         hidden: true,
         physics: false,
-        id: '2720b799-273a-4d2a-975e-f40d1cfa05fe',
+        id: '2720b799-273a-4d2a-975e-f40d1cfa05fe'
       },
       {
         from: 5,
         to: 4,
         hidden: true,
         physics: false,
-        id: '26bed3e8-848b-43a8-ac80-09175b6a35ec',
+        id: '26bed3e8-848b-43a8-ac80-09175b6a35ec'
       },
       {
         from: 5,
@@ -91,11 +91,11 @@ const MOCK_DATA = {
         dashes: true,
         hidden: true,
         physics: false,
-        id: 'cb6e6117-f16d-49d5-85a3-f74d216b3a88',
-      },
+        id: 'cb6e6117-f16d-49d5-85a3-f74d216b3a88'
+      }
     ],
-    groups: ['main'],
-  },
+    groups: ['main']
+  }
 };
 
 configure({ adapter: new Adapter() });

@@ -1,10 +1,7 @@
 // Copyright (c) CoSApp Team
 
 import DataViewer from './data_element/data_viewer';
-import {
-  BaseWidgetView,
-  BaseWidgetModel,
-} from '../base/base_widget';
+import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 // import '../../../style/sys_exp.css';
 
 export class DataWidgetModel extends BaseWidgetModel {
@@ -15,7 +12,7 @@ export class DataWidgetModel extends BaseWidgetModel {
 export class DataWidgetView extends BaseWidgetView {
   initialize(parameters: any): void {
     super.initialize(parameters);
-    this._initialize(DataWidgetView)
+    this._initialize(DataWidgetView);
   }
 
   /**
@@ -23,6 +20,6 @@ export class DataWidgetView extends BaseWidgetView {
    */
   render() {
     super.render();
-    this._render(DataWidgetView, DataViewer)
+    this._render(DataWidgetView, DataViewer);
   }
 }

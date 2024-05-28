@@ -22,7 +22,7 @@ import {
   CustomPortModel
 } from './custom_link';
 
-const styles: Styles<Theme, {}> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = (theme: Theme) => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
@@ -223,7 +223,7 @@ export class GraphPanel extends Component<AppProps, AppState> {
         outPortList
       );
 
-      if (!(propsData.systemGraphData[sysName].position == null)) {
+      if (!(propsData.systemGraphData[sysName].position === null)) {
         const nodeX: number = propsData.systemGraphData[sysName].position[0];
         const nodeY: number = propsData.systemGraphData[sysName].position[1];
         node.setPosition(nodeX, nodeY);
@@ -255,8 +255,8 @@ export class GraphPanel extends Component<AppProps, AppState> {
         const nodeEnd = newNodeData[endSys];
 
         if (
-          nodeStart.getPorts().hasOwnProperty(startPort) &&
-          nodeEnd.getPorts().hasOwnProperty(endPort)
+          startPort in nodeStart.getPorts() &&
+          endPort in nodeEnd.getPorts()
         ) {
           const portSource = nodeStart.getPorts()[startPort] as CustomPortModel;
           const portSink = nodeEnd.getPorts()[endPort] as CustomPortModel;

@@ -1,4 +1,4 @@
-import {withStyles} from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -6,17 +6,17 @@ import Select from '@material-ui/core/Select';
 import Toolbar from '@material-ui/core/Toolbar';
 import PauseIcon from '@material-ui/icons/Pause';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import {Styles} from '@material-ui/styles/withStyles';
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import { Styles } from '@material-ui/styles/withStyles';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as THREE from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import {Line2} from 'three/examples/jsm/lines/Line2.js';
-import {LineGeometry} from 'three/examples/jsm/lines/LineGeometry.js';
-import {LineMaterial} from 'three/examples/jsm/lines/LineMaterial.js';
-import {colorNameToHex} from '../../../utils/tools';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { Line2 } from 'three/examples/jsm/lines/Line2.js';
+import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
+import { colorNameToHex } from '../../../utils/tools';
 import * as ReduxAction from '../../redux/actions';
-import {StateInterface} from '../../redux/types';
+import { StateInterface } from '../../redux/types';
 interface AppProps {
   send_msg: any;
   model: any;
@@ -35,38 +35,37 @@ interface AppStates {
   selectedTime: number;
   playAnimation: boolean;
 }
-const styles: Styles<{}, {}> = () => ({
+const styles: Styles<any, any> = () => ({
   textSizeSmall: {
     //fontSize: "0.75rem"
   },
   toolbarHeigt: {
     minHeight: 36,
-    background: 'rgb(224 224 224)',
+    background: 'rgb(224 224 224)'
   },
   viewSelector: {
     minWidth: 120,
     //fontSize: "0.75rem",
-    color: 'rgb(50, 50, 50)',
+    color: 'rgb(50, 50, 50)'
   },
   bgSelector: {
     minWidth: 60,
     //fontSize: "0.75rem",
-    color: 'rgb(50, 50, 50)',
+    color: 'rgb(50, 50, 50)'
   },
   textColor: {
-    color: 'rgb(50, 50, 50)',
+    color: 'rgb(50, 50, 50)'
   },
   backGround: {
-    color: 'rgb(50, 50, 50)',
-  },
+    color: 'rgb(50, 50, 50)'
+  }
 });
 
-const DARK_BG = 'linear-gradient(rgb(0, 0, 42), rgb(82, 87, 110))';
 const LIGHT_BG = 'radial-gradient(#efeded, #8f9091)';
 
 const getThreeData = (state: StateInterface) => {
   return {
-    timeStepList: state.dashboardState.timeStepList,
+    timeStepList: state.dashboardState.timeStepList
   };
 };
 
@@ -76,7 +75,7 @@ const mapStateToProps = (state: StateInterface) => {
 
 const mapDispatchToProps = (dispatch: (f: any) => void) => {
   return {
-    add3DData: (data: any) => dispatch(ReduxAction.dashboardAdd3DData(data)),
+    add3DData: (data: any) => dispatch(ReduxAction.dashboardAdd3DData(data))
   };
 };
 
@@ -125,7 +124,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
       selectedUpDir: 30,
       bgColor: LIGHT_BG,
       selectedTime: 0,
-      playAnimation: false,
+      playAnimation: false
     };
     this.resizeTimeout = null;
   }
@@ -142,7 +141,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
       this.getDataHandle(0);
       this.setState({
         ...this.state,
-        selectedTime: 1,
+        selectedTime: 1
       });
     }
   }
@@ -173,12 +172,12 @@ export class Plot3DView extends Component<AppProps, AppStates> {
     }
     if (
       this.props.timeStepList.length > 1 &&
-      oldProps.timeStepList.length == 1
+      oldProps.timeStepList.length === 1
     ) {
       this.getDataHandle(0);
       this.setState({
         ...this.state,
-        selectedTime: 1,
+        selectedTime: 1
       });
     }
   }
@@ -271,7 +270,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
 
       this.renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: false,
+        antialias: false
       });
       this.renderer.setPixelRatio(window.devicePixelRatio);
       this.renderer.setClearColor(0x000000, 0);
@@ -315,7 +314,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
       origin.z,
       length * dir.x,
       length * dir.y,
-      length * dir.z,
+      length * dir.z
     ];
 
     const lineColor = new THREE.Color(color);
@@ -325,14 +324,14 @@ export class Plot3DView extends Component<AppProps, AppStates> {
       lineColor.b,
       lineColor.r,
       lineColor.g,
-      lineColor.b,
+      lineColor.b
     ];
     const geo = new LineGeometry();
     geo.setPositions(positions);
     geo.setColors(colors);
     const matLine = new LineMaterial({
       linewidth: 1.5, // in pixels
-      vertexColors: true,
+      vertexColors: true
     });
     matLine.resolution.set(800, 600);
     const line = new Line2(geo, matLine);
@@ -360,7 +359,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
         const data = inputData[index];
         const material = new THREE.LineBasicMaterial({
           linewidth: 10,
-          color: 'black',
+          color: 'black'
         });
         const geometry = new THREE.BufferGeometry();
         const vertices = new Float32Array(data.vertices.length);
@@ -388,16 +387,16 @@ export class Plot3DView extends Component<AppProps, AppStates> {
       for (const misc_key in inputData) {
         const misc_data: Array<any> = inputData[misc_key];
         if (misc_key === 'points') {
-          misc_data.forEach((pointData) => {
+          misc_data.forEach(pointData => {
             const pointPosition: Array<number> = pointData['position'];
             let radius: number;
             let color: string;
-            if (pointData.hasOwnProperty('radius')) {
+            if ('radius' in pointData) {
               radius = pointData['radius'];
             } else {
               radius = 0.1;
             }
-            if (pointData.hasOwnProperty('color')) {
+            if ('color' in pointData) {
               color = pointData['color'];
             } else {
               color = 'yellow';
@@ -416,9 +415,9 @@ export class Plot3DView extends Component<AppProps, AppStates> {
             newRefLength = Math.max(newRefLength, refLength);
           });
         } else if (misc_key === 'vectors') {
-          misc_data.forEach((vectorData) => {
+          misc_data.forEach(vectorData => {
             let color: number;
-            if (vectorData.hasOwnProperty('color')) {
+            if ('color' in vectorData) {
               color = colorNameToHex(vectorData['color']);
             } else {
               color = 0x3900f2;
@@ -461,14 +460,14 @@ export class Plot3DView extends Component<AppProps, AppStates> {
             transparent: data.transparent,
             opacity: 0.33,
             wireframe: false,
-            flatShading: true,
+            flatShading: true
           });
         } else {
           material = new THREE.MeshPhongMaterial({
             color: data.color,
             side: THREE.DoubleSide,
             wireframe: false,
-            flatShading: true,
+            flatShading: true
           });
         }
 
@@ -519,9 +518,9 @@ export class Plot3DView extends Component<AppProps, AppStates> {
    * @memberof Plot3DView
    */
   updateGeo = (shapeIndex: number, shapeData: any, forceUpdate = false) => {
-    if (this.computedScene.hasOwnProperty(shapeIndex) && !forceUpdate) {
+    if (shapeIndex in this.computedScene && !forceUpdate) {
       for (const key in this.computedScene[shapeIndex]) {
-        if (this.computedScene[shapeIndex].hasOwnProperty(key)) {
+        if (key in this.computedScene[shapeIndex]) {
           const facesGroup: THREE.Group = this.computedScene[shapeIndex][key];
           this.shapeGroup.add(facesGroup);
         }
@@ -530,7 +529,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
     } else {
       this.computedScene[shapeIndex] = {};
       for (const key in shapeData) {
-        if (shapeData.hasOwnProperty(key)) {
+        if (key in shapeData) {
           const { facesGroup, newRefLength } = Plot3DView.dataProcessing(
             key,
             shapeData[key]
@@ -552,18 +551,18 @@ export class Plot3DView extends Component<AppProps, AppStates> {
    */
   updateCamera = (cam: number) => {
     let length = 0;
-    if (this.refLength == 0) {
+    if (this.refLength === 0) {
       length = 8;
     } else {
       length = 2 * this.refLength;
     }
-    if (cam == 0) {
+    if (cam === 0) {
       this.camera.position.set(length, length, length);
-    } else if (cam == 10) {
+    } else if (cam === 10) {
       this.camera.position.set(length, 0, 0);
-    } else if (cam == 20) {
+    } else if (cam === 20) {
       this.camera.position.set(0, length, 0);
-    } else if (cam == 30) {
+    } else if (cam === 30) {
       this.camera.position.set(0, 0, length);
     }
   };
@@ -576,11 +575,11 @@ export class Plot3DView extends Component<AppProps, AppStates> {
   updateUpDirection = (cam: number) => {
     window.cancelAnimationFrame(this.requestID);
     this.controls.dispose();
-    if (cam == 10) {
+    if (cam === 10) {
       this.camera.up.set(1, 0, 0);
-    } else if (cam == 20) {
+    } else if (cam === 20) {
       this.camera.up.set(0, 1, 0);
-    } else if (cam == 30) {
+    } else if (cam === 30) {
       this.camera.up.set(0, 0, 1);
     }
 
@@ -618,7 +617,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
     this.cleanScene();
 
     let geoData: { [key: string]: any[] };
-    if (this.props.threeData.hasOwnProperty(index)) {
+    if (index in this.props.threeData) {
       geoData = this.props.threeData[index];
     } else {
       return;
@@ -677,7 +676,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
         } else if (newIndex === 0) {
           return {
             ...prevState,
-            selectedTime: this.props.timeStepList.length - 1,
+            selectedTime: this.props.timeStepList.length - 1
           };
         } else {
           return prevState;
@@ -706,7 +705,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
             return {
               ...prevState,
               selectedTime: newIndex,
-              playAnimation: true,
+              playAnimation: true
             };
           } else if (
             newIndex === this.props.timeStepList.length &&
@@ -734,21 +733,21 @@ export class Plot3DView extends Component<AppProps, AppStates> {
           style={{
             width: '100%',
             height: 'calc(100% - 36px)',
-            background: this.state.bgColor, //"radial-gradient(#efeded, #8f9091)"
+            background: this.state.bgColor //"radial-gradient(#efeded, #8f9091)"
           }}
         />
-        <Toolbar variant='dense' classes={{ dense: classes.toolbarHeigt }}>
+        <Toolbar variant="dense" classes={{ dense: classes.toolbarHeigt }}>
           <FormControl style={{ marginRight: 10 }}>
             <Select
               value={this.state.selectedView}
               classes={{
                 icon: classes.textColor,
-                select: classes.viewSelector,
+                select: classes.viewSelector
               }}
               onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
                 this.setState({
                   ...this.state,
-                  selectedView: event.target.value as number,
+                  selectedView: event.target.value as number
                 });
               }}
             >
@@ -763,12 +762,12 @@ export class Plot3DView extends Component<AppProps, AppStates> {
               value={this.state.selectedUpDir}
               classes={{
                 icon: classes.textColor,
-                select: classes.viewSelector,
+                select: classes.viewSelector
               }}
               onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
                 this.setState({
                   ...this.state,
-                  selectedUpDir: event.target.value as number,
+                  selectedUpDir: event.target.value as number
                 });
               }}
             >
@@ -796,7 +795,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
               value={this.state.selectedTime}
               classes={{
                 icon: classes.textColor,
-                select: classes.viewSelector,
+                select: classes.viewSelector
               }}
               onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
                 const index = event.target.value as number;
@@ -805,7 +804,7 @@ export class Plot3DView extends Component<AppProps, AppStates> {
                 }
                 this.setState({
                   ...this.state,
-                  selectedTime: index,
+                  selectedTime: index
                 });
               }}
             >

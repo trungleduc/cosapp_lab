@@ -23,14 +23,14 @@ interface IState {
   }>;
 }
 
-const styles: Styles<{}, {}> = () => ({
+const styles: Styles<any, any> = () => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    padding: 20,
-  },
+    padding: 20
+  }
 });
 
 class Library extends Component<IProps, IState> {
@@ -52,7 +52,7 @@ class Library extends Component<IProps, IState> {
     return (
       <div className={classes.root}>
         <Grid container spacing={6}>
-          {this.state.tileData.map((tile) => (
+          {this.state.tileData.map(tile => (
             <Grid key={tile.name} item xs={3} style={{ minWidth: 300 }}>
               <ModuleCard moduleData={tile} />
             </Grid>
@@ -70,17 +70,17 @@ function main() {
   const URL = `${BASEURL}cosapp/code`;
   fetch(URL)
     .then(
-      (response) => response.json(),
-      (reason) => {
+      response => response.json(),
+      reason => {
         alert('Server connection failed');
       }
     )
     .then(
-      (data) => {
+      data => {
         const comp = <StyledLibrary libData={data.libData} />;
         ReactDOM.render(comp, document.getElementById('main'));
       },
-      (reason) => {
+      reason => {
         alert('Server connection failed');
       }
     );

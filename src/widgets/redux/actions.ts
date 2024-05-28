@@ -2,17 +2,14 @@ import {
   Action,
   ActionType,
   StateInterface,
-  ArchAddNode,
   MainSwitchPanel,
   PanelStatusInterface,
   ArchSaveGraphJson,
   ArchSaveGraphPosition,
   ArchFilterNode,
-  ArchRemoveNode,
   ArchSelectNode,
   ArchUpdateTree,
   ArchUpdateConnectionGraph,
-  UserListType,
   ServerGetData,
   DashboardAddData,
   DashboardSetController,
@@ -21,7 +18,6 @@ import {
   DashboardUpdateController,
   DashboardUpdateComputedResult
 } from './types';
-import { addNodeUnderParent, removeNodeAtPath } from 'react-sortable-tree';
 
 /**
  * Reset store to initial state
@@ -79,9 +75,7 @@ export function mainSwitchPanel_(
     panel_5: [false, 'Module_Library']
   };
   for (const key in newPanelStatus) {
-    if (newPanelStatus.hasOwnProperty(key)) {
-      newPanelStatus[key][0] = action.panelName === newPanelStatus[key][1];
-    }
+    newPanelStatus[key][0] = action.panelName === newPanelStatus[key][1];
   }
 
   return {
@@ -158,11 +152,10 @@ export function archSaveGraphJson_(
   const new_state = { ...state };
 
   for (const sysKey in new_state.systemArch.systemGraph.systemGraphData) {
-    if (connectionData.hasOwnProperty(sysKey)) {
-      new_state.systemArch.systemGraph.systemGraphData[sysKey]['connections'] =
-        connectionData[sysKey];
-    }
-    if (positionData.hasOwnProperty(sysKey)) {
+    new_state.systemArch.systemGraph.systemGraphData[sysKey]['connections'] =
+      connectionData[sysKey];
+
+    if (sysKey in positionData) {
       new_state.systemArch.systemGraph.systemGraphData[sysKey]['position'] =
         positionData[sysKey];
     }
@@ -240,10 +233,9 @@ export function archFilterNode_(
   state: StateInterface,
   action: ArchFilterNode
 ): StateInterface {
-  let currentData: {
+  const currentData: {
     [key: string]: { visible: boolean; position: Array<number> };
-  };
-  currentData = JSON.parse(JSON.stringify(state.systemArch.systemPBS));
+  } = JSON.parse(JSON.stringify(state.systemArch.systemPBS));
   const currentSignal = state.systemArch.systemPBSUpdated;
   const selected = action.selected;
   if (action.data.length > 0) {
@@ -687,9 +679,7 @@ export function dashboardUpdateController_(
   state: StateInterface,
   action: DashboardUpdateController
 ): StateInterface {
-  if (
-    state.dashboardState.selectedVariable.hasOwnProperty(action.variableName)
-  ) {
+  if (action.variableName in state.dashboardState.selectedVariable) {
     return {
       ...state,
       dashboardState: {
@@ -725,10 +715,8 @@ export function dashboardRemoveController_(
   state: StateInterface,
   action: DashboardRemoveController
 ): StateInterface {
-  const {
-    [action.variableName]: value,
-    ...newVarList
-  } = state.dashboardState.selectedVariable;
+  const { [action.variableName]: value, ...newVarList } =
+    state.dashboardState.selectedVariable;
   return {
     ...state,
     dashboardState: { ...state.dashboardState, selectedVariable: newVarList }

@@ -17,8 +17,8 @@ const styles: Styles<Theme, any> = (theme: Theme) => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
-    margin: '0px 5px',
-  },
+    margin: '0px 5px'
+  }
 });
 
 const getGraphData = (state: StateInterface) => {
@@ -76,7 +76,7 @@ export class StructureElement extends Component<IProps, IState> {
     } else {
       traceConfig = {
         bgColor: 0,
-        highlightWidth: StructureElement.DEFAULT_HIGHLIGHT_WIDTH,
+        highlightWidth: StructureElement.DEFAULT_HIGHLIGHT_WIDTH
       };
     }
     this.state = {
@@ -90,20 +90,20 @@ export class StructureElement extends Component<IProps, IState> {
       options: {
         layout: {
           hierarchical: false,
-          randomSeed: 8,
+          randomSeed: 8
         },
         nodes: {
-          shape: 'circle',
+          shape: 'circle'
         },
         edges: {
           color: {
-            inherit: 'from',
+            inherit: 'from'
           },
-          selectionWidth: function(width) {
+          selectionWidth: function (width) {
             return StructureElement.DEFAULT_HIGHLIGHT_WIDTH * width;
-          },
-        },
-      },
+          }
+        }
+      }
     };
   }
 
@@ -126,23 +126,23 @@ export class StructureElement extends Component<IProps, IState> {
         const rawData = JSON.parse(
           JSON.stringify({
             nodes: payload['nodes'],
-            edges: payload['edges'],
+            edges: payload['edges']
           })
         );
-        const { groups, title } = payload;
+        const { groups } = payload;
         const nodes = new DataSet(payload['nodes']);
         const edges = new DataSet(payload['edges']);
         const network_data = {
           nodes,
-          edges,
+          edges
         };
         this.generateNetwork(network_data, this.state.options, false);
-        this.setState((old) => ({
+        this.setState(old => ({
           ...old,
           nodes,
           edges,
           systems: groups,
-          rawData,
+          rawData
         }));
         break;
       }
@@ -166,10 +166,12 @@ export class StructureElement extends Component<IProps, IState> {
     window.removeEventListener('resize', this._resizeHandler);
   }
 
-  measure = (data) => {
+  measure = data => {
     try {
       this._network.fit({ animation: true });
-    } catch {}
+    } catch {
+      console.error;
+    }
   };
 
   bestFit = () => {
@@ -184,9 +186,9 @@ export class StructureElement extends Component<IProps, IState> {
       top: Infinity,
       left: Infinity,
       right: -Infinity,
-      bottom: -Infinity,
+      bottom: -Infinity
     };
-    nodes.getIds().forEach((i) => {
+    nodes.getIds().forEach(i => {
       const bb = network.getBoundingBox(i);
       if (bb.top < bigBB.top) {
         bigBB.top = bb.top;
@@ -220,13 +222,13 @@ export class StructureElement extends Component<IProps, IState> {
       scale: scale,
       position: {
         x: (bigBB.right + bigBB.left) / 2,
-        y: (bigBB.bottom + bigBB.top) / 2,
-      },
+        y: (bigBB.bottom + bigBB.top) / 2
+      }
     });
   };
 
   /**
-   * Get edge object from its id, return `null` 
+   * Get edge object from its id, return `null`
    * if edge does not exist
    *
    * @memberof StructureElement
@@ -247,7 +249,7 @@ export class StructureElement extends Component<IProps, IState> {
 
     if (!hierarchicalLayout) {
       // Cluster from double-clicked node
-      network.on('doubleClick', (params) => {
+      network.on('doubleClick', params => {
         if (params.nodes.length === 1) {
           if (network.isCluster(params.nodes[0])) {
             network.openCluster(params.nodes[0]);
@@ -258,16 +260,16 @@ export class StructureElement extends Component<IProps, IState> {
       });
 
       // Suppress cluster when click on
-      network.on('selectNode', (params) => {
+      network.on('selectNode', params => {
         // Set width of selected edges
         const edgeIdList: Array<string> = params.edges;
-        edgeIdList.forEach((id) => {
+        edgeIdList.forEach(id => {
           setSelectionWidth(id, this.state.traceConfig.highlightWidth);
         });
       });
 
       // Force fit once the system is stabilized
-      network.on('stabilized', (params) => {
+      network.on('stabilized', params => {
         network.fit({ animation: true });
       });
 
@@ -304,17 +306,16 @@ export class StructureElement extends Component<IProps, IState> {
 
           connectedNodes.forEach((nodeId, idx) => {
             let innerDirection: 'from' | 'to' | 'both';
-            if (direction == 'both') {
+            if (direction === 'both') {
               innerDirection = idx === 0 ? 'to' : 'from';
             } else {
               innerDirection = direction;
             }
 
-            const connectedEdges: Array<string> = this._network.getConnectedEdges(
-              nodeId
-            );
+            const connectedEdges: Array<string> =
+              this._network.getConnectedEdges(nodeId);
 
-            connectedEdges.forEach((edgeId) => {
+            connectedEdges.forEach(edgeId => {
               const currentEdge = this.getEdgeById(edgeId);
 
               if (
@@ -344,11 +345,11 @@ export class StructureElement extends Component<IProps, IState> {
           edge.options.selectionWidth = this.selectionWidthFactory(multiplier);
         }
       };
-      network.on('selectEdge', (params) => {
+      network.on('selectEdge', params => {
         const edgeIdList: Array<string> = params.edges;
         if (edgeIdList.length === 1) {
           const allId = getLinkedEdges(edgeIdList[0]);
-          allId.forEach((id) => {
+          allId.forEach(id => {
             setSelectionWidth(id, this.state.traceConfig.highlightWidth);
           });
           this._network.selectEdges(allId);
@@ -361,14 +362,14 @@ export class StructureElement extends Component<IProps, IState> {
 
   clusterSystem = (system, system_name, group_name, nodes) => {
     const clusterOptionsByData = {
-      joinCondition: function(childOptions) {
+      joinCondition: function (childOptions) {
         return childOptions.group === system; // the system is fully defined in the node.
       },
-      processProperties: function(clusterOptions, childNodes, childEdges) {
+      processProperties: function (clusterOptions, childNodes, childEdges) {
         const hidden_node = nodes.get({
-          filter: function(node) {
+          filter: function (node) {
             return node.name === system_name;
-          },
+          }
         });
         clusterOptions.title = hidden_node[0].title;
         clusterOptions.label = hidden_node[0].label;
@@ -380,8 +381,8 @@ export class StructureElement extends Component<IProps, IState> {
         shape: 'database',
         name: system_name,
         group: group_name,
-        allowSingleNodeCluster: true,
-      },
+        allowSingleNodeCluster: true
+      }
     };
     this._network.cluster(clusterOptionsByData);
   };
@@ -389,7 +390,7 @@ export class StructureElement extends Component<IProps, IState> {
   clusterBySystem = () => {
     const network_data = {
       nodes: this.state.nodes,
-      edges: this.state.edges,
+      edges: this.state.edges
     };
     const options = this.state.options;
     this.generateNetwork(network_data, options, false);
@@ -398,7 +399,9 @@ export class StructureElement extends Component<IProps, IState> {
       const hierarchy = system.split('.');
       const system_name = hierarchy.pop();
 
-      if (hierarchy.length === 0) continue; // Don't group last level
+      if (hierarchy.length === 0) {
+        continue;
+      } // Don't group last level
 
       this.clusterSystem(
         system,
@@ -416,14 +419,14 @@ export class StructureElement extends Component<IProps, IState> {
 
   setHierarchicalLayout = () => {
     const hierarchyView = new DataView(this.state.nodes, {
-      filter: (item) => {
+      filter: item => {
         return item.label !== undefined && item.label.length > 0;
       },
-      fields: ['id', 'label', 'name', 'title', 'group', 'shape', 'level'],
+      fields: ['id', 'label', 'name', 'title', 'group', 'shape', 'level']
     });
 
     const hierarchyEdges = [];
-    this.state.rawData.edges.forEach((item) => {
+    this.state.rawData.edges.forEach(item => {
       if (item.hidden !== undefined && item.hidden) {
         const newItem = JSON.parse(JSON.stringify(item));
         delete newItem['hidden'];
@@ -433,29 +436,29 @@ export class StructureElement extends Component<IProps, IState> {
 
     const data = {
       nodes: hierarchyView,
-      edges: new DataSet(hierarchyEdges),
+      edges: new DataSet(hierarchyEdges)
     };
 
     const options = {
       layout: {
         hierarchical: {
-          enabled: true,
-        },
+          enabled: true
+        }
       },
       physics: false,
       edges: {
         color: {
-          inherit: true,
+          inherit: true
         },
-        selectionWidth: function(width) {
+        selectionWidth: function (width) {
           return StructureElement.DEFAULT_HIGHLIGHT_WIDTH * width;
-        },
-      },
+        }
+      }
     };
     this.generateNetwork(data, options, true);
   };
 
-  clusterFromSelection = (node_idx) => {
+  clusterFromSelection = node_idx => {
     const selected_node = this.state.nodes.get(node_idx);
     const systems = this.state.systems;
     // Extract list of groups at selected_node level or below
@@ -472,7 +475,7 @@ export class StructureElement extends Component<IProps, IState> {
 
     const network_data = {
       nodes: this.state.nodes,
-      edges: this.state.edges,
+      edges: this.state.edges
     };
     this._network.setData(network_data);
     for (let i = 0; i < subsystems.length; i++) {
@@ -497,7 +500,7 @@ export class StructureElement extends Component<IProps, IState> {
   resetAllClusters = () => {
     const network_data = {
       nodes: this.state.nodes,
-      edges: this.state.edges,
+      edges: this.state.edges
     };
     this.generateNetwork(network_data, this.state.options, false);
   };
@@ -507,14 +510,16 @@ export class StructureElement extends Component<IProps, IState> {
         <div
           className={this.state.traceConfig['bgColor'] === 1 ? 'pbsView' : null}
           id={this.state.divID}
-          style={{ height: 'calc(100% - 30px)' }}></div>
+          style={{ height: 'calc(100% - 30px)' }}
+        ></div>
         <div style={{ height: '30px', display: 'flex', background: '#e0e0e0' }}>
           <Button onClick={this.clusterBySystem}>Clustered</Button>
           <Button onClick={this.setHierarchicalLayout}>Hierarchical</Button>
           <Button
             onClick={() => {
               this.props.send_msg({ action: 'StructureView::getData' });
-            }}>
+            }}
+          >
             Exploded View
           </Button>
 
@@ -522,14 +527,15 @@ export class StructureElement extends Component<IProps, IState> {
             <Select
               value={this.state.traceConfig['bgColor']}
               onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
-                this.setState((old) => ({
+                this.setState(old => ({
                   ...old,
                   traceConfig: {
                     ...old.traceConfig,
-                    bgColor: event.target.value as number,
-                  },
+                    bgColor: event.target.value as number
+                  }
                 }));
-              }}>
+              }}
+            >
               <MenuItem value={1}>Dark</MenuItem>
               <MenuItem value={0}>Light</MenuItem>
             </Select>
@@ -538,15 +544,16 @@ export class StructureElement extends Component<IProps, IState> {
             <Select
               value={this.state.traceConfig['highlightWidth']}
               onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
-                this.setState((old) => ({
+                this.setState(old => ({
                   ...old,
                   traceConfig: {
                     ...old.traceConfig,
-                    highlightWidth: event.target.value as number,
-                  },
+                    highlightWidth: event.target.value as number
+                  }
                 }));
-              }}>
-              {[2, 3, 4, 5, 6, 7, 8, 9].map((val) => (
+              }}
+            >
+              {[2, 3, 4, 5, 6, 7, 8, 9].map(val => (
                 <MenuItem value={val}> {`Highlight width: x${val}`}</MenuItem>
               ))}
             </Select>
@@ -558,7 +565,7 @@ export class StructureElement extends Component<IProps, IState> {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {
-  forwardRef: true,
+  forwardRef: true
 })(
   withStyles(styles)(
     forwardRef((props: IProps, ref: any) => (

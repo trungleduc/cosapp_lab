@@ -19,7 +19,7 @@
     "declaration": true,
     "incremental": true,
     "preserveWatchOutput": true,
-    "paths": { "react": [ "./node_modules/@types/react" ] }
+    "paths": { "react": ["./node_modules/@types/react"] }
     // "strict": true,
     // "strictNullChecks": true,
   },

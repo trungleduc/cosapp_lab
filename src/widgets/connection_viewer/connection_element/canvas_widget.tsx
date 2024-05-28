@@ -2,7 +2,7 @@ import * as React from 'react';
 export interface CanvasWidgetProps {
   color?: string;
   background?: string;
-  children: any
+  children: any;
 }
 
 export class BaseCanvasWidget extends React.Component<CanvasWidgetProps> {

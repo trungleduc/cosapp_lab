@@ -16,12 +16,12 @@ describe('Test <ParameterController/>', () => {
     initialState.dashboardState.portMetaData = {
       sys: {
         port: {
-          variable: { desc: null, limits: null, valid_range: null, unit: null },
-        },
-      },
+          variable: { desc: null, limits: null, valid_range: null, unit: null }
+        }
+      }
     };
     const store = mockStore({
-      ...initialState,
+      ...initialState
     });
     const varName = 'sys.port.variable';
     wrapper = mount(

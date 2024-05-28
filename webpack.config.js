@@ -7,22 +7,22 @@ const externals = [
   /^@lumino\/.+$/,
   /^@jupyterlab\/.+$/,
   '@jupyter-widgets/base',
-  'codemirror',
+  'codemirror'
 ];
 
 const rules = [
   {
     test: /\.js$/,
     loader: 'source-map-loader',
-    exclude: path.resolve(__dirname, 'node_modules'),
+    exclude: path.resolve(__dirname, 'node_modules')
   },
   { test: /\.css$/, use: ['style-loader', 'css-loader'] },
   { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader' },
   {
     test: /node_modules/,
     loader: 'ify-loader',
-    exclude: /flexlayout-react/,
-  },
+    exclude: /flexlayout-react/
+  }
 ];
 
 const labTarget = {
@@ -31,12 +31,12 @@ const labTarget = {
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
-    libraryTarget: 'amd',
+    libraryTarget: 'amd'
   },
   module: {
-    rules: rules,
+    rules: rules
   },
-  externals,
+  externals
 };
 
 const distRoot = path.resolve(
@@ -54,13 +54,13 @@ const appTarget = {
   output: {
     path: distRoot,
     filename: 'index.js',
-    libraryTarget: 'amd',
+    libraryTarget: 'amd'
   },
   module: {
-    rules: rules,
+    rules: rules
   },
   // resolve,
-  externals: app_ext,
+  externals: app_ext
 };
 
 const libraryTarget = {
@@ -69,14 +69,14 @@ const libraryTarget = {
   output: {
     path: distRoot,
     filename: 'library.js',
-    libraryTarget: 'amd',
+    libraryTarget: 'amd'
   },
   module: {
-    rules: rules,
-  },
+    rules: rules
+  }
 };
 
-module.exports = (env) => {
+module.exports = env => {
   let mode = 'development';
   if (env.MODE === 'prod') {
     labTarget.mode = 'production';

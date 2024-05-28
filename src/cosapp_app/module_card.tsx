@@ -24,24 +24,24 @@ interface IState {
   openSetting: boolean;
 }
 
-const styles: Styles<{}, {}> = () => ({
+const styles: Styles<any, any> = () => ({
   root: {
     minWidth: 275,
     height: 200,
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
-    transform: 'scale(0.8)',
+    transform: 'scale(0.8)'
   },
   title: {
-    fontSize: 14,
+    fontSize: 14
   },
   pos: {
-    marginBottom: 12,
-  },
+    marginBottom: 12
+  }
 });
 const DESC_LENGTH = 100;
 class ModuleCard extends Component<IProps, IState> {
@@ -58,14 +58,15 @@ class ModuleCard extends Component<IProps, IState> {
 
   onMouseOut = () => this.setState({ raised: 10 });
 
-  startModule = () =>
-  {
+  startModule = () => {
     window.sessionStorage.removeItem('adso_kernel_name');
     window.sessionStorage.removeItem('adso_kernel_id');
-    const currentUrl = window.location.href.split('?')[0]
-    const baseUrl = currentUrl.endsWith('/')? currentUrl.slice(0, -1) : currentUrl
-    window.location.href = `${baseUrl}/module/${this.props.moduleData.name}`
-  }
+    const currentUrl = window.location.href.split('?')[0];
+    const baseUrl = currentUrl.endsWith('/')
+      ? currentUrl.slice(0, -1)
+      : currentUrl;
+    window.location.href = `${baseUrl}/module/${this.props.moduleData.name}`;
+  };
 
   render = () => {
     const { classes } = this.props;
@@ -83,14 +84,15 @@ class ModuleCard extends Component<IProps, IState> {
       <div>
         <Dialog
           open={this.state.openSetting}
-          aria-labelledby='draggable-dialog-title'
+          aria-labelledby="draggable-dialog-title"
           fullWidth={true}
-          maxWidth='md'>
-          <DialogTitle className='draggable-dialog-title'>
+          maxWidth="md"
+        >
+          <DialogTitle className="draggable-dialog-title">
             {this.props.moduleData.title}
           </DialogTitle>
           <DialogContent>
-            <Typography variant='body1' style={{ whiteSpace: 'pre-line' }}>
+            <Typography variant="body1" style={{ whiteSpace: 'pre-line' }}>
               {readme}
             </Typography>
           </DialogContent>
@@ -98,9 +100,10 @@ class ModuleCard extends Component<IProps, IState> {
             <Button
               autoFocus
               onClick={() => {
-                this.setState((old) => ({ ...old, openSetting: false }));
+                this.setState(old => ({ ...old, openSetting: false }));
               }}
-              color='primary'>
+              color="primary"
+            >
               Close
             </Button>
           </DialogActions>
@@ -111,37 +114,38 @@ class ModuleCard extends Component<IProps, IState> {
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}
           style={{
-            background: this.state.raised === 10 ? 'aliceblue' : '#cfe9ff',
-          }}>
+            background: this.state.raised === 10 ? 'aliceblue' : '#cfe9ff'
+          }}
+        >
           <CardContent style={{ flexGrow: 1, padding: '16px 16px 0px 16px' }}>
-            <Typography variant='h5' component='h2'>
+            <Typography variant="h5" component="h2">
               {this.props.moduleData.title}
             </Typography>
             <Typography
               className={classes.title}
-              color='textSecondary'
-              gutterBottom>
+              color="textSecondary"
+              gutterBottom
+            >
               Module : {moduleName}
             </Typography>
             <Typography
-              variant='body2'
-              component='p'
-              style={{ maxHeight: 80, overflow: 'hidden' }}>
+              variant="body2"
+              component="p"
+              style={{ maxHeight: 80, overflow: 'hidden' }}
+            >
               {this.state.shortDesc}
             </Typography>
           </CardContent>
           <CardActions style={{ justifyContent: 'space-between' }}>
             <Button
-              size='small'
+              size="small"
               onClick={() => {
-                this.setState((old) => ({ ...old, openSetting: true }));
-              }}>
+                this.setState(old => ({ ...old, openSetting: true }));
+              }}
+            >
               Learn More
             </Button>
-            <Button
-              onClick = {this.startModule}
-              color='primary'
-              size='small'>
+            <Button onClick={this.startModule} color="primary" size="small">
               Start
             </Button>
           </CardActions>

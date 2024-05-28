@@ -1,1 +1,1 @@
-module.exports = function mock(data){};
+module.exports = function mock(data) {};
