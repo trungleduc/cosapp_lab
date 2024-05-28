@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import StructureElement from './structure_element/structure_element';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class StructureWidgetModel extends BaseWidgetModel {
   model_name = 'StructureWidgetModel';

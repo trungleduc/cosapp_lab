@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import GraphPanel from './connection_element/graph_view';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class ConnectionWidgetModel extends BaseWidgetModel {
   model_name = 'ConnectionWidgetModel';

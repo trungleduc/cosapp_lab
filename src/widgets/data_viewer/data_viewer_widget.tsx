@@ -1,7 +1,7 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import DataViewer from './data_element/data_viewer';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
+
 // import '../../../style/sys_exp.css';
 
 export class DataWidgetModel extends BaseWidgetModel {

@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import PBSElement from './pbs_element/pbs_element';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class PbsWidgetModel extends BaseWidgetModel {
   model_name = 'PbsWidgetModel';

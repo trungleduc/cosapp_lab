@@ -9,14 +9,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper, { PaperProps } from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
-import { Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
 import Edit from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Styles } from '@material-ui/styles/withStyles';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-
 import { connect } from 'react-redux';
 
 import { create_UUID } from '../../../utils/tools';

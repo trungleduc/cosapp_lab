@@ -1,9 +1,11 @@
 import * as base from '@jupyter-widgets/base';
 import { HTMLManager } from '@jupyter-widgets/html-manager';
-import { SysExplorerModel } from '../widgets/sysexplorer/sysexplorer_widget';
-import { SysExplorerAppView } from './sysexplorer_app';
+
 import { IpyWidgetRenderModel, IpyWidgetRenderView } from '../ipywidget_render';
+import { SysExplorerModel } from '../widgets/sysexplorer/sysexplorer_widget';
 import { remoteLoader } from './loader';
+import { SysExplorerAppView } from './sysexplorer_app';
+
 export class WidgetManager extends HTMLManager {
   kernel;
   constructor(kernel) {

@@ -2,6 +2,7 @@
 import { VBoxModel, VBoxView } from '@jupyter-widgets/controls';
 import { UUID } from '@lumino/coreutils';
 import { Widget } from '@lumino/widgets';
+
 import '../style/sidecar.css';
 import { MODULE_NAME, MODULE_VERSION } from './version';
 

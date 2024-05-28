@@ -3,8 +3,8 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Fab from '@material-ui/core/Fab';
-import { Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { Theme } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
@@ -12,10 +12,12 @@ import PlayArrowOutlinedIcon from '@material-ui/icons/PlayArrowOutlined';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as ReduxAction from '../../redux/actions';
 import { StateInterface } from '../../redux/types';
 import AddVariableDialog from './add_variable_dialog';
 import ParameterController from './param_controller';
+
 const styles: Styles<Theme, any> = (theme: Theme) => ({
   mainPanel: {
     display: 'flex',

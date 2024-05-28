@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -9,14 +10,15 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Line2 } from 'three/examples/jsm/lines/Line2.js';
 import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
-import { colorNameToHex } from '../../../utils/tools';
+
 import * as ReduxAction from '../../redux/actions';
+import { colorNameToHex } from '../../../utils/tools';
 import { StateInterface } from '../../redux/types';
+
 interface AppProps {
   send_msg: any;
   model: any;

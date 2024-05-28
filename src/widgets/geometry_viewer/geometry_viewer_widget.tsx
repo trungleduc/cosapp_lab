@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import GeometryElement from './geometry_element/geometry_element';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class GeometryWidgetModel extends BaseWidgetModel {
   model_name = 'GeometryWidgetModel';

@@ -1,12 +1,14 @@
-import { IDict } from './../widgets/redux/types';
 import {
   Kernel,
-  ServerConnection,
+  KernelManager,
   KernelMessage,
-  KernelManager
+  ServerConnection
 } from '@jupyterlab/services';
+
+import { IDict } from './../widgets/redux/types';
 import CoSAppGetUrl from './cosapp_url';
 import { WidgetManager } from './manager';
+
 export * as base from '@jupyter-widgets/base';
 export * as controls from '@jupyter-widgets/controls';
 

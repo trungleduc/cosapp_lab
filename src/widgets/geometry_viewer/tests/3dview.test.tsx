@@ -1,14 +1,15 @@
-import { Provider } from 'react-redux';
-import { mockState } from '../../../utils/tests/store_mock';
-import React from 'react';
-import { configure, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { createShallow } from '@material-ui/core/test-utils';
+import { ShallowWrapper, configure, shallow } from 'enzyme';
+import React from 'react';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import { mockState } from '../../../utils/tests/store_mock';
+import { MockModel } from '../../../utils/tests/utils';
 import Plot3DView from '../geometry_element/3dview';
 import { Plot3DView as Plot3DViewStock } from '../geometry_element/3dview';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import { createShallow } from '@material-ui/core/test-utils';
-import { MockModel } from '../../../utils/tests/utils';
 import { geoData } from './geodata';
 
 configure({ adapter: new Adapter() });

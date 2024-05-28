@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 export interface CanvasWidgetProps {
   color?: string;
   background?: string;

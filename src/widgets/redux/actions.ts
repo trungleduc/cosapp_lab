@@ -1,22 +1,22 @@
 import {
   Action,
   ActionType,
-  StateInterface,
-  MainSwitchPanel,
-  PanelStatusInterface,
+  ArchFilterNode,
   ArchSaveGraphJson,
   ArchSaveGraphPosition,
-  ArchFilterNode,
   ArchSelectNode,
-  ArchUpdateTree,
   ArchUpdateConnectionGraph,
-  ServerGetData,
-  DashboardAddData,
-  DashboardSetController,
+  ArchUpdateTree,
   DashboardAddController,
+  DashboardAddData,
   DashboardRemoveController,
+  DashboardSetController,
+  DashboardUpdateComputedResult,
   DashboardUpdateController,
-  DashboardUpdateComputedResult
+  MainSwitchPanel,
+  PanelStatusInterface,
+  ServerGetData,
+  StateInterface
 } from './types';
 
 /**

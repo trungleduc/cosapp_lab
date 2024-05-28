@@ -1,14 +1,15 @@
 // Copyright (c) CoSApp Team
-import { VBoxView } from '@jupyter-widgets/controls';
 import * as React from 'react';
+import { VBoxView } from '@jupyter-widgets/controls';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+
 import '../../style/sys_exp.css';
 import { createInitialStore, getEnhancers } from '../widgets/base/base_widget';
-import SysExplorerElement from '../widgets/sysexplorer/sysexplorer_element/sysexplorer_element';
 import { initialState, rootReducer } from '../widgets/redux/reducers';
 import { StateInterface } from '../widgets/redux/types';
+import SysExplorerElement from '../widgets/sysexplorer/sysexplorer_element/sysexplorer_element';
 
 export class SysExplorerAppView extends VBoxView {
   class_name = 'cosapp-chart-viewer';

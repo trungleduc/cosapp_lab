@@ -1,23 +1,26 @@
-//@ts-ignore
-global.URL.createObjectURL = jest.fn();
-HTMLCanvasElement.prototype.getContext = jest.fn();
-import { Provider } from 'react-redux';
-import { initialState } from '../../redux/reducers';
-import React from 'react';
-import { configure, mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { ReactWrapper, configure, mount } from 'enzyme';
+import React from 'react';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import {
+  MockModel,
+  computedResult,
+  driverData,
+  recorderData
+} from '../../../utils/tests/utils';
+import { initialState } from '../../redux/reducers';
+import { StateInterface } from '../../redux/types';
 import ChartElement, {
   ChartElement as PureChartElement
 } from '../chart_element/chartelement';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import {
-  MockModel,
-  recorderData,
-  computedResult,
-  driverData
-} from '../../../utils/tests/utils';
-import { StateInterface } from '../../redux/types';
+
+//@ts-ignore
+global.URL.createObjectURL = jest.fn();
+HTMLCanvasElement.prototype.getContext = jest.fn();
+
 configure({ adapter: new Adapter() });
 
 const mockStore = configureMockStore([thunk]);

@@ -8,13 +8,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import Paper, { PaperProps } from '@material-ui/core/Paper';
-import { Theme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -37,6 +37,7 @@ import 'flexlayout-react/style/light.css';
 import MaterialTable from 'material-table';
 import React, { Component, forwardRef } from 'react';
 import { connect } from 'react-redux';
+
 import { IDict, StateInterface } from '../../redux/types';
 
 const tableIcons = {

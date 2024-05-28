@@ -11,9 +11,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper, { PaperProps } from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
-import { Theme } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -24,6 +24,7 @@ import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
 // import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
+
 import { carpet_data_factory } from '../../../utils/tools';
 import { IDict, StateInterface } from '../../redux/types';
 import Plot from './plotly_factory';

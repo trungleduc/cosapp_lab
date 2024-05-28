@@ -1,8 +1,7 @@
 // Copyright (c) CoSApp Team
-
 import * as React from 'react';
 
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 // import '../../../style/sys_exp.css';
 import ChartElement from './chart_element/chartelement';
 

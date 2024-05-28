@@ -12,6 +12,7 @@ import createEngine, {
 import { DiagramEngine } from '@projectstorm/react-diagrams-core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { IDict, StateInterface, SystemGraphInterface } from '../../redux/types';
 import { BaseCanvasWidget } from './canvas_widget';
 import {

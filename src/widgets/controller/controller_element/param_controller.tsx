@@ -4,15 +4,17 @@ import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import Popover from '@material-ui/core/Popover';
 import Slider from '@material-ui/core/Slider';
-import { Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { Theme } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { create_UUID } from '../../../utils/tools';
+
 import * as ReduxAction from '../../redux/actions';
+import { create_UUID } from '../../../utils/tools';
 import { IDict, StateInterface } from '../../redux/types';
+
 const styles: Styles<Theme, any> = (theme: Theme) => ({
   popover: {
     pointerEvents: 'none'

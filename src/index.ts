@@ -1,5 +1,4 @@
 // Copyright (c) CoSApp Team
-
 import { IJupyterWidgetRegistry } from '@jupyter-widgets/base';
 import {
   ILabShell,
@@ -7,9 +6,10 @@ import {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 import { INotebookTracker } from '@jupyterlab/notebook';
+
 import * as widgetExports from './plugin';
-import { BaseWidgetView } from './widgets/base/base_widget';
 import { MODULE_NAME, MODULE_VERSION } from './version';
+import { BaseWidgetView } from './widgets/base/base_widget';
 
 const EXTENSION_ID = 'cosapp_lab:plugin';
 

@@ -5,12 +5,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
-import { Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as ReduxAction from '../../redux/actions';
 import { StateInterface } from '../../redux/types';
 

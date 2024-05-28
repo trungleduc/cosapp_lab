@@ -1,3 +1,4 @@
+import * as FlexLayout from 'flexlayout-react';
 import { ServerConnection } from '@jupyterlab/services';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
@@ -8,29 +9,28 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Theme } from '@material-ui/core/styles';
 import AddToPhotosOutlinedIcon from '@material-ui/icons/AddToPhotosOutlined';
 import { Styles } from '@material-ui/styles/withStyles';
-import * as FlexLayout from 'flexlayout-react';
 import 'flexlayout-react/style/light.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import * as ReduxAction from '../../redux/actions';
 import CoSAppGetUrl from '../../../cosapp_app/cosapp_url';
-import PBSElement from '../../pbs_viewer/pbs_element/pbs_element';
 import ChartElement from '../../chart_viewer/chart_element/chartelement';
 import GraphPanel from '../../connection_viewer/connection_element/graph_view';
 import Controller from '../../controller/controller_element/controller';
 import DataViewer from '../../data_viewer/data_element/data_viewer';
 import GeometryElement from '../../geometry_viewer/geometry_element/geometry_element';
+import PBSElement from '../../pbs_viewer/pbs_element/pbs_element';
+import { IDict, StateInterface } from '../../redux/types';
 import StructureElement from '../../structure_widget/structure_element/structure_element';
 import SystemInfoElement from '../../system_info_widget/system_info_element/system_info_element';
 import DocumentViewer, { IAvailableDocument } from './document_viewer';
 import WidgetViewer, { IAvailableWidget } from './widget_viewer';
-import * as ReduxAction from '../../redux/actions';
-import { IDict, StateInterface } from '../../redux/types';
 
 const styles: Styles<any, any> = (theme: Theme) => ({
   textSizeSmall: {

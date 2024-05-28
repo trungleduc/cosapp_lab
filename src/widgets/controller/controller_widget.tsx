@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import Controller from './controller_element/controller';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class ControllerWidgetModel extends BaseWidgetModel {
   model_name = 'ControllerWidgetModel';

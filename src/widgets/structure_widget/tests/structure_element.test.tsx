@@ -1,10 +1,11 @@
-import React from 'react';
-import { configure, shallow, ShallowWrapper } from 'enzyme';
-import { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { StructureElement } from '../structure_element/structure_element';
 import { createShallow } from '@material-ui/core/test-utils';
+import { ShallowWrapper, configure, shallow } from 'enzyme';
+import { ReactWrapper, mount } from 'enzyme';
+import React from 'react';
+
 import { MockModel } from '../../../utils/tests/utils';
+import { StructureElement } from '../structure_element/structure_element';
 
 const MOCK_DATA = {
   type: 'StructureView::structureData',

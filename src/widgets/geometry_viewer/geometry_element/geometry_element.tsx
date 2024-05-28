@@ -2,6 +2,7 @@ import { withStyles } from '@material-ui/core';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as ReduxAction from '../../redux/actions';
 import { StateInterface } from '../../redux/types';
 import Plot3DView from './3dview';

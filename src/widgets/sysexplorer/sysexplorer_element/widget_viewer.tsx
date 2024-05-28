@@ -1,3 +1,4 @@
+import { python } from '@codemirror/lang-python';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,15 +10,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper, { PaperProps } from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
-import { Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
 import Edit from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Styles } from '@material-ui/styles/withStyles';
+import CodeMirror from '@uiw/react-codemirror';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { python } from '@codemirror/lang-python';
 import { connect } from 'react-redux';
 
 import { create_UUID } from '../../../utils/tools';
@@ -288,31 +288,6 @@ def generate_widget(sys : System)-> widgets.Widget:
           </DialogTitle>
           <DialogContent style={{ height: '50vh' }}>
             <div style={{ height: 'calc(100% - 60px)', overflowY: 'auto' }}>
-              {/* <CodeMirror
-                value={this.state.traceConfig.pythonCode}
-                options={{
-                  // mode: 'python',
-                  lineNumbers: true,
-                  lineWrapping: true,
-                  smartIndent: true,
-                  indentWithTabs: false,
-                  tabSize: 4,
-                  indentUnit: 4,
-                  foldGutter: true,
-                  gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-                  autoCloseTags: true,
-                  matchBrackets: true,
-                  autoCloseBrackets: true,
-                  extraKeys: { Tab: betterTab }
-                }}
-                onBeforeChange={(editor, data, value) => {
-                  this.setState(old => ({
-                    ...old,
-                    traceConfig: { ...old.traceConfig, pythonCode: value }
-                  }));
-                }}
-                onChange={(editor, data, value) => {}}
-              /> */}
               <CodeMirror
                 value={this.state.traceConfig.pythonCode}
                 height="100%"

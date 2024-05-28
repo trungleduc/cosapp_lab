@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core';
-import { Styles } from '@material-ui/styles/withStyles';
-import { Theme } from '@material-ui/core/styles';
-
-import { connect } from 'react-redux';
-import { StateInterface } from '../../redux/types';
-import * as ReduxAction from '../../redux/actions';
-import Button from '@material-ui/core/Button';
 import G6 from '@antv/g6';
 import { TreeGraph } from '@antv/g6';
+import { withStyles } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { Theme } from '@material-ui/core/styles';
+import { Styles } from '@material-ui/styles/withStyles';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import * as ReduxAction from '../../redux/actions';
 import { debounce } from '../../redux/tools';
+import { StateInterface } from '../../redux/types';
 
 const styles: Styles<Theme, any> = (theme: Theme) => ({
   textColor: {

@@ -1,11 +1,13 @@
-import { Provider } from 'react-redux';
-import { initialState } from '../../redux/reducers';
-import React from 'react';
-import { configure, mount } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import ParameterController from '../controller_element/param_controller';
-import thunk from 'redux-thunk';
+import { configure, mount } from 'enzyme';
+import React from 'react';
+import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import { initialState } from '../../redux/reducers';
+import ParameterController from '../controller_element/param_controller';
+
 configure({ adapter: new Adapter() });
 
 const mockStore = configureMockStore([thunk]);

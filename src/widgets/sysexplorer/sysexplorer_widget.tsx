@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import SysExplorerElement from './sysexplorer_element/sysexplorer_element';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class SysExplorerModel extends BaseWidgetModel {
   model_name = 'SysExplorerModel';

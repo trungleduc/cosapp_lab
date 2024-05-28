@@ -1,10 +1,12 @@
-import ReactDOM from 'react-dom';
-import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
-import { Styles } from '@material-ui/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import ModuleCard from './module_card';
+import { Styles } from '@material-ui/styles/withStyles';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import CoSAppGetUrl from './cosapp_url';
+import ModuleCard from './module_card';
+
 interface IProps {
   libData: {
     [key: string]: {

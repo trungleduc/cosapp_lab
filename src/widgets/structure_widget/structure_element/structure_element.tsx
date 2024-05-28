@@ -1,17 +1,18 @@
-import React, { Component, forwardRef } from 'react';
 import { withStyles } from '@material-ui/core';
-import { Styles } from '@material-ui/styles/withStyles';
-import { Theme } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
-import { StateInterface, IDict } from '../../redux/types';
-import { debounce } from '../../redux/tools';
 import Button from '@material-ui/core/Button';
-import { DataSet, Network, DataView } from 'vis';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import { create_UUID } from '../../../utils/tools';
+import { Theme } from '@material-ui/core/styles';
+import { Styles } from '@material-ui/styles/withStyles';
+import React, { Component, forwardRef } from 'react';
+import { connect } from 'react-redux';
+import { DataSet, DataView, Network } from 'vis';
 import 'vis/dist/vis.min.css';
+
+import { create_UUID } from '../../../utils/tools';
+import { debounce } from '../../redux/tools';
+import { IDict, StateInterface } from '../../redux/types';
 
 const styles: Styles<Theme, any> = (theme: Theme) => ({
   textColor: {

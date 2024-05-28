@@ -1,16 +1,16 @@
-import React, { Component, forwardRef } from 'react';
-import { withStyles } from '@material-ui/core';
-import { Styles } from '@material-ui/styles/withStyles';
-import { Theme } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
-import { StateInterface, IDict } from '../../redux/types';
-import TextField from '@material-ui/core/TextField';
-
-import FormControl from '@material-ui/core/FormControl';
-import { removeMath, replaceMath } from '@jupyterlab/rendermime';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import marked from 'marked';
 import { PageConfig } from '@jupyterlab/coreutils';
+import { removeMath, replaceMath } from '@jupyterlab/rendermime';
+import { withStyles } from '@material-ui/core';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Styles } from '@material-ui/styles/withStyles';
+import marked from 'marked';
+import React, { Component, forwardRef } from 'react';
+import { connect } from 'react-redux';
+
+import { IDict, StateInterface } from '../../redux/types';
 
 marked.setOptions({
   gfm: true,

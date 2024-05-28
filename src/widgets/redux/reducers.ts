@@ -1,5 +1,5 @@
-import { Action, ActionType, StateInterface } from './types';
 import * as ActionFunc from './actions';
+import { Action, ActionType, StateInterface } from './types';
 
 export const initialState: StateInterface = {
   systemConfig: {},

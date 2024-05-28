@@ -1,26 +1,25 @@
 // Copyright (c) CoSApp Team
+import * as React from 'react';
 import { BoxModel, VBoxView } from '@jupyter-widgets/controls';
 import { ILabShell } from '@jupyterlab/application';
+import { ReactWidget } from '@jupyterlab/apputils';
 import { INotebookTracker } from '@jupyterlab/notebook';
 import { Kernel } from '@jupyterlab/services';
-import { ReactWidget } from '@jupyterlab/apputils';
 import { UUID } from '@lumino/coreutils';
-import ElementWrapper from './element_wrapper';
-
-import * as React from 'react';
+import { Message } from '@lumino/messaging';
+import { Panel } from '@lumino/widgets';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 import { createStore } from 'redux';
+import thunk from 'redux-thunk';
 
+import '../../../style/sys_exp.css';
+import { MODULE_NAME, MODULE_VERSION } from '../../version';
 import { rootReducer } from '../redux/reducers';
 import { initialState } from '../redux/reducers';
 import { StateInterface } from '../redux/types';
-import { MODULE_NAME, MODULE_VERSION } from '../../version';
-import '../../../style/sys_exp.css';
-import { Message } from '@lumino/messaging';
+import ElementWrapper from './element_wrapper';
 
-import { Panel } from '@lumino/widgets';
 export const getEnhancers = () => {
   let enhancers = applyMiddleware(thunk) as any;
   if (

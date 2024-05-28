@@ -1,7 +1,6 @@
 // Copyright (c) CoSApp Team
-
+import { BaseWidgetModel, BaseWidgetView } from '../base/base_widget';
 import SystemInfoElement from './system_info_element/system_info_element';
-import { BaseWidgetView, BaseWidgetModel } from '../base/base_widget';
 
 export class SystemInfoWidgetModel extends BaseWidgetModel {
   model_name = 'SystemInfoWidgetModel';

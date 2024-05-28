@@ -12,6 +12,7 @@ from cosapp_lab.widgets.utils import (
     CosappObjectParser,
     is_jsonable,
 )
+from jupyter_client.jsonutil import json_clean
 import copy, json
 from ipywidgets import Box
 from traitlets import CaselessStrEnum
@@ -174,7 +175,7 @@ class BaseWidget(Box):
         recorderData = self.sys_data.serialize_recorder()
         driverData = self.sys_data.serialize_driver_data()
 
-        self.system_data = {
+        self.system_data = json_clean({
             "systemGraph": {
                 "systemGraphData": self.systemGraphData,
                 "systemList": self._system_list,
@@ -187,7 +188,7 @@ class BaseWidget(Box):
             "computedResult": computedResult,
             "recorderData": recorderData,
             "driverData": driverData,
-        }
+        })
 
     def __init_connection(self) -> None:
         """Initialize the connection between fontend - backend and
