@@ -1,3 +1,4 @@
+import { javascript } from '@codemirror/lang-javascript';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -20,9 +21,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import StorageIcon from '@material-ui/icons/Storage';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Styles } from '@material-ui/styles/withStyles';
+import CodeMirror from '@uiw/react-codemirror';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
-// import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
 
 import { carpet_data_factory } from '../../../utils/tools';
@@ -875,7 +876,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
     };
 
   handleAdvanceTraceSelectorChange = (
-    event: React.ChangeEvent<any>,
+    _: React.ChangeEvent<any>,
     value: string
   ) => {
     const selectedConfig = JSON.stringify(
@@ -1884,33 +1885,22 @@ export class ChartElement extends Component<AppProps, AppStates> {
             />
           </FormControl>
           <FormControl className={this.props.classes.formControl}>
-            {/* <TextField
-              label='Plotly trace configuration'
-              multiline
-              rows={10}
+            <CodeMirror
               value={this.state.currentAdvancedTraceDataConfig}
-              onChange={this.handleAdvanceTraceConfigChange}
-              variant='outlined'
-            /> */}
-            {/* <CodeMirror
-              value={this.state.currentAdvancedTraceDataConfig}
-              options={{
-                mode: 'javascript',
+              height="100%"
+              extensions={[javascript()]}
+              basicSetup={{
                 lineNumbers: true,
-                lineWrapping: true,
-                smartIndent: true,
-                indentWithTabs: false,
-                tabSize: 4,
-                indentUnit: 4,
-                foldGutter: true,
-                gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-                autoCloseTags: true,
-                matchBrackets: true,
-                autoCloseBrackets: true
+                tabSize: 2,
+                foldGutter: true
               }}
-              onBeforeChange={this.handleAdvanceTraceConfigChange}
-              onChange={(editor, data, value) => {}}
-            /> */}
+              onChange={value => {
+                this.setState(old => ({
+                  ...old,
+                  currentAdvancedTraceDataConfig: value
+                }));
+              }}
+            />
           </FormControl>
         </DialogContent>
       );

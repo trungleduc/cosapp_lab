@@ -1,3 +1,4 @@
+import { markdown } from '@codemirror/lang-markdown';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,6 +15,7 @@ import { Theme } from '@material-ui/core/styles';
 import Edit from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Styles } from '@material-ui/styles/withStyles';
+import CodeMirror from '@uiw/react-codemirror';
 import 'flexlayout-react/style/light.css';
 import React, { Component, forwardRef } from 'react';
 import { connect } from 'react-redux';
@@ -113,20 +115,6 @@ interface IAppStates {
   openSetting: boolean;
   openEdit: boolean;
   selectedWidget: string;
-}
-
-function betterTab(cm) {
-  if (cm.somethingSelected()) {
-    cm.indentSelection('add');
-  } else {
-    cm.replaceSelection(
-      cm.getOption('indentWithTabs')
-        ? '\t'
-        : Array(cm.getOption('indentUnit') + 1).join(' '),
-      'end',
-      '+input'
-    );
-  }
 }
 
 /**
@@ -280,7 +268,6 @@ export class DocumentViewer extends Component<IAppProps, IAppStates> {
    * @memberof DocumentViewer
    */
   render() {
-    const classes = this.props.classes;
     return (
       <div className={'cosapp-widget-box'}>
         <Dialog
@@ -298,31 +285,22 @@ export class DocumentViewer extends Component<IAppProps, IAppStates> {
           </DialogTitle>
           <DialogContent style={{ height: '50vh' }}>
             <div style={{ height: 'calc(100% - 60px)', overflowY: 'auto' }}>
-              {/* <CodeMirror
+              <CodeMirror
                 value={this.state.traceConfig.documentSource}
-                options={{
-                  mode: 'markdown',
+                height="100%"
+                extensions={[markdown()]}
+                basicSetup={{
                   lineNumbers: true,
-                  lineWrapping: true,
-                  smartIndent: true,
-                  indentWithTabs: false,
                   tabSize: 4,
-                  indentUnit: 4,
-                  foldGutter: true,
-                  gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-                  autoCloseTags: true,
-                  matchBrackets: true,
-                  autoCloseBrackets: true,
-                  extraKeys: { Tab: betterTab }
+                  foldGutter: true
                 }}
-                onBeforeChange={(editor, data, value) => {
+                onChange={value => {
                   this.setState(old => ({
                     ...old,
                     traceConfig: { ...old.traceConfig, documentSource: value }
                   }));
                 }}
-                onChange={(editor, data, value) => {}}
-              /> */}
+              />
             </div>
             <FormControl className={this.props.classes.formControl}>
               <TextField
