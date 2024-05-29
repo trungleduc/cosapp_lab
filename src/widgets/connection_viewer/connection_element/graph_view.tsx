@@ -23,7 +23,7 @@ import {
   CustomPortModel
 } from './custom_link';
 
-const styles: Styles<Theme, any> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = () => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
@@ -43,7 +43,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getGraphData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = (_: (f: any) => void) => {
   return {};
 };
 
@@ -162,7 +162,7 @@ export class GraphPanel extends Component<AppProps, AppState> {
    * @param {AppState} prevState
    * @memberof GraphPanel
    */
-  componentDidUpdate(prevProps: AppProps, prevState: AppState) {}
+  componentDidUpdate() {}
 
   /**
    * This function create the link data from system name
@@ -224,7 +224,7 @@ export class GraphPanel extends Component<AppProps, AppState> {
         outPortList
       );
 
-      if (!(propsData.systemGraphData[sysName].position === null)) {
+      if (propsData.systemGraphData[sysName].position) {
         const nodeX: number = propsData.systemGraphData[sysName].position[0];
         const nodeY: number = propsData.systemGraphData[sysName].position[1];
         node.setPosition(nodeX, nodeY);
@@ -371,7 +371,7 @@ export class GraphPanel extends Component<AppProps, AppState> {
    * @private
    * @memberof GraphPanel
    */
-  private autoZoomGraph = (margin?: number) => {
+  private autoZoomGraph = () => {
     const engine = this.state.engine;
     const model = this.state.model;
     const allNodes = model
@@ -495,7 +495,7 @@ export class GraphPanel extends Component<AppProps, AppState> {
         model: currentModel
       }),
       () => {
-        this.autoZoomGraph(50);
+        this.autoZoomGraph();
       }
     );
   };

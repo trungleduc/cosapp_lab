@@ -715,7 +715,7 @@ export function dashboardRemoveController_(
   state: StateInterface,
   action: DashboardRemoveController
 ): StateInterface {
-  const { [action.variableName]: value, ...newVarList } =
+  const { [action.variableName]: _, ...newVarList } =
     state.dashboardState.selectedVariable;
   return {
     ...state,

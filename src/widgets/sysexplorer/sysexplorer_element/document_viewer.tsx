@@ -87,7 +87,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getStoreData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = () => {
   return {};
 };
 
@@ -191,7 +191,7 @@ export class DocumentViewer extends Component<IAppProps, IAppStates> {
    * @param {IAppStates} oldState
    * @memberof DocumentViewer
    */
-  componentDidUpdate(oldProps: IAppProps, oldState: IAppStates) {}
+  componentDidUpdate() {}
 
   /**
    *

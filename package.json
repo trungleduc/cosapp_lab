@@ -54,6 +54,8 @@
         "watch": "run-p watch:webpack watch:lab",
         "watch:src": "tsc -w",
         "watch:webpack": "webpack --env TARGET=lab --watch --progress",
+        "watch:webpack:app": "webpack --env TARGET=app --watch --progress",
+        "watch:app": "run-p watch:src watch:webpack:app",
         "watch:lab": "jupyter labextension watch .",
         "test": "jest src --silent "
     },
@@ -68,6 +70,7 @@
         "@jupyterlab/application": "^4.0.0",
         "@jupyterlab/apputils": "^4.0.0",
         "@jupyterlab/coreutils": "^6.0.0",
+        "@jupyterlab/mathjax2": "^3.6.7",
         "@jupyterlab/notebook": "^4.0.0",
         "@jupyterlab/services": "^7.0.0",
         "@lumino/widgets": "^2.0.0",
@@ -225,7 +228,9 @@
             "@typescript-eslint/no-unused-vars": [
                 "warn",
                 {
-                    "args": "none"
+                    "argsIgnorePattern": "^_",
+                    "varsIgnorePattern": "^_",
+                    "caughtErrorsIgnorePattern": "^_"
                 }
             ],
             "@typescript-eslint/no-explicit-any": "off",

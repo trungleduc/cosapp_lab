@@ -120,7 +120,7 @@ class AddVariableDialog extends Component<AppProps, AppStates> {
    * @param {AppStates} oldState
    * @memberof AddVariableDialog
    */
-  componentDidUpdate(oldProps: AppProps, oldState: AppStates) {
+  componentDidUpdate(oldProps: AppProps, _: AppStates) {
     if (this.props.selectedVariable !== oldProps.selectedVariable) {
       //
     }

@@ -3708,6 +3708,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jupyterlab/mathjax2@npm:^3.6.7":
+  version: 3.6.7
+  resolution: "@jupyterlab/mathjax2@npm:3.6.7"
+  dependencies:
+    "@jupyterlab/rendermime-interfaces": ^3.6.7
+    "@lumino/coreutils": ^1.11.0
+  checksum: f104db0dc09423330759aa150e36fc9264736a6b6e40dd780c4106b0b8ad154ad4c9bb1417e74a43d041ae6c8d52c90bbf6db68218f43b8c639c8b254912240d
+  languageName: node
+  linkType: hard
+
 "@jupyterlab/nbformat@npm:^3.0.0 || ^4.0.0-alpha.21 || ^4.0.0, @jupyterlab/nbformat@npm:^4.2.1":
   version: 4.2.1
   resolution: "@jupyterlab/nbformat@npm:4.2.1"
@@ -3790,7 +3800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/rendermime-interfaces@npm:^3.0.0 || ^4.0.0, @jupyterlab/rendermime-interfaces@npm:^3.10.1":
+"@jupyterlab/rendermime-interfaces@npm:^3.0.0 || ^4.0.0, @jupyterlab/rendermime-interfaces@npm:^3.10.1, @jupyterlab/rendermime-interfaces@npm:^3.6.7":
   version: 3.10.1
   resolution: "@jupyterlab/rendermime-interfaces@npm:3.10.1"
   dependencies:
@@ -4165,6 +4175,15 @@ __metadata:
     "@lumino/signaling": ^2.1.2
     "@lumino/virtualdom": ^2.0.1
   checksum: a9b83bbfcc0421ff501e818dd234c65db438a8abb450628db0dea9ee05e8077d10b2275e7e2289f6df9c20dc26d2af458b1db88ccf43ec69f185eb207dbad419
+  languageName: node
+  linkType: hard
+
+"@lumino/coreutils@npm:^1.11.0":
+  version: 1.12.1
+  resolution: "@lumino/coreutils@npm:1.12.1"
+  peerDependencies:
+    crypto: 1.0.1
+  checksum: 55f1b87997f8dd0af28ff23c2d4b3aa252e515b9d3bc91b350a5c6c8526ceae61b14b55dc0d8d01691c69d42974b3d559f2b49bc7ced0f474b8f5dc52b3e83ed
   languageName: node
   linkType: hard
 
@@ -9030,6 +9049,7 @@ __metadata:
     "@jupyterlab/apputils": ^4.0.0
     "@jupyterlab/builder": ^4.0.0
     "@jupyterlab/coreutils": ^6.0.0
+    "@jupyterlab/mathjax2": ^3.6.7
     "@jupyterlab/notebook": ^4.0.0
     "@jupyterlab/services": ^7.0.0
     "@lumino/widgets": ^2.0.0

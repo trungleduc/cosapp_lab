@@ -98,7 +98,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getStoreData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = (_: (f: any) => void) => {
   return {};
 };
 
@@ -461,14 +461,10 @@ export class ChartElement extends Component<AppProps, AppStates> {
    * @param {AppStates} oldState
    * @memberof ChartElement
    */
-  componentDidUpdate(oldProps: AppProps, oldState: AppStates) {
+  componentDidUpdate(oldProps: AppProps, _: AppStates) {
     if (oldProps.computedResult !== this.props.computedResult) {
       const {
-        listSystem,
-        dictSystemVariable,
         dictSystemVariableLength,
-        listRecorder,
-        dictRecorderVariable,
         dictRecorderRef,
         dictRecorderVariableLength,
         listDriverWithTrace,
@@ -541,7 +537,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
     if (!value) {
       return;
     }
-    const { name, ...traceConfig } = this.state.traceConfig[value];
+    const { ...traceConfig } = this.state.traceConfig[value];
     if (traceConfig.dataSource === 'Variables') {
       this.setState(old => {
         return {
@@ -891,7 +887,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
     }));
   };
 
-  handleAdvanceTraceConfigChange = (editor, data, value) => {
+  handleAdvanceTraceConfigChange = (_, __, value) => {
     this.setState(old => ({ ...old, currentAdvancedTraceDataConfig: value }));
   };
 
@@ -899,7 +895,7 @@ export class ChartElement extends Component<AppProps, AppStates> {
     event: React.ChangeEvent<any>,
     value: string
   ) => {
-    const { name, ...traceConfig } = this.state.traceConfig[value];
+    const { ...traceConfig } = this.state.traceConfig[value];
 
     if (traceConfig.dataSource === 'Variables') {
       this.setState(old => {

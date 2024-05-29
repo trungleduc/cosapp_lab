@@ -1,11 +1,11 @@
 import logging
+import os
 import shutil
 import tempfile
 import re
 import webbrowser
 import tornado.ioloop
 import tornado.web
-from jupyter_server.base.handlers import log
 
 try:
     from nb_conda_kernels import CondaKernelSpecManager as KernelSpecManager
@@ -24,11 +24,17 @@ try:
     from jupyter_server.services.kernels.websocket import KernelWebsocketHandler
 except ImportError:
     # For jupyter_server < 2
-    from jupyter_server.services.kernels.handlers import ZMQChannelsHandler as KernelWebsocketHandler
-
+    from jupyter_server.services.kernels.handlers import (
+        ZMQChannelsHandler as KernelWebsocketHandler,
+    )
+from jupyter_server.services.kernels.connection.channels import (
+    ZMQChannelsWebsocketConnection,
+)
+from jupyter_server.auth.identity import PasswordIdentityProvider
+from jupyter_server.auth.authorizer import AllowAllAuthorizer
 from jupyter_server.services.kernels.kernelmanager import MappingKernelManager
 from jupyter_server.services.kernelspecs.handlers import MainKernelSpecHandler
-from traitlets import Dict as tDict
+from traitlets import Bytes, Dict as tDict
 from traitlets import Integer, Bool, Unicode, default
 from traitlets.config.application import Application
 
@@ -108,7 +114,18 @@ class CosappModuleServer(Application):
 
     url_prefix = Unicode("", config=True, help=("Prefix to append to handlers URL."))
 
-    open_browser = Bool(True, config=True, help=("True if local web browser is used, False otherwise"))
+    open_browser = Bool(
+        False, config=True, help=("True if local web browser is used, False otherwise")
+    )
+
+    cookie_secret = Bytes(
+        b"",
+        config=True,
+    ).tag(config=True)
+
+    @default("cookie_secret")
+    def _default_cookie_secret(self):
+        return os.urandom(32)
 
     @default("connection_dir_root")
     def _default_connection_dir(self):
@@ -180,6 +197,18 @@ class CosappModuleServer(Application):
             ),
         ]
         env = jinja2.Environment(loader=jinja2.FileSystemLoader(TEMPLATE_ROOT))
+
+        identity_provider_kwargs = {
+            "parent": self,
+            "log": self.log,
+            "token": ""
+        }
+        self.identity_provider = PasswordIdentityProvider(
+            **identity_provider_kwargs
+        )
+        self.authorizer = AllowAllAuthorizer(
+            parent=self, log=self.log, identity_provider=self.identity_provider
+        )
         app = tornado.web.Application(
             handlers,
             kernel_manager=kernel_manager,
@@ -190,6 +219,10 @@ class CosappModuleServer(Application):
             allow_remote_access=True,
             allow_origin_pat=re.compile(".*"),
             default_handler_class=Default404Handler,
+            cookie_secret=self.cookie_secret,
+            authorizer=self.authorizer,
+            identity_provider=self.identity_provider,
+            kernel_websocket_connection_class=ZMQChannelsWebsocketConnection
         )
         app.listen(self.port)
         url = f"http://localhost:{self.port}{self.url_prefix}/"

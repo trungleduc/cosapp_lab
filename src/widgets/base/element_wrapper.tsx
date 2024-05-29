@@ -1,5 +1,4 @@
 import { withStyles } from '@material-ui/core';
-import { Theme } from '@material-ui/core/styles';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -7,7 +6,7 @@ import { connect } from 'react-redux';
 import * as ReduxAction from '../redux/actions';
 import { StateInterface } from '../redux/types';
 
-const styles: Styles<any, any> = (theme: Theme) => ({});
+const styles: Styles<any, any> = () => ({});
 
 const getStoreData = (state: StateInterface) => {
   return {
@@ -48,10 +47,7 @@ export class ElementWrapper extends Component<AppProps, any> {
     props.model.listenTo(props.model, 'msg:custom', this.on_msg);
   }
 
-  on_msg = (
-    data: { type: string; payload: { [key: string]: any } },
-    buffer: any[]
-  ) => {
+  on_msg = (data: { type: string; payload: { [key: string]: any } }) => {
     const { type, payload } = data;
     if (type.includes('::update_signal')) {
       this.computedUpdate(payload as any);

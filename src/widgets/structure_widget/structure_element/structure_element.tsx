@@ -14,7 +14,7 @@ import { create_UUID } from '../../../utils/tools';
 import { debounce } from '../../redux/tools';
 import { IDict, StateInterface } from '../../redux/types';
 
-const styles: Styles<Theme, any> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = () => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
@@ -22,7 +22,7 @@ const styles: Styles<Theme, any> = (theme: Theme) => ({
   }
 });
 
-const getGraphData = (state: StateInterface) => {
+const getGraphData = (_: StateInterface) => {
   return {};
 };
 
@@ -30,7 +30,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getGraphData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = (_: (f: any) => void) => {
   return {};
 };
 
@@ -116,10 +116,7 @@ export class StructureElement extends Component<IProps, IState> {
   selectionWidthFactory = (multiplier: number) => (width: number) =>
     multiplier * width;
 
-  on_msg = (
-    data: { type: string; payload: { [key: string]: any } },
-    buffer: any[]
-  ) => {
+  on_msg = (data: { type: string; payload: { [key: string]: any } }) => {
     const { type, payload } = data;
 
     switch (type) {
@@ -154,7 +151,7 @@ export class StructureElement extends Component<IProps, IState> {
       }
     }
   };
-  componentDidUpdate(prevProps: IProps, prevState: IState) {}
+  componentDidUpdate() {}
 
   componentDidMount() {
     this.props.send_msg({ action: 'StructureView::getData' });
@@ -167,7 +164,7 @@ export class StructureElement extends Component<IProps, IState> {
     window.removeEventListener('resize', this._resizeHandler);
   }
 
-  measure = data => {
+  measure = () => {
     try {
       this._network.fit({ animation: true });
     } catch {
@@ -270,7 +267,7 @@ export class StructureElement extends Component<IProps, IState> {
       });
 
       // Force fit once the system is stabilized
-      network.on('stabilized', params => {
+      network.on('stabilized', () => {
         network.fit({ animation: true });
       });
 
@@ -366,7 +363,7 @@ export class StructureElement extends Component<IProps, IState> {
       joinCondition: function (childOptions) {
         return childOptions.group === system; // the system is fully defined in the node.
       },
-      processProperties: function (clusterOptions, childNodes, childEdges) {
+      processProperties: function (clusterOptions, _, __) {
         const hidden_node = nodes.get({
           filter: function (node) {
             return node.name === system_name;

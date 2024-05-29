@@ -86,7 +86,7 @@ export class WidgetWrapper extends ReactWidget {
     this._component = Component;
   }
 
-  onResize = (msg: any) => {
+  onResize = () => {
     window.dispatchEvent(new Event('resize'));
   };
 

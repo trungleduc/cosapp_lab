@@ -2,7 +2,7 @@ import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { Styles } from '@material-ui/styles/withStyles';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import CoSAppGetUrl from './cosapp_url';
 import ModuleCard from './module_card';
@@ -68,21 +68,22 @@ class Library extends Component<IProps, IState> {
 
 const StyledLibrary = withStyles(styles)(Library);
 function main() {
-  const { BASEURL, COSAPP_MODULE } = CoSAppGetUrl();
+  const { BASEURL } = CoSAppGetUrl();
   const URL = `${BASEURL}cosapp/code`;
   fetch(URL)
     .then(
       response => response.json(),
-      reason => {
+      () => {
         alert('Server connection failed');
       }
     )
     .then(
       data => {
         const comp = <StyledLibrary libData={data.libData} />;
-        ReactDOM.render(comp, document.getElementById('main'));
+        const root = createRoot(document.getElementById('main'));
+        root.render(comp);
       },
-      reason => {
+      () => {
         alert('Server connection failed');
       }
     );

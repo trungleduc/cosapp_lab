@@ -45,7 +45,7 @@ export class WidgetManager extends HTMLManager {
     }
   }
 
-  display_view(view, options) {
+  display_view(view, _) {
     if (view instanceof SysExplorerAppView) {
       return Promise.resolve(view).then(view => {
         this.removeSplash();

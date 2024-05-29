@@ -194,7 +194,7 @@ function main() {
   }
 
   const app = new CosappMain(BASEURL, WSURL, COSAPP_MODULE);
-  window.addEventListener('beforeunload', e => {
+  window.addEventListener('beforeunload', () => {
     app.shutdownKernel();
   });
 

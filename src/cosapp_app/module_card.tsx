@@ -44,7 +44,7 @@ const styles: Styles<any, any> = () => ({
     marginBottom: 12
   }
 });
-const DESC_LENGTH = 100;
+
 class ModuleCard extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);

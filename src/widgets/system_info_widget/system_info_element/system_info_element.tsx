@@ -1,4 +1,5 @@
 import { PageConfig } from '@jupyterlab/coreutils';
+import { MathJaxTypesetter } from '@jupyterlab/mathjax2';
 import { removeMath, replaceMath } from '@jupyterlab/rendermime';
 import { withStyles } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
@@ -29,7 +30,7 @@ function renderMarked(content: string): Promise<string> {
   });
 }
 
-const styles: Styles<Theme, any> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = () => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
@@ -47,7 +48,7 @@ const mapStateToProps = (state: StateInterface) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = () => {
   return {};
 };
 
@@ -83,7 +84,7 @@ export class SystemInfoElement extends Component<IProps, IState> {
     } else {
       url = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js';
     }
-    this._mathjax = null; // new MathJaxTypesetter({ url, config });
+    this._mathjax = new MathJaxTypesetter({ url, config });
     this._rawContent = {};
     this._renderedContent = {};
     this._initialized = false;
@@ -96,10 +97,7 @@ export class SystemInfoElement extends Component<IProps, IState> {
     props.send_msg({ action: 'SystemInfoComponent::getData' });
   }
 
-  on_msg = (
-    data: { type: string; payload: { [key: string]: any } },
-    buffer: any[]
-  ) => {
+  on_msg = (data: { type: string; payload: { [key: string]: any } }) => {
     const { type, payload } = data;
     switch (type) {
       case 'SystemInfoComponent::infoData': {
@@ -120,7 +118,7 @@ export class SystemInfoElement extends Component<IProps, IState> {
       }
     }
   };
-  componentDidUpdate(prevProps: IProps, prevState: IState) {}
+  componentDidUpdate() {}
 
   componentDidMount() {}
 
@@ -131,7 +129,6 @@ export class SystemInfoElement extends Component<IProps, IState> {
   handleSystemChange = (event: React.ChangeEvent<any>, value: string) => {
     if (value in this._renderedContent) {
       const { htmlString, renderMath } = this._renderedContent[value];
-
       this.setState(
         old => ({
           ...old,
@@ -140,6 +137,7 @@ export class SystemInfoElement extends Component<IProps, IState> {
         }),
         () => {
           if (renderMath && this._mathjax) {
+            console.log('typeset');
             this._mathjax.typeset(this._divRef.current);
           }
         }

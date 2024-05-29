@@ -13,7 +13,7 @@ import Plot3DView from './3dview';
  * @param {StateInterface} state
  * @returns
  */
-const mapStateToProps = (state: StateInterface) => {
+const mapStateToProps = (_: StateInterface) => {
   return {};
 };
 

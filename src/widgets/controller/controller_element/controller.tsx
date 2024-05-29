@@ -18,7 +18,7 @@ import { StateInterface } from '../../redux/types';
 import AddVariableDialog from './add_variable_dialog';
 import ParameterController from './param_controller';
 
-const styles: Styles<Theme, any> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = () => ({
   mainPanel: {
     display: 'flex',
     flexDirection: 'column'
@@ -117,10 +117,7 @@ class Controller extends Component<AppProps, AppStates> {
     props.model.listenTo(props.model, 'msg:custom', this.on_msg);
   }
 
-  on_msg = (
-    data: { type: string; payload: { [key: string]: any } },
-    buffer: any[]
-  ) => {
+  on_msg = (data: { type: string; payload: { [key: string]: any } }) => {
     const { type, payload } = data;
     switch (type) {
       case 'Controller::update_signal': {
@@ -147,7 +144,7 @@ class Controller extends Component<AppProps, AppStates> {
   componentWillUnmount = () => {
     this.props.model.stopListening(this.props.model, 'msg:custom', this.on_msg);
   };
-  componentDidUpdate(prevProps: AppProps, prevState: AppStates) {}
+  componentDidUpdate() {}
 
   /**
    *
@@ -263,7 +260,7 @@ class Controller extends Component<AppProps, AppStates> {
     if (!this.props.computingState) {
       this.props.toggleComputing();
     }
-    this.setState(prevState => ({
+    this.setState(() => ({
       ...this.state,
       expandNotification: false
     }));
@@ -298,7 +295,7 @@ class Controller extends Component<AppProps, AppStates> {
         />
         <div className={classes.topPanel}>
           {Object.keys(this.state.controllerList).map(
-            (value, index) => this.state.controllerList[value].component
+            (value, _) => this.state.controllerList[value].component
           )}
         </div>
         <div className={classes.bottom}>
@@ -336,7 +333,7 @@ class Controller extends Component<AppProps, AppStates> {
           <Accordion
             square={false}
             expanded={this.state.expandNotification}
-            onChange={(event: React.ChangeEvent<any>) => {
+            onChange={() => {
               this.setState(prevState => ({
                 ...prevState,
                 expandNotification: !prevState.expandNotification

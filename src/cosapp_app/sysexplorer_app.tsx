@@ -1,7 +1,7 @@
 // Copyright (c) CoSApp Team
 import * as React from 'react';
 import { VBoxView } from '@jupyter-widgets/controls';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -50,6 +50,7 @@ export class SysExplorerAppView extends VBoxView {
 
   render() {
     const comp = this.setupReact(this.model, this.send.bind(this));
-    ReactDOM.render(comp, document.getElementById('main'));
+    const root = createRoot(document.getElementById('main'));
+    root.render(comp);
   }
 }

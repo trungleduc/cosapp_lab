@@ -142,7 +142,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getStoreData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = (_: (f: any) => void) => {
   return {};
 };
 
@@ -259,7 +259,7 @@ export class DataViewer extends Component<IAppProps, IAppStates> {
    * @param {IAppStates} oldState
    * @memberof DataViewer
    */
-  componentDidUpdate(oldProps: IAppProps, oldState: IAppStates) {
+  componentDidUpdate(oldProps: IAppProps, _: IAppStates) {
     if (oldProps.computedResult !== this.props.computedResult) {
       const rowData = this.computedResultToTableData(
         this.state.traceConfig.systemName,
@@ -593,7 +593,7 @@ export class DataViewer extends Component<IAppProps, IAppStates> {
                     <TableBody>
                       {Object.entries(rowData)
                         .filter(
-                          ([propKey, propValue]) =>
+                          ([propKey, _]) =>
                             propKey !== 'tableData' &&
                             propKey !== 'displayValue'
                         )

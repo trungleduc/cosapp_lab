@@ -98,7 +98,7 @@ export class CustomPortModel extends DefaultPortModel {
     }
     return true;
   }
-  createLinkModel(factory?: AbstractModelFactory<LinkModel>) {
+  createLinkModel(_?: AbstractModelFactory<LinkModel>) {
     return new AdvancedLinkModel();
   }
 }
@@ -355,10 +355,7 @@ export class AdvancedLinkWidget extends DefaultLinkWidget {
           LinkWidget.generateLinePath(points[j], points[j + 1]),
           {
             'data-linkid': this.props.link.getID(),
-            'data-point': j,
-            onMouseDown: (event: React.MouseEvent) => {
-              // this.addPointToLink(event, j + 1);
-            }
+            'data-point': j
           },
           j
         )

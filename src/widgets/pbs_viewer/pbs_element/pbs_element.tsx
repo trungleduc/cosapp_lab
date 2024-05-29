@@ -11,7 +11,7 @@ import * as ReduxAction from '../../redux/actions';
 import { debounce } from '../../redux/tools';
 import { StateInterface } from '../../redux/types';
 
-const styles: Styles<Theme, any> = (theme: Theme) => ({
+const styles: Styles<Theme, any> = () => ({
   textColor: {
     color: 'rgb(250, 250, 250)',
     background: '#525354',
@@ -312,7 +312,7 @@ export class PBSElement extends Component<AppProps, AppState> {
    * @param {AppState} prevState
    * @memberof PBSElement
    */
-  componentDidUpdate(prevProps: AppProps, prevState: AppState) {
+  componentDidUpdate(prevProps: AppProps, _: AppState) {
     if (prevProps.systemPBSUpdated !== this.props.systemPBSUpdated) {
       const newData = JSON.parse(
         JSON.stringify(this.props.pbsData.nodeData[0])

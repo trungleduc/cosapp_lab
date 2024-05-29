@@ -87,7 +87,7 @@ const mapStateToProps = (state: StateInterface) => {
   return getStoreData(state);
 };
 
-const mapDispatchToProps = (dispatch: (f: any) => void) => {
+const mapDispatchToProps = () => {
   return {};
 };
 
@@ -195,7 +195,7 @@ def generate_widget(sys : System)-> widgets.Widget:
    * @param {IAppStates} oldState
    * @memberof WidgetViewer
    */
-  componentDidUpdate(oldProps: IAppProps, oldState: IAppStates) {}
+  componentDidUpdate() {}
 
   /**
    *

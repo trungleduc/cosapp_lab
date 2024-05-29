@@ -340,10 +340,7 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
    *
    * @memberof SysExplorerElement
    */
-  on_msg = (
-    data: { type: string; payload: { [key: string]: any } },
-    buffer: any[]
-  ) => {
+  on_msg = (data: { type: string; payload: { [key: string]: any } }) => {
     const { type, payload } = data;
     switch (type) {
       case 'ChartElement::update_signal': {
@@ -485,7 +482,7 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
     const component = node.getComponent() as keyof COMPONENT_TYPE | 'sub';
     const config = node.getConfig();
     const nodeId = node.getId();
-    const name = node.getName();
+
     const nameList = Object.values(SysExplorerElement.COMPONENT_DICT);
     nameList.push('Section');
     // if (nameList.includes(name)) {
@@ -622,7 +619,7 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
       node.getExtraData().model = FlexLayout.Model.fromJson(defaultModel);
       model = node.getExtraData().model;
       // save sub-model on save event
-      node.setEventListener('save', (p: any) => {
+      node.setEventListener('save', () => {
         this.state.model!.doAction(
           FlexLayout.Actions.updateNodeAttributes(nodeId, {
             config: {
@@ -886,7 +883,7 @@ export class SysExplorerElement extends Component<AppProps, AppStates> {
     if (!confirm('Do you want to restart kernel an refresh page?')) {
       return;
     }
-    const { BASEURL, COSAPP_MODULE } = CoSAppGetUrl();
+    const { BASEURL } = CoSAppGetUrl();
     const id = window.sessionStorage.getItem('adso_kernel_id');
     if (id) {
       const url = `${BASEURL}api/kernels/${id}`;
