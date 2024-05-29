@@ -64,7 +64,7 @@ def test_SysExplorer_init_value(SystemFactory):
     a = SystemFactory("simple")
     c = SysExplorer(a)
     assert c.system_config["mode"] == "run"
-    assert c.system_config["enableEdit"] == True
+    assert c.system_config["enableEdit"]
     assert "simple" in c.system_config["root_name"]
     assert c._system() is a
 

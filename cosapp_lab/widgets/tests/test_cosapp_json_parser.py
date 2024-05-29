@@ -1,6 +1,4 @@
-import numpy
 import pytest
-from cosapp_lab.widgets.utils import CosappJsonParser
 
 
 @pytest.mark.skip("Waiting for new cosapp version")

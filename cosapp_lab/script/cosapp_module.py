@@ -1,7 +1,8 @@
 import importlib
 import json
 import logging
-import sys, os
+import sys
+import os
 from pathlib import Path
 from typing import Dict, List, Union, Optional
 from cosapp_lab._version import __version__

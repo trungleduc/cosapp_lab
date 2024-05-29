@@ -1,4 +1,6 @@
-import json, copy, os
+import json
+import copy
+import os
 from typing import Any, Dict
 
 
@@ -47,10 +49,9 @@ def get_nonexistant_path(fname_path):
     if not os.path.exists(fname_path):
         return fname_path
     filename, extension = os.path.splitext(fname_path)
-    get_name = lambda i: f"{filename}-{i}{extension}"
     i = 1
-    new_fname = get_name(i)
+    new_fname = f"{filename}-{i}{extension}"
     while os.path.exists(new_fname):
         i += 1
-        new_fname = get_name(i)
+        new_fname = f"{filename}-{i}{extension}"
     return new_fname

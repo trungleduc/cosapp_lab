@@ -10,7 +10,6 @@ except:
 from ipywidgets import HTML, Dropdown, HBox, Layout, Output, ToggleButtons, VBox
 from traitlets import observe
 
-from cosapp.systems import System
 from cosapp.recorders import DataFrameRecorder
 from .data import DataFrameRecorderViewer
 

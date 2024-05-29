@@ -50,7 +50,7 @@ class Revolute(System):
         )
 
         # tau should be null if not force apply
-        self.add_unknown("phi").add_equation(f"tau == constrained_tau", reference=1.0)
+        self.add_unknown("phi").add_equation("tau == constrained_tau", reference=1.0)
 
     def compute(self):
         self.frame_b.r_0 = self.frame_a.r_0

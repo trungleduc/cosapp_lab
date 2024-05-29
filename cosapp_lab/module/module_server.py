@@ -12,7 +12,6 @@ try:
 except ImportError:
     from jupyter_client.kernelspec import KernelSpecManager
 
-import logging
 
 import jinja2
 from jupyter_server.services.kernels.handlers import (
@@ -41,7 +40,6 @@ from traitlets.config.application import Application
 from .handlers import (
     DEFAULT_STATIC_ROOT,
     MODULE_MODE,
-    ROOT,
     TEMPLATE_ROOT,
     Default404Handler,
     MainEntryHandler,

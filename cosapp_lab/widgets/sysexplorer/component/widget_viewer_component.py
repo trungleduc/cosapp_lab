@@ -43,7 +43,7 @@ class WidgetView(BaseComponent):
                 f"IpyWidgetRender(title=title, children=[ generate_widget({sys_var})])"
             )
             code_without_arg = (
-                f"IpyWidgetRender(title=title, children=[ generate_widget()])"
+                "IpyWidgetRender(title=title, children=[ generate_widget()])"
             )
             try:
                 exec(code_with_arg, global_dict)

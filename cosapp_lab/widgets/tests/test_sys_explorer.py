@@ -21,7 +21,7 @@ def test____init(SystemFactory, sys_name, variable, result):
     assert widget._system() is a
     assert widget.add_shape is None
     assert widget.initial_store == {"systemConfig": {"mode": "run"}}
-    assert widget.title == f"SysExplorer"
+    assert widget.title == "SysExplorer"
     assert widget.update_signal == 0
     assert widget.time_step == 0
     assert widget.progress_geo_update == {}

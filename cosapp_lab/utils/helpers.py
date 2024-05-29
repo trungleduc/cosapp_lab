@@ -1,7 +1,6 @@
 import os
 import sys
 from pathlib import Path
-import logging
 
 
 def get_abs_dir(dir_path: str, path: str) -> str:

@@ -21,7 +21,6 @@ from ipywidgets import (
     Widget,
 )
 
-from cosapp_lab.widgets.legacy.widgetlogger import WidgetLogger
 from cosapp_lab.widgets.legacy.utils import default_step
 
 logger = logging.getLogger(__name__)

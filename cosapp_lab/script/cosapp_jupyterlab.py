@@ -1,6 +1,5 @@
 import os
 from cosapp.core import __version__
-import sys
 
 OKGREEN = "\033[35m"
 ENDC = "\033[0m"

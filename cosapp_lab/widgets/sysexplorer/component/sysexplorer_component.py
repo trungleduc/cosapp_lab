@@ -6,7 +6,8 @@
 
 from typing import Any, Callable, Dict, List
 from weakref import ReferenceType
-import os, json
+import os
+import json
 from cosapp.systems import System
 from cosapp_lab.widgets.base.base_component import BaseComponent
 from cosapp_lab.widgets.utils import (

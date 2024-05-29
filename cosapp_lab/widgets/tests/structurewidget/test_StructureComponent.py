@@ -1,4 +1,3 @@
-import pytest
 from cosapp_lab.widgets.structurewidget import StructureComponent
 from unittest.mock import MagicMock
 import weakref

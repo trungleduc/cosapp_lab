@@ -1,5 +1,4 @@
-from enum import Enum
-from typing import Any, Dict, Iterable, List, Optional, Union
+from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
@@ -16,7 +15,6 @@ from cosapp.drivers.abstractsolver import AbstractSolver
 from cosapp.recorders import DataFrameRecorder
 from cosapp.utils.helpers import is_number
 
-from .sidecar import Sidecar
 
 
 class DataFrameRecorderViewer(VBox):

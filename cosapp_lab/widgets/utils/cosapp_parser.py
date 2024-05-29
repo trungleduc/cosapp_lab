@@ -180,7 +180,7 @@ class CosappParser(metaclass=ABCMeta):
                     flattened_system[system_path]["subsystems"] = list(
                         current_system["subsystems"]
                     )
-                except:
+                except Exception:
                     flattened_system[system_path]["subsystems"] = []
 
         return flattened_system

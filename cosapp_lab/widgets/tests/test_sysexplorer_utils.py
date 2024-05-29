@@ -1,5 +1,6 @@
 from cosapp_lab.widgets.utils import replicate_dict_structure
-import pytest, numpy
+import pytest
+import numpy
 
 
 @pytest.mark.parametrize(

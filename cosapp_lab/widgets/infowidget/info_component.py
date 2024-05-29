@@ -6,8 +6,6 @@
 from typing import Any, Callable, Dict, List, OrderedDict
 from weakref import ReferenceType
 
-from cosapp.core.module import Module
-from cosapp.ports.port import Port
 from cosapp.systems import System
 from cosapp.tools.help import DocDisplay
 from cosapp_lab.widgets.base.base_component import BaseComponent

@@ -103,7 +103,7 @@ class MainEntryHandler(RequestHandler):
                     "kernel", None
                 )
                 try:
-                    import nb_conda_kernels
+                    import nb_conda_kernels #noqa
                     cosapp_lab_config = {"kernel": kernel_name}
                 except ImportError:
                     cosapp_lab_config = {"kernel": None}

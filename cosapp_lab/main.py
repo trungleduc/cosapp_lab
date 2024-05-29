@@ -27,7 +27,7 @@ def cosapp(ctx, version):
                 lab_app()
             else:
                 echo(
-                    f"Please start CoSApp in an environnement with JupyterLab installed "
+                    "Please start CoSApp in an environnement with JupyterLab installed "
                 )
 
 
@@ -59,12 +59,12 @@ def cosapp_module_register(name: str):
     "remove", short_help="Remove a CoSApp library from standalone module list"
 )
 @click.argument("module")
-def cosapp_module_register(module):
+def cosapp_module_remove(module):
     cosapp_script["cosapp_module_remove"]([module])
 
 
 @cosapp_module.command("list", short_help="List all CoSApp standalone modules")
-def cosapp_module_register():
+def cosapp_module_list():
     cosapp_script["cosapp_module_list"]()
 
 

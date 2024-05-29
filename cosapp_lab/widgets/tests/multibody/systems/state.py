@@ -1,4 +1,3 @@
-import numpy
 from cosapp.systems import System
 from multibody.ports import FramePort, ForcePort
 

@@ -13,12 +13,13 @@ from cosapp_lab.widgets.utils import (
     is_jsonable,
 )
 from jupyter_client.jsonutil import json_clean
-import copy, json
+import copy
+import json
 from ipywidgets import Box
 from traitlets import CaselessStrEnum
 from traitlets import Unicode
 from traitlets import Dict as tDict
-from traitlets import Int, Unicode
+from traitlets import Int
 from weakref import ReferenceType, ref
 from .base_component import BaseComponent
 import numpy as np

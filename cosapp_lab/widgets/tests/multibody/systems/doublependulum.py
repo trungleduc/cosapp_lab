@@ -1,13 +1,11 @@
 from cosapp.systems import System
-import logging
 
 # logging.basicConfig(format='%(message)s', level=logging.INFO)
 from multibody.systems import PointMass, Revolute, World
-from cosapp.systems import System
 import numpy
 from multibody.ports import FramePort, ForcePort
 from multibody.systems import Beam, FixedTranslation, Dynamics
-from cosapp.drivers import EulerExplicit, RungeKutta, NonLinearSolver
+from cosapp.drivers import RungeKutta, NonLinearSolver
 from cosapp.recorders import DataFrameRecorder
 
 

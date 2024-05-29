@@ -1,7 +1,7 @@
 from cosapp.systems import System
 from cosapp.ports import Port
 import json
-from cosapp_lab.widgets.utils import CosappJsonParser, CosappObjectParser
+from cosapp_lab.widgets.utils import CosappJsonParser
 
 
 class Voltage(Port):

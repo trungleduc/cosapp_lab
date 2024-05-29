@@ -9,7 +9,7 @@ Widget container for ChartView
 """
 
 from ipywidgets import VBox
-from traitlets import Unicode, CaselessStrEnum
+from traitlets import Unicode
 from cosapp_lab._frontend import module_name, module_version
 
 

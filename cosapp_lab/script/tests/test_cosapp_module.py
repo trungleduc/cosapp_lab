@@ -2,7 +2,6 @@ import pytest
 from cosapp_lab.script import cosapp_module
 from pathlib import Path
 import json
-import importlib
 
 
 @pytest.fixture

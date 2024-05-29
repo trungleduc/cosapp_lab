@@ -19,7 +19,7 @@ class CosappJsonParser(CosappParser):
         self._system = None
         try:
             self.system_dict = replicate_dict_structure(data["Systems"])
-        except:
+        except Exception:
             self.system_dict = {}
         self._discover_children(data["Systems"])
 

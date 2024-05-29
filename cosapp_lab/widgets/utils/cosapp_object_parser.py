@@ -32,7 +32,7 @@ class CosappObjectParser(CosappParser):
         self._system = ref(data)
         try:
             self.system_dict = replicate_dict_structure(data.to_dict())
-        except:
+        except Exception:
             self.system_dict = {}
 
         self._discover_children(data)
@@ -82,7 +82,7 @@ class CosappObjectParser(CosappParser):
         """
         try:
             ret = self._children[sys_name]["port_data"][port_name]
-        except:
+        except Exception:
             ret = []
         return ret
 
@@ -117,7 +117,7 @@ class CosappObjectParser(CosappParser):
             else:
                 input_list = []
             ret = [x for x in var_list if x not in input_list]
-        except:
+        except Exception:
             ret = []
 
         if len(ret) == 0:
@@ -186,7 +186,7 @@ class CosappObjectParser(CosappParser):
                 ):
                     try:
                         recorder_frame = current_driver.recorder.export_data()
-                    except:
+                    except Exception:
                         recorder_frame = current_driver.recorder.data
                     json_data = json.loads(recorder_frame.to_json())
                     for key, value in json_data.items():
@@ -263,9 +263,9 @@ class CosappObjectParser(CosappParser):
                             if serializable:
                                 if isinstance(value, numpy.ndarray):
                                     value = self._system()[var_path].tolist()
-                        except:
+                        except Exception:
                             size = 1
-                    except Exception as e:
+                    except Exception:
                         value = None
                         size = 1
                     self.system_variable_data[var_path] = {"size": size, "value": value}
@@ -547,7 +547,7 @@ class CosappObjectParser(CosappParser):
             recorder_data = (
                 current_driver.recorder.export_data()
             )  # use new API to get data from recorder
-        except:
+        except Exception:
             recorder_data = current_driver.recorder.data
         if isinstance(current_driver, ExplicitTimeDriver):
             reference = numpy.array(recorder_data["Reference"], dtype=float)
@@ -636,7 +636,7 @@ class CosappObjectParser(CosappParser):
         for key in ["valid_range", "limits"]:
             try:
                 range_attr = list(getattr(var, key))
-            except:
+            except Exception:
                 range_attr = None
             else:
                 range_attr = list(map(

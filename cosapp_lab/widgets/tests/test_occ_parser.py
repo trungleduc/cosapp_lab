@@ -1,10 +1,7 @@
-import sys, os
-from pathlib import Path
 import numpy
 
 from cosapp_lab.widgets.utils import OccParser
 from multibody.ports import GeometryPort
-import pytest
 from conftest import require_pyoccad
 
 

@@ -1,5 +1,5 @@
 import json
-from typing import Dict, NoReturn
+from typing import Dict
 from notebook.base.handlers import APIHandler
 from notebook.notebookapp import NotebookWebApplication
 from notebook.utils import url_path_join
