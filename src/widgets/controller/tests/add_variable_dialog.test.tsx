@@ -1,6 +1,6 @@
-import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { ReactWrapper, configure, mount } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';

@@ -1,5 +1,5 @@
-import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { createShallow } from '@material-ui/core/test-utils';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { ShallowWrapper, configure, shallow } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';

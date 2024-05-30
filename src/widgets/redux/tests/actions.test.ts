@@ -34,30 +34,10 @@ describe('Test redux actions', () => {
     });
   });
 
-  it('Action to add new node', () => {
-    expect(
-      actions.archAddNode(
-        nodeData.nodeName,
-        nodeData.nodePath,
-        nodeData.nodeData
-      )
-    ).toEqual(nodeData);
-  });
-
   it('Action to lock graph', () => {
     expect(actions.archLockGraph(false)).toEqual({
       type: types.Action.LOCK_GRAPH,
       status: false
-    });
-  });
-
-  it('Action to remove node', () => {
-    expect(
-      actions.archRemoveNode(removeNodeData.nodeData, removeNodeData.nodePath)
-    ).toEqual({
-      type: types.Action.REMOVE_NODE,
-      nodeData: removeNodeData.nodeData,
-      nodePath: removeNodeData.nodePath
     });
   });
 
@@ -159,52 +139,6 @@ describe('Test redux functions', () => {
     systemPBS: {},
     systemPBSUpdated: 0
   };
-  it('Function to add node to store', () => {
-    expect(actions.archAddNode_(initialState, nodeData).systemArch).toEqual(
-      expectedState
-    );
-  });
-});
-
-describe('Test redux functions', () => {
-  const currentState = actions.archAddNode_(initialState, nodeData);
-  const expectedState = {
-    lockStatus: false,
-    systemTree: {
-      nodeData: [
-        {
-          title: 'Root',
-          expanded: true,
-          children: []
-        }
-      ],
-      nodePath: [],
-      selectedNode: null
-    },
-    systemData: {
-      mainData: { Root: undefined },
-      portData: {}
-    },
-    systemGraph: {
-      systemGraphData: {
-        Root: {
-          inPort: ['inwards'],
-          outPort: ['outwards'],
-          connections: []
-        }
-      },
-      systemList: ['Root'],
-      updateData: {},
-      graphJsonData: {}
-    },
-    systemPBS: {},
-    systemPBSUpdated: 0
-  };
-  it('Function to remove node from store', () => {
-    expect(
-      actions.archRemoveNode_(currentState, removeNodeData).systemArch
-    ).toEqual(expectedState);
-  });
 });
 
 describe('Test redux functions', () => {

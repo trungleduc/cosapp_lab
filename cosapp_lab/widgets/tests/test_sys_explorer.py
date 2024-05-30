@@ -1,5 +1,5 @@
 import pytest
-from cosapp_lab.widgets.legacy.sysexplorer import SysExplorer
+from cosapp_lab.widgets.sysexplorer import SysExplorer
 from unittest.mock import MagicMock
 from conftest import require_pyoccad
 

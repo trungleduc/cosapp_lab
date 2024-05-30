@@ -7,11 +7,6 @@ from .pbswidget.pbs_widget import PbsWidget
 from .connectionwidget.connection_widget import ConnectionWidget
 from .structurewidget.structure_widget import StructureWidget
 from .infowidget.info_widget import SystemInfoWidget
-from .legacy.base import NumberData, StringData, EnumData, ArrayData
-from .legacy.widgetlogger import WidgetLogger
-from .legacy.sidebar import SideBar
-from .legacy.data import Scatter
-from .legacy.statistics import Statistics
 
 
 __all__ = [
@@ -22,4 +17,6 @@ __all__ = [
     "GeometryWidget",
     "PbsWidget",
     "ConnectionWidget",
+    "StructureWidget",
+    "SystemInfoWidget"
 ]

@@ -34,8 +34,14 @@ dependencies = [
     "click",
     "requests",
     "markdown",
+    "jupyter-client>=8",
+	"jupyter-server>=2",
+	"tornado>=6.1.0"
 ]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
+
+[project.optional-dependencies]
+test = ["pytest", "ipykernel", "nbconvert"]
 
 [tool.hatch.version]
 source = "nodejs"

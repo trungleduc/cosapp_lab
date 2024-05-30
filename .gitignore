@@ -192,3 +192,5 @@ MANIFEST
 *.tgz
 .yarn
 tsconfig.tsbuildinfo
+
+junit.xml
